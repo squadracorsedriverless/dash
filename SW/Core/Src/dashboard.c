@@ -406,7 +406,7 @@ void SetupDashBoard(void)
 
 /*Start timer for PWM*/
 #if PCBVER == 2
-    if (HAL_TIM_OC_Start(&INVERTER_PUMP_TIM, INVERTER_PUMP_CH) != HAL_OK)
+    if (HAL_TIM_OC_Start_IT(&INVERTER_PUMP_TIM, INVERTER_PUMP_CH) != HAL_OK)
     {
         Error_Handler();
     }
