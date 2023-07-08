@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccHp27Mr.s 			page 1
+ARM GAS  /tmp/cc1en1lR.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccHp27Mr.s 			page 1
   28:Core/Src/BLT/boot.c **** 
   29:Core/Src/BLT/boot.c **** /****************************************************************************************
   30:Core/Src/BLT/boot.c **** * Include files
-ARM GAS  /tmp/ccHp27Mr.s 			page 2
+ARM GAS  /tmp/cc1en1lR.s 			page 2
 
 
   31:Core/Src/BLT/boot.c **** ****************************************************************************************/
@@ -101,193 +101,192 @@ ARM GAS  /tmp/ccHp27Mr.s 			page 1
   47 000e FFF7FEFF 		bl	NvmInit
   48              	.LVL3:
   50:Core/Src/BLT/boot.c ****   /* initialize the leds */
-  51:Core/Src/BLT/boot.c ****   LedBlinkInit(TimerGet());
+  51:Core/Src/BLT/boot.c ****   LedBlinkInit(50);
   49              		.loc 1 51 3 view .LVU5
-  50              		.loc 1 51 16 is_stmt 0 view .LVU6
-  51 0012 FFF7FEFF 		bl	TimerGet
+  50 0012 3220     		movs	r0, #50
+  51 0014 FFF7FEFF 		bl	LedBlinkInit
   52              	.LVL4:
-  53              		.loc 1 51 3 view .LVU7
-  54 0016 80B2     		uxth	r0, r0
-  55 0018 FFF7FEFF 		bl	LedBlinkInit
-  56              	.LVL5:
-  52:Core/Src/BLT/boot.c **** #if (BOOT_COM_ENABLE > 0)
-  53:Core/Src/BLT/boot.c ****   /* initialize the communication module */
-  54:Core/Src/BLT/boot.c ****   ComInit();
-  57              		.loc 1 54 3 is_stmt 1 view .LVU8
-  58 001c FFF7FEFF 		bl	ComInit
-  59              	.LVL6:
-  55:Core/Src/BLT/boot.c **** #endif
-  56:Core/Src/BLT/boot.c ****   /* initialize the backdoor entry */
-ARM GAS  /tmp/ccHp27Mr.s 			page 3
+  52:Core/Src/BLT/boot.c ****   TimerInit();
+  53              		.loc 1 52 3 view .LVU6
+  54 0018 FFF7FEFF 		bl	TimerInit
+  55              	.LVL5:
+  53:Core/Src/BLT/boot.c **** #if (BOOT_COM_ENABLE > 0)
+  54:Core/Src/BLT/boot.c ****   /* initialize the communication module */
+  55:Core/Src/BLT/boot.c ****   ComInit();
+  56              		.loc 1 55 3 view .LVU7
+  57 001c FFF7FEFF 		bl	ComInit
+  58              	.LVL6:
+  56:Core/Src/BLT/boot.c **** #endif
+  57:Core/Src/BLT/boot.c ****   /* initialize the backdoor entry */
+ARM GAS  /tmp/cc1en1lR.s 			page 3
 
 
-  57:Core/Src/BLT/boot.c ****   BackDoorInit();
-  60              		.loc 1 57 3 view .LVU9
-  61 0020 FFF7FEFF 		bl	BackDoorInit
-  62              	.LVL7:
-  58:Core/Src/BLT/boot.c **** } /*** end of BootInit ***/
-  63              		.loc 1 58 1 is_stmt 0 view .LVU10
-  64 0024 08BD     		pop	{r3, pc}
-  65              		.cfi_endproc
-  66              	.LFE0:
-  68              		.section	.text.BootTask,"ax",%progbits
-  69              		.align	1
-  70              		.global	BootTask
-  71              		.syntax unified
-  72              		.thumb
-  73              		.thumb_func
-  75              	BootTask:
-  76              	.LFB1:
-  59:Core/Src/BLT/boot.c **** 
+  58:Core/Src/BLT/boot.c ****   BackDoorInit();
+  59              		.loc 1 58 3 view .LVU8
+  60 0020 FFF7FEFF 		bl	BackDoorInit
+  61              	.LVL7:
+  59:Core/Src/BLT/boot.c **** } /*** end of BootInit ***/
+  62              		.loc 1 59 1 is_stmt 0 view .LVU9
+  63 0024 08BD     		pop	{r3, pc}
+  64              		.cfi_endproc
+  65              	.LFE0:
+  67              		.section	.text.BootTask,"ax",%progbits
+  68              		.align	1
+  69              		.global	BootTask
+  70              		.syntax unified
+  71              		.thumb
+  72              		.thumb_func
+  74              	BootTask:
+  75              	.LFB1:
   60:Core/Src/BLT/boot.c **** 
-  61:Core/Src/BLT/boot.c **** /************************************************************************************//**
-  62:Core/Src/BLT/boot.c **** ** \brief     Task function of the bootloader core that drives the program.
-  63:Core/Src/BLT/boot.c **** ** \return    none
-  64:Core/Src/BLT/boot.c **** **
-  65:Core/Src/BLT/boot.c **** ****************************************************************************************/
-  66:Core/Src/BLT/boot.c **** void BootTask(void)
-  67:Core/Src/BLT/boot.c **** {
-  77              		.loc 1 67 1 is_stmt 1 view -0
-  78              		.cfi_startproc
-  79              		@ args = 0, pretend = 0, frame = 0
-  80              		@ frame_needed = 0, uses_anonymous_args = 0
-  81 0000 08B5     		push	{r3, lr}
-  82              		.cfi_def_cfa_offset 8
-  83              		.cfi_offset 3, -8
-  84              		.cfi_offset 14, -4
-  68:Core/Src/BLT/boot.c ****   /* service the watchdog */
-  69:Core/Src/BLT/boot.c ****   CopService();
-  85              		.loc 1 69 3 view .LVU12
-  86 0002 FFF7FEFF 		bl	CopService
-  87              	.LVL8:
-  70:Core/Src/BLT/boot.c ****   /* update the millisecond timer */
-  71:Core/Src/BLT/boot.c ****   TimerUpdate();
-  88              		.loc 1 71 3 view .LVU13
-  89 0006 FFF7FEFF 		bl	TimerUpdate
-  90              	.LVL9:
-  72:Core/Src/BLT/boot.c ****   #if (BOOT_COM_ENABLE > 0)
-  73:Core/Src/BLT/boot.c ****   /* process possibly pending communication data */
-  74:Core/Src/BLT/boot.c ****   ComTask();
-  91              		.loc 1 74 3 view .LVU14
-  92 000a FFF7FEFF 		bl	ComTask
-  93              	.LVL10:
-  75:Core/Src/BLT/boot.c ****   #endif
-  76:Core/Src/BLT/boot.c ****   /* control the backdoor */
-  77:Core/Src/BLT/boot.c ****   BackDoorCheck();
-  94              		.loc 1 77 3 view .LVU15
-  95 000e FFF7FEFF 		bl	BackDoorCheck
-  96              	.LVL11:
-  78:Core/Src/BLT/boot.c ****   /* Let LED blink if time has passed */
-ARM GAS  /tmp/ccHp27Mr.s 			page 4
+  61:Core/Src/BLT/boot.c **** 
+  62:Core/Src/BLT/boot.c **** /************************************************************************************//**
+  63:Core/Src/BLT/boot.c **** ** \brief     Task function of the bootloader core that drives the program.
+  64:Core/Src/BLT/boot.c **** ** \return    none
+  65:Core/Src/BLT/boot.c **** **
+  66:Core/Src/BLT/boot.c **** ****************************************************************************************/
+  67:Core/Src/BLT/boot.c **** void BootTask(void)
+  68:Core/Src/BLT/boot.c **** {
+  76              		.loc 1 68 1 is_stmt 1 view -0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80 0000 08B5     		push	{r3, lr}
+  81              		.cfi_def_cfa_offset 8
+  82              		.cfi_offset 3, -8
+  83              		.cfi_offset 14, -4
+  69:Core/Src/BLT/boot.c ****   /* service the watchdog */
+  70:Core/Src/BLT/boot.c ****   CopService();
+  84              		.loc 1 70 3 view .LVU11
+  85 0002 FFF7FEFF 		bl	CopService
+  86              	.LVL8:
+  71:Core/Src/BLT/boot.c ****   /* update the millisecond timer */
+  72:Core/Src/BLT/boot.c ****   TimerUpdate();
+  87              		.loc 1 72 3 view .LVU12
+  88 0006 FFF7FEFF 		bl	TimerUpdate
+  89              	.LVL9:
+  73:Core/Src/BLT/boot.c ****   #if (BOOT_COM_ENABLE > 0)
+  74:Core/Src/BLT/boot.c ****   /* process possibly pending communication data */
+  75:Core/Src/BLT/boot.c ****   ComTask();
+  90              		.loc 1 75 3 view .LVU13
+  91 000a FFF7FEFF 		bl	ComTask
+  92              	.LVL10:
+  76:Core/Src/BLT/boot.c ****   #endif
+  77:Core/Src/BLT/boot.c ****   /* control the backdoor */
+  78:Core/Src/BLT/boot.c ****   BackDoorCheck();
+  93              		.loc 1 78 3 view .LVU14
+  94 000e FFF7FEFF 		bl	BackDoorCheck
+  95              	.LVL11:
+  79:Core/Src/BLT/boot.c ****   /* Let LED blink if time has passed */
+ARM GAS  /tmp/cc1en1lR.s 			page 4
 
 
-  79:Core/Src/BLT/boot.c ****   LedBlinkTask();
-  97              		.loc 1 79 3 view .LVU16
-  98 0012 FFF7FEFF 		bl	LedBlinkTask
-  99              	.LVL12:
-  80:Core/Src/BLT/boot.c **** } /*** end of BootTask ***/
- 100              		.loc 1 80 1 is_stmt 0 view .LVU17
- 101 0016 08BD     		pop	{r3, pc}
- 102              		.cfi_endproc
- 103              	.LFE1:
- 105              		.section	.text.CpuIrqDisable,"ax",%progbits
- 106              		.align	1
- 107              		.global	CpuIrqDisable
- 108              		.syntax unified
- 109              		.thumb
- 110              		.thumb_func
- 112              	CpuIrqDisable:
- 113              	.LFB2:
-  81:Core/Src/BLT/boot.c **** 
-  82:Core/Src/BLT/boot.c **** // ONLY FOR F3
-  83:Core/Src/BLT/boot.c **** void CpuIrqDisable(void)
-  84:Core/Src/BLT/boot.c **** {
- 114              		.loc 1 84 1 is_stmt 1 view -0
- 115              		.cfi_startproc
- 116              		@ args = 0, pretend = 0, frame = 0
- 117              		@ frame_needed = 0, uses_anonymous_args = 0
- 118              		@ link register save eliminated.
-  85:Core/Src/BLT/boot.c ****   __asm volatile ("cpsid i");
- 119              		.loc 1 85 3 view .LVU19
- 120              		.syntax unified
- 121              	@ 85 "Core/Src/BLT/boot.c" 1
- 122 0000 72B6     		cpsid i
- 123              	@ 0 "" 2
-  86:Core/Src/BLT/boot.c **** } /*** end of CpuIrqDisable ***/
- 124              		.loc 1 86 1 is_stmt 0 view .LVU20
- 125              		.thumb
- 126              		.syntax unified
- 127 0002 7047     		bx	lr
- 128              		.cfi_endproc
- 129              	.LFE2:
- 131              		.section	.text.CpuIrqEnable,"ax",%progbits
- 132              		.align	1
- 133              		.global	CpuIrqEnable
- 134              		.syntax unified
- 135              		.thumb
- 136              		.thumb_func
- 138              	CpuIrqEnable:
- 139              	.LFB3:
-  87:Core/Src/BLT/boot.c **** 
+  80:Core/Src/BLT/boot.c ****   LedBlinkTask();
+  96              		.loc 1 80 3 view .LVU15
+  97 0012 FFF7FEFF 		bl	LedBlinkTask
+  98              	.LVL12:
+  81:Core/Src/BLT/boot.c **** } /*** end of BootTask ***/
+  99              		.loc 1 81 1 is_stmt 0 view .LVU16
+ 100 0016 08BD     		pop	{r3, pc}
+ 101              		.cfi_endproc
+ 102              	.LFE1:
+ 104              		.section	.text.CpuIrqDisable,"ax",%progbits
+ 105              		.align	1
+ 106              		.global	CpuIrqDisable
+ 107              		.syntax unified
+ 108              		.thumb
+ 109              		.thumb_func
+ 111              	CpuIrqDisable:
+ 112              	.LFB2:
+  82:Core/Src/BLT/boot.c **** 
+  83:Core/Src/BLT/boot.c **** // ONLY FOR F3
+  84:Core/Src/BLT/boot.c **** void CpuIrqDisable(void)
+  85:Core/Src/BLT/boot.c **** {
+ 113              		.loc 1 85 1 is_stmt 1 view -0
+ 114              		.cfi_startproc
+ 115              		@ args = 0, pretend = 0, frame = 0
+ 116              		@ frame_needed = 0, uses_anonymous_args = 0
+ 117              		@ link register save eliminated.
+  86:Core/Src/BLT/boot.c ****   __asm volatile ("cpsid i");
+ 118              		.loc 1 86 3 view .LVU18
+ 119              		.syntax unified
+ 120              	@ 86 "Core/Src/BLT/boot.c" 1
+ 121 0000 72B6     		cpsid i
+ 122              	@ 0 "" 2
+  87:Core/Src/BLT/boot.c **** } /*** end of CpuIrqDisable ***/
+ 123              		.loc 1 87 1 is_stmt 0 view .LVU19
+ 124              		.thumb
+ 125              		.syntax unified
+ 126 0002 7047     		bx	lr
+ 127              		.cfi_endproc
+ 128              	.LFE2:
+ 130              		.section	.text.CpuIrqEnable,"ax",%progbits
+ 131              		.align	1
+ 132              		.global	CpuIrqEnable
+ 133              		.syntax unified
+ 134              		.thumb
+ 135              		.thumb_func
+ 137              	CpuIrqEnable:
+ 138              	.LFB3:
   88:Core/Src/BLT/boot.c **** 
-  89:Core/Src/BLT/boot.c **** /************************************************************************************//**
-  90:Core/Src/BLT/boot.c **** ** \brief     Enable global interrupts.
-  91:Core/Src/BLT/boot.c **** ** \return    none.
-  92:Core/Src/BLT/boot.c **** **
-  93:Core/Src/BLT/boot.c **** ****************************************************************************************/
-  94:Core/Src/BLT/boot.c **** void CpuIrqEnable(void)
-  95:Core/Src/BLT/boot.c **** {
- 140              		.loc 1 95 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccHp27Mr.s 			page 5
+  89:Core/Src/BLT/boot.c **** 
+  90:Core/Src/BLT/boot.c **** /************************************************************************************//**
+  91:Core/Src/BLT/boot.c **** ** \brief     Enable global interrupts.
+  92:Core/Src/BLT/boot.c **** ** \return    none.
+  93:Core/Src/BLT/boot.c **** **
+  94:Core/Src/BLT/boot.c **** ****************************************************************************************/
+  95:Core/Src/BLT/boot.c **** void CpuIrqEnable(void)
+  96:Core/Src/BLT/boot.c **** {
+ 139              		.loc 1 96 1 is_stmt 1 view -0
+ARM GAS  /tmp/cc1en1lR.s 			page 5
 
 
- 141              		.cfi_startproc
- 142              		@ args = 0, pretend = 0, frame = 0
- 143              		@ frame_needed = 0, uses_anonymous_args = 0
- 144              		@ link register save eliminated.
-  96:Core/Src/BLT/boot.c ****   __asm volatile ("cpsie i");
- 145              		.loc 1 96 3 view .LVU22
- 146              		.syntax unified
- 147              	@ 96 "Core/Src/BLT/boot.c" 1
- 148 0000 62B6     		cpsie i
- 149              	@ 0 "" 2
-  97:Core/Src/BLT/boot.c **** } /*** end of CpuIrqEnable ***/
- 150              		.loc 1 97 1 is_stmt 0 view .LVU23
- 151              		.thumb
- 152              		.syntax unified
- 153 0002 7047     		bx	lr
- 154              		.cfi_endproc
- 155              	.LFE3:
- 157              		.text
- 158              	.Letext0:
- 159              		.file 2 "Core/Inc/BLT/types.h"
- 160              		.file 3 "Core/Inc/BLT/led.h"
- 161              		.file 4 "Core/Inc/BLT/backdoor.h"
- 162              		.file 5 "Core/Inc/BLT/com.h"
- 163              		.file 6 "Core/Inc/BLT/timer.h"
- 164              		.file 7 "Core/Inc/BLT/cop.h"
- 165              		.file 8 "Core/Inc/BLT/nvm.h"
- 166              		.file 9 "Core/Inc/BLT/cpu.h"
-ARM GAS  /tmp/ccHp27Mr.s 			page 6
+ 140              		.cfi_startproc
+ 141              		@ args = 0, pretend = 0, frame = 0
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143              		@ link register save eliminated.
+  97:Core/Src/BLT/boot.c ****   __asm volatile ("cpsie i");
+ 144              		.loc 1 97 3 view .LVU21
+ 145              		.syntax unified
+ 146              	@ 97 "Core/Src/BLT/boot.c" 1
+ 147 0000 62B6     		cpsie i
+ 148              	@ 0 "" 2
+  98:Core/Src/BLT/boot.c **** } /*** end of CpuIrqEnable ***/
+ 149              		.loc 1 98 1 is_stmt 0 view .LVU22
+ 150              		.thumb
+ 151              		.syntax unified
+ 152 0002 7047     		bx	lr
+ 153              		.cfi_endproc
+ 154              	.LFE3:
+ 156              		.text
+ 157              	.Letext0:
+ 158              		.file 2 "Core/Inc/BLT/led.h"
+ 159              		.file 3 "Core/Inc/BLT/backdoor.h"
+ 160              		.file 4 "Core/Inc/BLT/com.h"
+ 161              		.file 5 "Core/Inc/BLT/timer.h"
+ 162              		.file 6 "Core/Inc/BLT/cop.h"
+ 163              		.file 7 "Core/Inc/BLT/nvm.h"
+ 164              		.file 8 "Core/Inc/BLT/cpu.h"
+ 165              		.file 9 "Core/Inc/BLT/types.h"
+ARM GAS  /tmp/cc1en1lR.s 			page 6
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 boot.c
-     /tmp/ccHp27Mr.s:21     .text.BootInit:0000000000000000 $t
-     /tmp/ccHp27Mr.s:27     .text.BootInit:0000000000000000 BootInit
-     /tmp/ccHp27Mr.s:69     .text.BootTask:0000000000000000 $t
-     /tmp/ccHp27Mr.s:75     .text.BootTask:0000000000000000 BootTask
-     /tmp/ccHp27Mr.s:106    .text.CpuIrqDisable:0000000000000000 $t
-     /tmp/ccHp27Mr.s:112    .text.CpuIrqDisable:0000000000000000 CpuIrqDisable
-     /tmp/ccHp27Mr.s:132    .text.CpuIrqEnable:0000000000000000 $t
-     /tmp/ccHp27Mr.s:138    .text.CpuIrqEnable:0000000000000000 CpuIrqEnable
+                            *ABS*:00000000 boot.c
+     /tmp/cc1en1lR.s:21     .text.BootInit:00000000 $t
+     /tmp/cc1en1lR.s:27     .text.BootInit:00000000 BootInit
+     /tmp/cc1en1lR.s:68     .text.BootTask:00000000 $t
+     /tmp/cc1en1lR.s:74     .text.BootTask:00000000 BootTask
+     /tmp/cc1en1lR.s:105    .text.CpuIrqDisable:00000000 $t
+     /tmp/cc1en1lR.s:111    .text.CpuIrqDisable:00000000 CpuIrqDisable
+     /tmp/cc1en1lR.s:131    .text.CpuIrqEnable:00000000 $t
+     /tmp/cc1en1lR.s:137    .text.CpuIrqEnable:00000000 CpuIrqEnable
 
 UNDEFINED SYMBOLS
 CpuInit
 CopInit
 TimerInit
 NvmInit
-TimerGet
 LedBlinkInit
 ComInit
 BackDoorInit

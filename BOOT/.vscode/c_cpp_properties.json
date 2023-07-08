@@ -1,22 +1,23 @@
 {
-  "configurations": [
-    {
-      "name": "STM32",
-      "includePath": [
-        "Core/Inc",
-        "Core/Inc/BLT",
-        "Drivers/CMSIS/Device/ST/STM32F3xx/Include",
-        "Drivers/CMSIS/Include",
-        "Drivers/STM32F3xx_HAL_Driver/Inc",
-        "Drivers/STM32F3xx_HAL_Driver/Inc/Legacy"
-      ],
-      "defines": [
-        "STM32F302x8",
-        "USE_FULL_LL_DRIVER",
-        "USE_HAL_DRIVER"
-      ],
-      "compilerPath": "/usr/bin/arm-none-eabi-gcc"
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "name": "STM32",
+            "includePath": [
+                "Core/Inc",
+                "Core/Inc/BLT",
+                "Drivers/CMSIS/Device/ST/STM32F3xx/Include",
+                "Drivers/CMSIS/Include",
+                "Drivers/STM32F3xx_HAL_Driver/Inc",
+                "Drivers/STM32F3xx_HAL_Driver/Inc/Legacy"
+            ],
+            "defines": [
+                "STM32F302x8",
+                "USE_FULL_LL_DRIVER",
+                "USE_HAL_DRIVER"
+            ],
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
 }

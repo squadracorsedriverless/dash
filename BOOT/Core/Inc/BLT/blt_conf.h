@@ -1,36 +1,36 @@
-/************************************************************************************//**
-* \file         Demo/ARMCM4_STM32F3_Discovery_F303VC_CubeIDE/Boot/App/blt_conf.h
-* \brief        Bootloader configuration header file.
-* \ingroup      Boot_ARMCM4_STM32F3_Discovery_F303VC_CubeIDE
-* \internal
-*----------------------------------------------------------------------------------------
-*                          C O P Y R I G H T
-*----------------------------------------------------------------------------------------
-*   Copyright (c) 2020  by Feaser    http://www.feaser.com    All rights reserved
-*
-*----------------------------------------------------------------------------------------
-*                            L I C E N S E
-*----------------------------------------------------------------------------------------
-* This file is part of OpenBLT. OpenBLT is free software: you can redistribute it and/or
-* modify it under the terms of the GNU General Public License as published by the Free
-* Software Foundation, either version 3 of the License, or (at your option) any later
-* version.
-*
-* OpenBLT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-* without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-* PURPOSE. See the GNU General Public License for more details.
-*
-* You have received a copy of the GNU General Public License along with OpenBLT. It
-* should be located in ".\Doc\license.html". If not, contact Feaser to obtain a copy.
-*
-* \endinternal
-****************************************************************************************/
+/**
+ * \file         Demo/ARMCM4_STM32F3_Discovery_F303VC_CubeIDE/Boot/App/blt_conf.h
+ * \brief        Bootloader configuration header file.
+ * \ingroup      Boot_ARMCM4_STM32F3_Discovery_F303VC_CubeIDE
+ * \internal
+ *----------------------------------------------------------------------------------------
+ *                          C O P Y R I G H T
+ *----------------------------------------------------------------------------------------
+ *   Copyright (c) 2020  by Feaser    http://www.feaser.com    All rights reserved
+ *
+ *----------------------------------------------------------------------------------------
+ *                            L I C E N S E
+ *----------------------------------------------------------------------------------------
+ * This file is part of OpenBLT. OpenBLT is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * OpenBLT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ * PURPOSE. See the GNU General Public License for more details.
+ *
+ * You have received a copy of the GNU General Public License along with OpenBLT. It
+ * should be located in ".\Doc\license.html". If not, contact Feaser to obtain a copy.
+ *
+ * \endinternal
+ ****************************************************************************************/
 #ifndef BLT_CONF_H
 #define BLT_CONF_H
 
 /****************************************************************************************
-*   C P U   D R I V E R   C O N F I G U R A T I O N
-****************************************************************************************/
+ *   C P U   D R I V E R   C O N F I G U R A T I O N
+ ****************************************************************************************/
 /* To properly initialize the baudrate clocks of the communication interface, typically
  * the speed of the crystal oscillator and/or the speed at which the system runs is
  * needed. Set these through configurables BOOT_CPU_XTAL_SPEED_KHZ and
@@ -44,18 +44,17 @@
  * de-initialize application specific parts, for example to stop blinking an LED, etc.
  */
 /** \brief Frequency of the external crystal oscillator. */
-#define BOOT_CPU_XTAL_SPEED_KHZ          (8000)
+#define BOOT_CPU_XTAL_SPEED_KHZ (8000)
 /** \brief Desired system speed. */
-#define BOOT_CPU_SYSTEM_SPEED_KHZ        (72000)
+#define BOOT_CPU_SYSTEM_SPEED_KHZ (72000)
 /** \brief Motorola or Intel style byte ordering. */
-#define BOOT_CPU_BYTE_ORDER_MOTOROLA     (0)
+#define BOOT_CPU_BYTE_ORDER_MOTOROLA (0)
 /** \brief Enable/disable hook function call right before user program start. */
-#define BOOT_CPU_USER_PROGRAM_START_HOOK (0)
-
+#define BOOT_CPU_USER_PROGRAM_START_HOOK (1)
 
 /****************************************************************************************
-*   C O M M U N I C A T I O N   I N T E R F A C E   C O N F I G U R A T I O N
-****************************************************************************************/
+ *   C O M M U N I C A T I O N   I N T E R F A C E   C O N F I G U R A T I O N
+ ****************************************************************************************/
 /* The USB communication interface is selected by setting the BOOT_COM_USB_ENABLE
  * configurable to 1. The maximum amount of data bytes in a message for data transmission
  * and reception is set through BOOT_COM_USB_TX_MAX_DATA and BOOT_COM_USB_RX_MAX_DATA,
@@ -63,12 +62,11 @@
  *
  */
 /** \brief Enable/disable USB transport layer. */
-#define BOOT_COM_USB_ENABLE             (0)
+#define BOOT_COM_USB_ENABLE (0)
 /** \brief Configure number of bytes in the target->host data packet. */
-#define BOOT_COM_USB_TX_MAX_DATA        (63)
+#define BOOT_COM_USB_TX_MAX_DATA (63)
 /** \brief Configure number of bytes in the host->target data packet. */
-#define BOOT_COM_USB_RX_MAX_DATA        (63)
-
+#define BOOT_COM_USB_RX_MAX_DATA (63)
 
 /* The RS232 communication interface is selected by setting the BOOT_COM_RS232_ENABLE
  * configurable to 1. Configurable BOOT_COM_RS232_BAUDRATE selects the communication speed
@@ -79,20 +77,19 @@
  *
  */
 /** \brief Enable/disable UART transport layer. */
-#define BOOT_COM_RS232_ENABLE            (0)
+#define BOOT_COM_RS232_ENABLE (0)
 /** \brief Configure the desired communication speed. */
-#define BOOT_COM_RS232_BAUDRATE          (57600)
+#define BOOT_COM_RS232_BAUDRATE (57600)
 /** \brief Configure number of bytes in the target->host data packet. */
-#define BOOT_COM_RS232_TX_MAX_DATA       (64)
+#define BOOT_COM_RS232_TX_MAX_DATA (64)
 /** \brief Configure number of bytes in the host->target data packet. */
-#define BOOT_COM_RS232_RX_MAX_DATA       (64)
+#define BOOT_COM_RS232_RX_MAX_DATA (64)
 /** \brief Select the desired UART peripheral as a zero based index. */
-#define BOOT_COM_RS232_CHANNEL_INDEX     (1)
-
+#define BOOT_COM_RS232_CHANNEL_INDEX (1)
 
 /****************************************************************************************
-*   B A C K D O O R   E N T R Y   C O N F I G U R A T I O N
-****************************************************************************************/
+ *   B A C K D O O R   E N T R Y   C O N F I G U R A T I O N
+ ****************************************************************************************/
 /* It is possible to implement an application specific method to force the bootloader to
  * stay active after a reset. Such a backdoor entry into the bootloader is desired in
  * situations where the user program does not run properly and therefore cannot
@@ -102,12 +99,11 @@
  * also be implemented in a way that disables the backdoor entry altogether.
  */
 /** \brief Enable/disable the backdoor override hook functions. */
-#define BOOT_BACKDOOR_HOOKS_ENABLE      (0)
-
+#define BOOT_BACKDOOR_HOOKS_ENABLE (0)
 
 /****************************************************************************************
-*   N O N - V O L A T I L E   M E M O R Y   D R I V E R   C O N F I G U R A T I O N
-****************************************************************************************/
+ *   N O N - V O L A T I L E   M E M O R Y   D R I V E R   C O N F I G U R A T I O N
+ ****************************************************************************************/
 /* The NVM driver typically supports erase and program operations of the internal memory
  * present on the microcontroller. Through these hook functions the NVM driver can be
  * extended to support additional memory types such as external flash memory and serial
@@ -117,16 +113,15 @@
  * BOOT_NVM_CHECKSUM_HOOKS_ENABLE.
  */
 /** \brief Enable/disable the NVM hook function for supporting additional memory devices. */
-#define BOOT_NVM_HOOKS_ENABLE           (0)
+#define BOOT_NVM_HOOKS_ENABLE (0)
 /** \brief Configure the size of the default memory device (typically flash EEPROM). */
-#define BOOT_NVM_SIZE_KB                (256)
+#define BOOT_NVM_SIZE_KB (64)
 /** \brief Enable/disable hooks functions to override the user program checksum handling. */
-#define BOOT_NVM_CHECKSUM_HOOKS_ENABLE  (0)
-
+#define BOOT_NVM_CHECKSUM_HOOKS_ENABLE (0)
 
 /****************************************************************************************
-*   F L A S H   M E M O R Y   D R I V E R   C O N F I G U R A T I O N
-****************************************************************************************/
+ *   F L A S H   M E M O R Y   D R I V E R   C O N F I G U R A T I O N
+ ****************************************************************************************/
 /** \brief Enable support for a custom flash layout table. It is located in
  *         flash_layout.c. This was done because the default flashLayout[] table
  *         in the bootloader's core has more flash memory reserved for the bootloader
@@ -134,10 +129,9 @@
  */
 #define BOOT_FLASH_CUSTOM_LAYOUT_ENABLE (1)
 
-
 /****************************************************************************************
-*   W A T C H D O G   D R I V E R   C O N F I G U R A T I O N
-****************************************************************************************/
+ *   W A T C H D O G   D R I V E R   C O N F I G U R A T I O N
+ ****************************************************************************************/
 /* The COP driver cannot be configured internally in the bootloader, because its use
  * and configuration is application specific. The bootloader does need to service the
  * watchdog in case it is used. When the application requires the use of a watchdog,
@@ -145,12 +139,11 @@
  * hook functions.
  */
 /** \brief Enable/disable the hook functions for controlling the watchdog. */
-#define BOOT_COP_HOOKS_ENABLE           (0)
-
+#define BOOT_COP_HOOKS_ENABLE (0)
 
 /****************************************************************************************
-*   S E E D / K E Y   S E C U R I T Y   C O N F I G U R A T I O N
-****************************************************************************************/
+ *   S E E D / K E Y   S E C U R I T Y   C O N F I G U R A T I O N
+ ****************************************************************************************/
 /* A security mechanism can be enabled in the bootloader's XCP module by setting configu-
  * rable BOOT_XCP_SEED_KEY_ENABLE to 1. Before any memory erase or programming
  * operations can be performed, access to this resource need to be unlocked.
@@ -166,11 +159,11 @@
  * After enabling this feature the hook functions XcpGetSeedHook() and XcpVerifyKeyHook()
  * are called by the bootloader to obtain the seed and to verify the key, respectively.
  */
-#define BOOT_XCP_SEED_KEY_ENABLE        (0)
+#define BOOT_XCP_SEED_KEY_ENABLE (0)
 
 /****************************************************************************************
-*   C O M M U N I C A T I O N   I N T E R F A C E   C O N F I G U R A T I O N
-****************************************************************************************/
+ *   C O M M U N I C A T I O N   I N T E R F A C E   C O N F I G U R A T I O N
+ ****************************************************************************************/
 /* The CAN communication interface is selected by setting the BOOT_COM_CAN_ENABLE
  * configurable to 1. Configurable BOOT_COM_CAN_BAUDRATE selects the communication speed
  * in bits/second. Two CAN messages are reserved for communication with the host. The
@@ -184,20 +177,19 @@
  *
  */
 /** \brief Enable/disable CAN transport layer. */
-#define BOOT_COM_CAN_ENABLE             (1)
+#define BOOT_COM_CAN_ENABLE (1)
 /** \brief Configure the desired CAN baudrate. */
-#define BOOT_COM_CAN_BAUDRATE           (1000000)
+#define BOOT_COM_CAN_BAUDRATE (1000000)
 /** \brief Configure CAN message ID target->host. */
-#define BOOT_COM_CAN_TX_MSG_ID          (0xFFA)
+#define BOOT_COM_CAN_TX_MSG_ID (0x1FA)
 /** \brief Configure number of bytes in the target->host CAN message. */
-#define BOOT_COM_CAN_TX_MAX_DATA        (8)
+#define BOOT_COM_CAN_TX_MAX_DATA (8)
 /** \brief Configure CAN message ID host->target. */
-#define BOOT_COM_CAN_RX_MSG_ID          (0x007)
+#define BOOT_COM_CAN_RX_MSG_ID (0x0A4)
 /** \brief Configure number of bytes in the host->target CAN message. */
-#define BOOT_COM_CAN_RX_MAX_DATA        (8)
+#define BOOT_COM_CAN_RX_MAX_DATA (8)
 /** \brief Select the desired CAN peripheral as a zero based index. */
-#define BOOT_COM_CAN_CHANNEL_INDEX      (0)
-
+#define BOOT_COM_CAN_CHANNEL_INDEX (0)
 
 #endif /* BLT_CONF_H */
 /*********************************** end of blt_conf.h *********************************/

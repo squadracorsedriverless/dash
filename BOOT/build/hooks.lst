@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccViCH8e.s 			page 1
+ARM GAS  /tmp/ccYVv7hF.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,11 +20,103 @@ ARM GAS  /tmp/ccViCH8e.s 			page 1
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
   19              		.file 1 "Core/Src/BLT/hooks.c"
-  20              	.Letext0:
-ARM GAS  /tmp/ccViCH8e.s 			page 2
+  20              		.section	.text.CpuUserProgramStartHook,"ax",%progbits
+  21              		.align	1
+  22              		.global	CpuUserProgramStartHook
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	CpuUserProgramStartHook:
+  28              	.LFB146:
+   1:Core/Src/BLT/hooks.c **** /************************************************************************************//**
+   2:Core/Src/BLT/hooks.c **** * \file         Demo/ARMCM4_STM32F3_Discovery_F303VC_TrueStudio/Boot/hooks.c
+   3:Core/Src/BLT/hooks.c **** * \brief        Bootloader callback source file.
+   4:Core/Src/BLT/hooks.c **** * \ingroup      Boot_ARMCM4_STM32F3_Discovery_F303VC_TrueStudio
+   5:Core/Src/BLT/hooks.c **** * \internal
+   6:Core/Src/BLT/hooks.c **** *----------------------------------------------------------------------------------------
+   7:Core/Src/BLT/hooks.c **** *                          C O P Y R I G H T
+   8:Core/Src/BLT/hooks.c **** *----------------------------------------------------------------------------------------
+   9:Core/Src/BLT/hooks.c **** *   Copyright (c) 2018  by Feaser    http://www.feaser.com    All rights reserved
+  10:Core/Src/BLT/hooks.c **** *
+  11:Core/Src/BLT/hooks.c **** *----------------------------------------------------------------------------------------
+  12:Core/Src/BLT/hooks.c **** *                            L I C E N S E
+  13:Core/Src/BLT/hooks.c **** *----------------------------------------------------------------------------------------
+  14:Core/Src/BLT/hooks.c **** * This file is part of OpenBLT. OpenBLT is free software: you can redistribute it and/or
+  15:Core/Src/BLT/hooks.c **** * modify it under the terms of the GNU General Public License as published by the Free
+  16:Core/Src/BLT/hooks.c **** * Software Foundation, either version 3 of the License, or (at your option) any later
+  17:Core/Src/BLT/hooks.c **** * version.
+  18:Core/Src/BLT/hooks.c **** *
+  19:Core/Src/BLT/hooks.c **** * OpenBLT is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+  20:Core/Src/BLT/hooks.c **** * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+  21:Core/Src/BLT/hooks.c **** * PURPOSE. See the GNU General Public License for more details.
+  22:Core/Src/BLT/hooks.c **** *
+  23:Core/Src/BLT/hooks.c **** * You have received a copy of the GNU General Public License along with OpenBLT. It
+  24:Core/Src/BLT/hooks.c **** * should be located in ".\Doc\license.html". If not, contact Feaser to obtain a copy.
+  25:Core/Src/BLT/hooks.c **** *
+  26:Core/Src/BLT/hooks.c **** * \endinternal
+  27:Core/Src/BLT/hooks.c **** ****************************************************************************************/
+  28:Core/Src/BLT/hooks.c **** 
+  29:Core/Src/BLT/hooks.c **** /****************************************************************************************
+  30:Core/Src/BLT/hooks.c **** * Include files
+ARM GAS  /tmp/ccYVv7hF.s 			page 2
+
+
+  31:Core/Src/BLT/hooks.c **** ****************************************************************************************/
+  32:Core/Src/BLT/hooks.c **** #include "BLT/boot.h"                                /* bootloader generic header          */
+  33:Core/Src/BLT/hooks.c **** #include "BLT/led.h"                                 /* LED driver header                  */
+  34:Core/Src/BLT/hooks.c **** #include "stm32f3xx.h"                           /* STM32 CPU and HAL header           */
+  35:Core/Src/BLT/hooks.c **** #include "stm32f3xx_ll_gpio.h"                   /* STM32 LL GPIO header               */
+  36:Core/Src/BLT/hooks.c **** 
+  37:Core/Src/BLT/hooks.c **** 
+  38:Core/Src/BLT/hooks.c **** /****************************************************************************************
+  39:Core/Src/BLT/hooks.c **** *   C P U   D R I V E R   H O O K   F U N C T I O N S
+  40:Core/Src/BLT/hooks.c **** ****************************************************************************************/
+  41:Core/Src/BLT/hooks.c **** 
+  42:Core/Src/BLT/hooks.c **** #if (BOOT_CPU_USER_PROGRAM_START_HOOK > 0)
+  43:Core/Src/BLT/hooks.c **** /************************************************************************************//**
+  44:Core/Src/BLT/hooks.c **** ** \brief     Callback that gets called when the bootloader is about to exit and
+  45:Core/Src/BLT/hooks.c **** **            hand over control to the user program. This is the last moment that
+  46:Core/Src/BLT/hooks.c **** **            some final checking can be performed and if necessary prevent the
+  47:Core/Src/BLT/hooks.c **** **            bootloader from activiting the user program.
+  48:Core/Src/BLT/hooks.c **** ** \return    BLT_TRUE if it is okay to start the user program, BLT_FALSE to keep
+  49:Core/Src/BLT/hooks.c **** **            keep the bootloader active.
+  50:Core/Src/BLT/hooks.c **** **
+  51:Core/Src/BLT/hooks.c **** ****************************************************************************************/
+  52:Core/Src/BLT/hooks.c **** blt_bool CpuUserProgramStartHook(void)
+  53:Core/Src/BLT/hooks.c **** {
+  29              		.loc 1 53 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  54:Core/Src/BLT/hooks.c ****   HAL_RCC_DeInit();
+  37              		.loc 1 54 3 view .LVU1
+  38 0002 FFF7FEFF 		bl	HAL_RCC_DeInit
+  39              	.LVL0:
+  55:Core/Src/BLT/hooks.c ****   /*  okay to start the user program.*/
+  56:Core/Src/BLT/hooks.c ****   return BLT_TRUE;
+  40              		.loc 1 56 3 view .LVU2
+  57:Core/Src/BLT/hooks.c **** } /*** end of CpuUserProgramStartHook ***/
+  41              		.loc 1 57 1 is_stmt 0 view .LVU3
+  42 0006 0120     		movs	r0, #1
+  43 0008 08BD     		pop	{r3, pc}
+  44              		.cfi_endproc
+  45              	.LFE146:
+  47              		.text
+  48              	.Letext0:
+  49              		.file 2 "Core/Inc/BLT/types.h"
+  50              		.file 3 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+  51              		.file 4 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h"
+ARM GAS  /tmp/ccYVv7hF.s 			page 3
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 hooks.c
+                            *ABS*:00000000 hooks.c
+     /tmp/ccYVv7hF.s:21     .text.CpuUserProgramStartHook:00000000 $t
+     /tmp/ccYVv7hF.s:27     .text.CpuUserProgramStartHook:00000000 CpuUserProgramStartHook
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+HAL_RCC_DeInit

@@ -36,17 +36,17 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
-Core/Src/as_fsm.c \
 Core/Src/button.c \
 Core/Src/can.c \
 Core/Src/dashboard.c \
 Core/Src/gpio.c \
 Core/Src/main.c \
-Core/Src/mission.c \
+Core/Src/sdc_can_pwt_db_v1_0.c \
 Core/Src/stm32f3xx_hal_msp.c \
 Core/Src/stm32f3xx_it.c \
 Core/Src/system_stm32f3xx.c \
 Core/Src/tim.c \
+Core/Src/tlb_battery.c \
 Core/Src/usart.c \
 Core/Src/utils.c \
 Core/Src/wdg.c \
@@ -198,8 +198,14 @@ vpath %.cpp $(sort $(dir $(CPP_SOURCES)))
 # list of C objects
 OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
 vpath %.c $(sort $(dir $(C_SOURCES)))
+
 # list of ASM program objects
-OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(ASM_SOURCES:.s=.o)))
+# list of ASM program objects
+UPPER_CASE_ASM_SOURCES = $(filter %.S,$(ASM_SOURCES))
+LOWER_CASE_ASM_SOURCES = $(filter %.s,$(ASM_SOURCES))
+
+OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(UPPER_CASE_ASM_SOURCES:.S=.o)))
+OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(LOWER_CASE_ASM_SOURCES:.s=.o)))
 vpath %.s $(sort $(dir $(ASM_SOURCES)))
 
 $(BUILD_DIR)/%.o: %.cpp STM32Make.make | $(BUILD_DIR) 
@@ -212,6 +218,9 @@ $(BUILD_DIR)/%.o: %.c STM32Make.make | $(BUILD_DIR)
 	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
 
 $(BUILD_DIR)/%.o: %.s STM32Make.make | $(BUILD_DIR)
+	$(AS) -c $(CFLAGS) $< -o $@
+
+$(BUILD_DIR)/%.o: %.S STM32Make.make | $(BUILD_DIR)
 	$(AS) -c $(CFLAGS) $< -o $@
 
 $(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) STM32Make.make
@@ -250,6 +259,23 @@ clean:
 #######################################
 
 
+
+
+#######################################
+# convert
+#######################################
+convert: 
+	bin2srec -a 0x8002000 -i $(BUILD_DIR)/$(TARGET).bin -o $(BUILD_DIR)/$(TARGET).srec
+      
+
+
+#######################################
+# canflash
+#######################################
+canflash: convert
+	echo "flashing dash"; bootcommander -t=xcp_can -d=can0 -b=1000000 -tid=0A4 -rid=1FA $(BUILD_DIR)/$(TARGET).srec;
+
+      
 	
 #######################################
 # dependencies

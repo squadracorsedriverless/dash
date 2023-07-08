@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccb89HYV.s 			page 1
+ARM GAS  /tmp/ccEsu5FP.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
   29:Core/Src/BLT/xcp.c **** /****************************************************************************************
   30:Core/Src/BLT/xcp.c **** * Include files
   31:Core/Src/BLT/xcp.c **** ****************************************************************************************/
-ARM GAS  /tmp/ccb89HYV.s 			page 2
+ARM GAS  /tmp/ccEsu5FP.s 			page 2
 
 
   32:Core/Src/BLT/xcp.c **** #include "BLT/boot.h"                                /* bootloader generic header          */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
   86:Core/Src/BLT/xcp.c **** #endif
   87:Core/Src/BLT/xcp.c **** #if (XCP_RES_CALIBRATION_EN == 1)
   88:Core/Src/BLT/xcp.c **** static void XcpCmdDownload(blt_int8u *data);
-ARM GAS  /tmp/ccb89HYV.s 			page 3
+ARM GAS  /tmp/ccEsu5FP.s 			page 3
 
 
   89:Core/Src/BLT/xcp.c **** static void XcpCmdDownloadMax(blt_int8u *data);
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  143:Core/Src/BLT/xcp.c **** /****************************************************************************************
  144:Core/Src/BLT/xcp.c **** * Local data definitions
  145:Core/Src/BLT/xcp.c **** ****************************************************************************************/
-ARM GAS  /tmp/ccb89HYV.s 			page 4
+ARM GAS  /tmp/ccEsu5FP.s 			page 4
 
 
  146:Core/Src/BLT/xcp.c **** /** \brief Local variable for storing XCP internal module info. */
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  200:Core/Src/BLT/xcp.c **** **
  201:Core/Src/BLT/xcp.c **** ****************************************************************************************/
  202:Core/Src/BLT/xcp.c **** void XcpPacketReceived(blt_int8u *data, blt_int8u len)
-ARM GAS  /tmp/ccb89HYV.s 			page 5
+ARM GAS  /tmp/ccEsu5FP.s 			page 5
 
 
  203:Core/Src/BLT/xcp.c **** {
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  257:Core/Src/BLT/xcp.c ****         break;
  258:Core/Src/BLT/xcp.c ****       case XCP_CMD_DOWLOAD_MAX:
  259:Core/Src/BLT/xcp.c ****         XcpCmdDownloadMax(data);
-ARM GAS  /tmp/ccb89HYV.s 			page 6
+ARM GAS  /tmp/ccEsu5FP.s 			page 6
 
 
  260:Core/Src/BLT/xcp.c ****         break;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  314:Core/Src/BLT/xcp.c ****   }
  315:Core/Src/BLT/xcp.c **** 
  316:Core/Src/BLT/xcp.c ****   /* send the response if it contains something */
-ARM GAS  /tmp/ccb89HYV.s 			page 7
+ARM GAS  /tmp/ccEsu5FP.s 			page 7
 
 
  317:Core/Src/BLT/xcp.c ****   if (xcpInfo.ctoLen > 0)
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  371:Core/Src/BLT/xcp.c ****   /* store the computed checksum value */
  372:Core/Src/BLT/xcp.c ****   *checksum = cs;
  373:Core/Src/BLT/xcp.c ****   /* inform the caller of the uses checksum computation algorithm */
-ARM GAS  /tmp/ccb89HYV.s 			page 8
+ARM GAS  /tmp/ccEsu5FP.s 			page 8
 
 
  374:Core/Src/BLT/xcp.c ****   return XCP_CS_ADD11;
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
   35 0000 024B     		ldr	r3, .L2
   36 0002 0022     		movs	r2, #0
   37 0004 83F84120 		strb	r2, [r3, #65]
-ARM GAS  /tmp/ccb89HYV.s 			page 9
+ARM GAS  /tmp/ccEsu5FP.s 			page 9
 
 
  421:Core/Src/BLT/xcp.c **** 
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  454:Core/Src/BLT/xcp.c ****   /* prepare the error packet */
  455:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[0] = XCP_PID_ERR;
   61              		.loc 1 455 3 view .LVU5
-ARM GAS  /tmp/ccb89HYV.s 			page 10
+ARM GAS  /tmp/ccEsu5FP.s 			page 10
 
 
   62              		.loc 1 455 22 is_stmt 0 view .LVU6
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  100              	.LVL2:
  474:Core/Src/BLT/xcp.c ****   result |= (blt_int32u)(data[1] << 8);
  101              		.loc 1 474 3 is_stmt 1 view .LVU16
-ARM GAS  /tmp/ccb89HYV.s 			page 11
+ARM GAS  /tmp/ccEsu5FP.s 			page 11
 
 
  102              		.loc 1 474 30 is_stmt 0 view .LVU17
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  136              		.cfi_startproc
  137              		@ args = 0, pretend = 0, frame = 0
  138              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccb89HYV.s 			page 12
+ARM GAS  /tmp/ccEsu5FP.s 			page 12
 
 
  139              		@ link register save eliminated.
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  519:Core/Src/BLT/xcp.c **** {
  520:Core/Src/BLT/xcp.c ****   /* suppress compiler warning for unused parameter */
  521:Core/Src/BLT/xcp.c ****   data = data;
-ARM GAS  /tmp/ccb89HYV.s 			page 13
+ARM GAS  /tmp/ccEsu5FP.s 			page 13
 
 
  522:Core/Src/BLT/xcp.c **** 
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  576:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[4] = (blt_int8u)XCP_DTO_PACKET_LEN;
  577:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[5] = (blt_int8u)(XCP_DTO_PACKET_LEN >> 8);
  578:Core/Src/BLT/xcp.c **** #else
-ARM GAS  /tmp/ccb89HYV.s 			page 14
+ARM GAS  /tmp/ccEsu5FP.s 			page 14
 
 
  579:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[4] = (blt_int8u)(XCP_DTO_PACKET_LEN >> 8);
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  615:Core/Src/BLT/xcp.c ****   /* set packet id to command response packet */
  616:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[0] = XCP_PID_RES;
  191              		.loc 1 616 3 view .LVU46
-ARM GAS  /tmp/ccb89HYV.s 			page 15
+ARM GAS  /tmp/ccEsu5FP.s 			page 15
 
 
  192              		.loc 1 616 22 is_stmt 0 view .LVU47
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  637:Core/Src/BLT/xcp.c **** 
  638:Core/Src/BLT/xcp.c ****   /* report session status */
  639:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[1] = 0;
-ARM GAS  /tmp/ccb89HYV.s 			page 16
+ARM GAS  /tmp/ccEsu5FP.s 			page 16
 
 
  228              		.loc 1 639 3 is_stmt 1 view .LVU55
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  656:Core/Src/BLT/xcp.c **** **            defined by the protocol.
  657:Core/Src/BLT/xcp.c **** ** \param     data Pointer to a byte buffer with the packet data.
  658:Core/Src/BLT/xcp.c **** ** \return    none
-ARM GAS  /tmp/ccb89HYV.s 			page 17
+ARM GAS  /tmp/ccEsu5FP.s 			page 17
 
 
  659:Core/Src/BLT/xcp.c **** **
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  303 0000 10B5     		push	{r4, lr}
  304              		.cfi_def_cfa_offset 8
  305              		.cfi_offset 4, -8
-ARM GAS  /tmp/ccb89HYV.s 			page 18
+ARM GAS  /tmp/ccEsu5FP.s 			page 18
 
 
  306              		.cfi_offset 14, -4
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  702:Core/Src/BLT/xcp.c ****   /* set packet length */
  703:Core/Src/BLT/xcp.c ****   xcpInfo.ctoLen = 8;
  338              		.loc 1 703 3 is_stmt 1 view .LVU93
-ARM GAS  /tmp/ccb89HYV.s 			page 19
+ARM GAS  /tmp/ccEsu5FP.s 			page 19
 
 
  339              		.loc 1 703 18 is_stmt 0 view .LVU94
@@ -1138,11 +1138,11 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  378              	.LVL20:
  379              		.loc 1 720 17 view .LVU102
  380 000a FFF7FEFF 		bl	XcpGetOrderedLong
-ARM GAS  /tmp/ccb89HYV.s 			page 20
+ARM GAS  /tmp/ccEsu5FP.s 			page 20
 
 
  381              	.LVL21:
- 382              		.loc 1 720 15 view .LVU103
+ 382              		.loc 1 720 15 discriminator 1 view .LVU103
  383 000e A064     		str	r0, [r4, #72]
  721:Core/Src/BLT/xcp.c **** 
  722:Core/Src/BLT/xcp.c ****   /* set packet length */
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  752:Core/Src/BLT/xcp.c **** #if (XCP_UPLOAD_EN == 1)
  753:Core/Src/BLT/xcp.c ****   /* according to the XCP specification memory read/upload functionality is always
  754:Core/Src/BLT/xcp.c ****    * available. This behavior is unwanted in the case of a bootloader that has the
-ARM GAS  /tmp/ccb89HYV.s 			page 21
+ARM GAS  /tmp/ccEsu5FP.s 			page 21
 
 
  755:Core/Src/BLT/xcp.c ****    * seed/key security feature enabled. The default XCP behavior is deviated in this
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  809:Core/Src/BLT/xcp.c ****     XcpSetCtoError(XCP_ERR_OUT_OF_RANGE);
  810:Core/Src/BLT/xcp.c ****     return;
  811:Core/Src/BLT/xcp.c ****   }
-ARM GAS  /tmp/ccb89HYV.s 			page 22
+ARM GAS  /tmp/ccEsu5FP.s 			page 22
 
 
  812:Core/Src/BLT/xcp.c **** 
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  866:Core/Src/BLT/xcp.c **** ** \return    none
  867:Core/Src/BLT/xcp.c **** **
  868:Core/Src/BLT/xcp.c **** ****************************************************************************************/
-ARM GAS  /tmp/ccb89HYV.s 			page 23
+ARM GAS  /tmp/ccEsu5FP.s 			page 23
 
 
  869:Core/Src/BLT/xcp.c **** static void XcpCmdDownload(blt_int8u *data)
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  923:Core/Src/BLT/xcp.c ****              XCP_CTO_PACKET_LEN-1);
  924:Core/Src/BLT/xcp.c **** 
  925:Core/Src/BLT/xcp.c ****   /* set packet id to command response packet */
-ARM GAS  /tmp/ccb89HYV.s 			page 24
+ARM GAS  /tmp/ccEsu5FP.s 			page 24
 
 
  926:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[0] = XCP_PID_RES;
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  980:Core/Src/BLT/xcp.c ****   static blt_int8u seedBuffer[XCP_SEED_MAX_LEN];
  981:Core/Src/BLT/xcp.c ****   static blt_int8u seedRemainderLen = 0;
  982:Core/Src/BLT/xcp.c ****   static blt_int8u *seedCurrentPtr;
-ARM GAS  /tmp/ccb89HYV.s 			page 25
+ARM GAS  /tmp/ccEsu5FP.s 			page 25
 
 
  983:Core/Src/BLT/xcp.c ****   static blt_bool sequenceInProgress = BLT_FALSE;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1037:Core/Src/BLT/xcp.c ****       /* set the seed length to 0 to indicate that the resource is already unlocked */
 1038:Core/Src/BLT/xcp.c ****       xcpInfo.ctoData[1] = 0;
 1039:Core/Src/BLT/xcp.c ****       /* set packet length */
-ARM GAS  /tmp/ccb89HYV.s 			page 26
+ARM GAS  /tmp/ccEsu5FP.s 			page 26
 
 
 1040:Core/Src/BLT/xcp.c ****       xcpInfo.ctoLen = 2;
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1094:Core/Src/BLT/xcp.c **** 
 1095:Core/Src/BLT/xcp.c **** 
 1096:Core/Src/BLT/xcp.c **** /************************************************************************************//**
-ARM GAS  /tmp/ccb89HYV.s 			page 27
+ARM GAS  /tmp/ccEsu5FP.s 			page 27
 
 
 1097:Core/Src/BLT/xcp.c **** ** \brief     XCP command processor function which handles the UNLOCK command as
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1151:Core/Src/BLT/xcp.c ****   keyCurrentPtr += keyCurrentLen;
 1152:Core/Src/BLT/xcp.c ****   keyReceivedLen += keyCurrentLen;
 1153:Core/Src/BLT/xcp.c ****   /* check if the entire key was received */
-ARM GAS  /tmp/ccb89HYV.s 			page 28
+ARM GAS  /tmp/ccEsu5FP.s 			page 28
 
 
 1154:Core/Src/BLT/xcp.c ****   if (keyReceivedLen >= keyTotalLen)
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1208:Core/Src/BLT/xcp.c ****   if (XcpCalSetPageHook(data[2], data[3]) == 0)
 1209:Core/Src/BLT/xcp.c ****   {
 1210:Core/Src/BLT/xcp.c ****     /* calibration page could not be selected */
-ARM GAS  /tmp/ccb89HYV.s 			page 29
+ARM GAS  /tmp/ccEsu5FP.s 			page 29
 
 
 1211:Core/Src/BLT/xcp.c ****     XcpSetCtoError(XCP_ERR_PAGE_NOT_VALID);
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1265:Core/Src/BLT/xcp.c **** ****************************************************************************************/
 1266:Core/Src/BLT/xcp.c **** static void XcpCmdProgramStart(blt_int8u *data)
 1267:Core/Src/BLT/xcp.c **** {
-ARM GAS  /tmp/ccb89HYV.s 			page 30
+ARM GAS  /tmp/ccEsu5FP.s 			page 30
 
 
 1268:Core/Src/BLT/xcp.c ****   /* suppress compiler warning for unused parameter */
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1322:Core/Src/BLT/xcp.c ****   /* program the data */
 1323:Core/Src/BLT/xcp.c ****   if (NvmWrite((blt_addr)xcpInfo.mta, XCP_CTO_PACKET_LEN-1, &data[1]) == BLT_FALSE)
 1324:Core/Src/BLT/xcp.c ****   {
-ARM GAS  /tmp/ccb89HYV.s 			page 31
+ARM GAS  /tmp/ccEsu5FP.s 			page 31
 
 
 1325:Core/Src/BLT/xcp.c ****     /* error occurred during programming */
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1379:Core/Src/BLT/xcp.c ****     {
 1380:Core/Src/BLT/xcp.c ****       /* error occurred while finishing up programming */
 1381:Core/Src/BLT/xcp.c ****       XcpSetCtoError(XCP_ERR_GENERIC);
-ARM GAS  /tmp/ccb89HYV.s 			page 32
+ARM GAS  /tmp/ccEsu5FP.s 			page 32
 
 
 1382:Core/Src/BLT/xcp.c ****     }
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1436:Core/Src/BLT/xcp.c **** 
 1437:Core/Src/BLT/xcp.c **** 
 1438:Core/Src/BLT/xcp.c **** /************************************************************************************//**
-ARM GAS  /tmp/ccb89HYV.s 			page 33
+ARM GAS  /tmp/ccEsu5FP.s 			page 33
 
 
 1439:Core/Src/BLT/xcp.c **** ** \brief     XCP command processor function which handles the PROGRAM_RESET command as
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1484:Core/Src/BLT/xcp.c ****   if ((xcpInfo.protection & XCP_RES_PGM) == XCP_RES_PGM)
 1485:Core/Src/BLT/xcp.c ****   {
 1486:Core/Src/BLT/xcp.c ****     /* resource is locked. use seed/key sequence to unlock */
-ARM GAS  /tmp/ccb89HYV.s 			page 34
+ARM GAS  /tmp/ccEsu5FP.s 			page 34
 
 
 1487:Core/Src/BLT/xcp.c ****     XcpSetCtoError(XCP_ERR_ACCESS_LOCKED);
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  455 0008 0025     		movs	r5, #0
  456 000a 6570     		strb	r5, [r4, #1]
 1288:Core/Src/BLT/xcp.c **** 
-ARM GAS  /tmp/ccb89HYV.s 			page 35
+ARM GAS  /tmp/ccEsu5FP.s 			page 35
 
 
  457              		.loc 1 1288 3 is_stmt 1 view .LVU120
@@ -2052,7 +2052,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  462 000e FFF7FEFF 		bl	ComGetActiveInterfaceMaxRxLen
  463              	.LVL26:
 1291:Core/Src/BLT/xcp.c **** 
- 464              		.loc 1 1291 22 view .LVU124
+ 464              		.loc 1 1291 22 discriminator 1 view .LVU124
  465 0012 E070     		strb	r0, [r4, #3]
 1294:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[5] = 0;
  466              		.loc 1 1294 3 is_stmt 1 view .LVU125
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  499              		@ args = 0, pretend = 0, frame = 0
  500              		@ frame_needed = 0, uses_anonymous_args = 0
  519:Core/Src/BLT/xcp.c ****   /* suppress compiler warning for unused parameter */
-ARM GAS  /tmp/ccb89HYV.s 			page 36
+ARM GAS  /tmp/ccEsu5FP.s 			page 36
 
 
  501              		.loc 1 519 1 is_stmt 0 view .LVU135
@@ -2153,19 +2153,19 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  535 001c FFF7FEFF 		bl	ComGetActiveInterfaceMaxRxLen
  536              	.LVL29:
  572:Core/Src/BLT/xcp.c **** 
- 537              		.loc 1 572 22 view .LVU151
+ 537              		.loc 1 572 22 discriminator 1 view .LVU151
  538 0020 E070     		strb	r0, [r4, #3]
  576:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[5] = (blt_int8u)(XCP_DTO_PACKET_LEN >> 8);
  539              		.loc 1 576 3 is_stmt 1 view .LVU152
  576:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[5] = (blt_int8u)(XCP_DTO_PACKET_LEN >> 8);
-ARM GAS  /tmp/ccb89HYV.s 			page 37
+ARM GAS  /tmp/ccEsu5FP.s 			page 37
 
 
  540              		.loc 1 576 35 is_stmt 0 view .LVU153
  541 0022 FFF7FEFF 		bl	ComGetActiveInterfaceMaxTxLen
  542              	.LVL30:
  576:Core/Src/BLT/xcp.c ****   xcpInfo.ctoData[5] = (blt_int8u)(XCP_DTO_PACKET_LEN >> 8);
- 543              		.loc 1 576 22 view .LVU154
+ 543              		.loc 1 576 22 discriminator 1 view .LVU154
  544 0026 2071     		strb	r0, [r4, #4]
  577:Core/Src/BLT/xcp.c **** #else
  545              		.loc 1 577 3 is_stmt 1 view .LVU155
@@ -2174,10 +2174,10 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  547 0028 FFF7FEFF 		bl	ComGetActiveInterfaceMaxTxLen
  548              	.LVL31:
  577:Core/Src/BLT/xcp.c **** #else
- 549              		.loc 1 577 24 view .LVU157
+ 549              		.loc 1 577 24 discriminator 1 view .LVU157
  550 002c C0F30720 		ubfx	r0, r0, #8, #8
  577:Core/Src/BLT/xcp.c **** #else
- 551              		.loc 1 577 22 view .LVU158
+ 551              		.loc 1 577 22 discriminator 1 view .LVU158
  552 0030 6071     		strb	r0, [r4, #5]
  584:Core/Src/BLT/xcp.c **** 
  553              		.loc 1 584 3 is_stmt 1 view .LVU159
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  583              	.LFB16:
  735:Core/Src/BLT/xcp.c ****   blt_int16u len;
  584              		.loc 1 735 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccb89HYV.s 			page 38
+ARM GAS  /tmp/ccEsu5FP.s 			page 38
 
 
  585              		.cfi_startproc
@@ -2244,10 +2244,10 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  600 0004 FFF7FEFF 		bl	ComGetActiveInterfaceMaxRxLen
  601              	.LVL34:
  740:Core/Src/BLT/xcp.c ****   {
- 602              		.loc 1 740 11 view .LVU173
+ 602              		.loc 1 740 11 discriminator 1 view .LVU173
  603 0008 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
  740:Core/Src/BLT/xcp.c ****   {
- 604              		.loc 1 740 6 view .LVU174
+ 604              		.loc 1 740 6 discriminator 1 view .LVU174
  605 000a 9042     		cmp	r0, r2
  606 000c 0FD9     		bls	.L40
  748:Core/Src/BLT/xcp.c ****   /* set the destination pointer */
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  623              		.loc 1 786 10 is_stmt 0 view .LVU183
  624 001c AB6C     		ldr	r3, [r5, #72]
  786:Core/Src/BLT/xcp.c **** 
-ARM GAS  /tmp/ccb89HYV.s 			page 39
+ARM GAS  /tmp/ccEsu5FP.s 			page 39
 
 
  625              		.loc 1 786 22 view .LVU184
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  671              		.cfi_def_cfa_offset 16
  672              		.cfi_offset 3, -16
  673              		.cfi_offset 4, -12
-ARM GAS  /tmp/ccb89HYV.s 			page 40
+ARM GAS  /tmp/ccEsu5FP.s 			page 40
 
 
  674              		.cfi_offset 5, -8
@@ -2355,10 +2355,10 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  681 0004 FFF7FEFF 		bl	ComGetActiveInterfaceMaxRxLen
  682              	.LVL41:
  806:Core/Src/BLT/xcp.c ****   {
- 683              		.loc 1 806 11 view .LVU199
+ 683              		.loc 1 806 11 discriminator 1 view .LVU199
  684 0008 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
  806:Core/Src/BLT/xcp.c ****   {
- 685              		.loc 1 806 6 view .LVU200
+ 685              		.loc 1 806 6 discriminator 1 view .LVU200
  686 000a 9842     		cmp	r0, r3
  687 000c 14D9     		bls	.L47
  814:Core/Src/BLT/xcp.c ****   /* read out the length of the requested upload operation */
@@ -2370,7 +2370,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  692              	.LVL42:
  693 0014 0146     		mov	r1, r0
  814:Core/Src/BLT/xcp.c ****   /* read out the length of the requested upload operation */
- 694              		.loc 1 814 15 view .LVU203
+ 694              		.loc 1 814 15 discriminator 1 view .LVU203
  695 0016 0A4D     		ldr	r5, .L48
  696 0018 A864     		str	r0, [r5, #72]
  816:Core/Src/BLT/xcp.c ****   /* set the destination pointer */
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  854:Core/Src/BLT/xcp.c **** 
  712              		.loc 1 854 22 view .LVU211
  713 0028 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
-ARM GAS  /tmp/ccb89HYV.s 			page 41
+ARM GAS  /tmp/ccEsu5FP.s 			page 41
 
 
  854:Core/Src/BLT/xcp.c **** 
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  760              		.cfi_offset 4, -20
  761              		.cfi_offset 5, -16
  762              		.cfi_offset 6, -12
-ARM GAS  /tmp/ccb89HYV.s 			page 42
+ARM GAS  /tmp/ccEsu5FP.s 			page 42
 
 
  763              		.cfi_offset 7, -8
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  372:Core/Src/BLT/xcp.c ****   /* inform the caller of the uses checksum computation algorithm */
  802              		.loc 1 372 13 is_stmt 0 view .LVU237
  803 001e 3C60     		str	r4, [r7]
-ARM GAS  /tmp/ccb89HYV.s 			page 43
+ARM GAS  /tmp/ccEsu5FP.s 			page 43
 
 
  374:Core/Src/BLT/xcp.c **** } /*** end of XcpComputeChecksum ***/
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  847              	.LVL58:
  954:Core/Src/BLT/xcp.c ****   checksumType = XcpComputeChecksum(xcpInfo.mta, checksumLen, &checksumVal);
  848              		.loc 1 954 17 view .LVU251
-ARM GAS  /tmp/ccb89HYV.s 			page 44
+ARM GAS  /tmp/ccEsu5FP.s 			page 44
 
 
  849 0010 FFF7FEFF 		bl	XcpGetOrderedLong
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  888 0036 00BF     		.align	2
  889              	.L56:
  890 0038 00000000 		.word	xcpInfo
-ARM GAS  /tmp/ccb89HYV.s 			page 45
+ARM GAS  /tmp/ccEsu5FP.s 			page 45
 
 
  891              		.cfi_endproc
@@ -2676,14 +2676,14 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  920 0008 FFF7FEFF 		bl	ComGetActiveInterfaceMaxRxLen
  921              	.LVL66:
 1323:Core/Src/BLT/xcp.c ****   {
- 922              		.loc 1 1323 7 view .LVU272
+ 922              		.loc 1 1323 7 discriminator 1 view .LVU272
  923 000c 621C     		adds	r2, r4, #1
  924 000e 411E     		subs	r1, r0, #1
  925 0010 2846     		mov	r0, r5
  926 0012 FFF7FEFF 		bl	NvmWrite
  927              	.LVL67:
 1323:Core/Src/BLT/xcp.c ****   {
- 928              		.loc 1 1323 6 view .LVU273
+ 928              		.loc 1 1323 6 discriminator 2 view .LVU273
  929 0016 60B1     		cbz	r0, .L62
 1331:Core/Src/BLT/xcp.c **** 
  930              		.loc 1 1331 3 is_stmt 1 view .LVU274
@@ -2698,20 +2698,20 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
 1334:Core/Src/BLT/xcp.c **** 
  937              		.loc 1 1334 3 is_stmt 1 view .LVU277
 1334:Core/Src/BLT/xcp.c **** 
-ARM GAS  /tmp/ccb89HYV.s 			page 46
+ARM GAS  /tmp/ccEsu5FP.s 			page 46
 
 
  938              		.loc 1 1334 18 is_stmt 0 view .LVU278
  939 001e FFF7FEFF 		bl	ComGetActiveInterfaceMaxRxLen
  940              	.LVL69:
 1334:Core/Src/BLT/xcp.c **** 
- 941              		.loc 1 1334 10 view .LVU279
+ 941              		.loc 1 1334 10 discriminator 1 view .LVU279
  942 0022 A36C     		ldr	r3, [r4, #72]
 1334:Core/Src/BLT/xcp.c **** 
- 943              		.loc 1 1334 36 view .LVU280
+ 943              		.loc 1 1334 36 discriminator 1 view .LVU280
  944 0024 0138     		subs	r0, r0, #1
 1334:Core/Src/BLT/xcp.c **** 
- 945              		.loc 1 1334 15 view .LVU281
+ 945              		.loc 1 1334 15 discriminator 1 view .LVU281
  946 0026 0344     		add	r3, r3, r0
  947 0028 A364     		str	r3, [r4, #72]
 1337:Core/Src/BLT/xcp.c **** } /*** end of XcpCmdProgramMax ***/
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  984 0000 10B5     		push	{r4, lr}
  985              		.cfi_def_cfa_offset 8
  986              		.cfi_offset 4, -8
-ARM GAS  /tmp/ccb89HYV.s 			page 47
+ARM GAS  /tmp/ccEsu5FP.s 			page 47
 
 
  987              		.cfi_offset 14, -4
@@ -2770,13 +2770,13 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  991 0004 FFF7FEFF 		bl	ComGetActiveInterfaceMaxRxLen
  992              	.LVL73:
 1361:Core/Src/BLT/xcp.c ****   {
- 993              		.loc 1 1361 15 view .LVU291
+ 993              		.loc 1 1361 15 discriminator 1 view .LVU291
  994 0008 0138     		subs	r0, r0, #1
 1361:Core/Src/BLT/xcp.c ****   {
- 995              		.loc 1 1361 11 view .LVU292
+ 995              		.loc 1 1361 11 discriminator 1 view .LVU292
  996 000a 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
 1361:Core/Src/BLT/xcp.c ****   {
- 997              		.loc 1 1361 6 view .LVU293
+ 997              		.loc 1 1361 6 discriminator 1 view .LVU293
  998 000c 9842     		cmp	r0, r3
  999 000e 13DD     		ble	.L72
 1369:Core/Src/BLT/xcp.c **** 
@@ -2810,7 +2810,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1019 0026 FFF7FEFF 		bl	NvmWrite
  1020              	.LVL74:
 1386:Core/Src/BLT/xcp.c ****   {
- 1021              		.loc 1 1386 6 view .LVU303
+ 1021              		.loc 1 1386 6 discriminator 1 view .LVU303
  1022 002a 88B1     		cbz	r0, .L74
 1394:Core/Src/BLT/xcp.c **** } /*** end of XcpCmdProgram ***/
  1023              		.loc 1 1394 3 is_stmt 1 view .LVU304
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1024              		.loc 1 1394 10 is_stmt 0 view .LVU305
  1025 002c 0A4A     		ldr	r2, .L75
  1026 002e 936C     		ldr	r3, [r2, #72]
-ARM GAS  /tmp/ccb89HYV.s 			page 48
+ARM GAS  /tmp/ccEsu5FP.s 			page 48
 
 
 1394:Core/Src/BLT/xcp.c **** } /*** end of XcpCmdProgram ***/
@@ -2850,7 +2850,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1046 0040 FFF7FEFF 		bl	NvmDone
  1047              	.LVL77:
 1378:Core/Src/BLT/xcp.c ****     {
- 1048              		.loc 1 1378 8 view .LVU313
+ 1048              		.loc 1 1378 8 discriminator 1 view .LVU313
  1049 0044 0028     		cmp	r0, #0
  1050 0046 F6D1     		bne	.L65
 1381:Core/Src/BLT/xcp.c ****     }
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1069              	.LFE21:
  1071              		.section	.text.XcpCmdProgramClear,"ax",%progbits
  1072              		.align	1
-ARM GAS  /tmp/ccb89HYV.s 			page 49
+ARM GAS  /tmp/ccEsu5FP.s 			page 49
 
 
  1073              		.syntax unified
@@ -2934,11 +2934,11 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1111 0010 FFF7FEFF 		bl	NvmErase
  1112              	.LVL86:
 1423:Core/Src/BLT/xcp.c ****   {
- 1113              		.loc 1 1423 6 view .LVU331
+ 1113              		.loc 1 1423 6 discriminator 1 view .LVU331
  1114 0014 30B1     		cbz	r0, .L81
 1431:Core/Src/BLT/xcp.c **** 
  1115              		.loc 1 1431 3 is_stmt 1 view .LVU332
-ARM GAS  /tmp/ccb89HYV.s 			page 50
+ARM GAS  /tmp/ccEsu5FP.s 			page 50
 
 
 1431:Core/Src/BLT/xcp.c **** 
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1162 0002 FFF7FEFF 		bl	CpuStartUserProgram
  1163              	.LVL90:
 1466:Core/Src/BLT/xcp.c **** 
-ARM GAS  /tmp/ccb89HYV.s 			page 51
+ARM GAS  /tmp/ccEsu5FP.s 			page 51
 
 
  1164              		.loc 1 1466 3 view .LVU343
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1212              		.global	XcpInit
  1213              		.syntax unified
  1214              		.thumb
-ARM GAS  /tmp/ccb89HYV.s 			page 52
+ARM GAS  /tmp/ccEsu5FP.s 			page 52
 
 
  1215              		.thumb_func
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1257              		.thumb
  1258              		.thumb_func
  1260              	XcpIsConnected:
-ARM GAS  /tmp/ccb89HYV.s 			page 53
+ARM GAS  /tmp/ccEsu5FP.s 			page 53
 
 
  1261              	.LFB1:
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1307 000a 00BF     		.align	2
  1308              	.L98:
  1309 000c 00000000 		.word	xcpInfo
-ARM GAS  /tmp/ccb89HYV.s 			page 54
+ARM GAS  /tmp/ccEsu5FP.s 			page 54
 
 
  1310              		.cfi_endproc
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1356 0020 52       		.byte	(.L104-.L106)/2
  1357 0021 52       		.byte	(.L104-.L106)/2
  1358 0022 4C       		.byte	(.L117-.L106)/2
-ARM GAS  /tmp/ccb89HYV.s 			page 55
+ARM GAS  /tmp/ccEsu5FP.s 			page 55
 
 
  1359 0023 43       		.byte	(.L116-.L106)/2
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  310:Core/Src/BLT/xcp.c ****   {
  1412              		.loc 1 310 3 view .LVU388
  310:Core/Src/BLT/xcp.c ****   {
-ARM GAS  /tmp/ccb89HYV.s 			page 56
+ARM GAS  /tmp/ccEsu5FP.s 			page 56
 
 
  1413              		.loc 1 310 14 is_stmt 0 view .LVU389
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1455              	.LVL102:
  241:Core/Src/BLT/xcp.c ****       case XCP_CMD_GET_ID:
  1456              		.loc 1 241 9 view .LVU402
-ARM GAS  /tmp/ccb89HYV.s 			page 57
+ARM GAS  /tmp/ccEsu5FP.s 			page 57
 
 
  1457 0082 E8E7     		b	.L102
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1499 00a6 D6E7     		b	.L102
  1500              	.LVL115:
  1501              	.L114:
-ARM GAS  /tmp/ccb89HYV.s 			page 58
+ARM GAS  /tmp/ccEsu5FP.s 			page 58
 
 
  270:Core/Src/BLT/xcp.c ****         break;
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1544              	.L124:
  320:Core/Src/BLT/xcp.c **** 
  1545              		.loc 1 320 5 view .LVU427
-ARM GAS  /tmp/ccb89HYV.s 			page 59
+ARM GAS  /tmp/ccEsu5FP.s 			page 59
 
 
  320:Core/Src/BLT/xcp.c **** 
@@ -3517,89 +3517,89 @@ ARM GAS  /tmp/ccb89HYV.s 			page 1
  1577              		.file 4 "Core/Inc/BLT/cpu.h"
  1578              		.file 5 "Core/Inc/BLT/cop.h"
  1579              		.file 6 "Core/Inc/BLT/com.h"
-ARM GAS  /tmp/ccb89HYV.s 			page 60
+ARM GAS  /tmp/ccEsu5FP.s 			page 60
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 xcp.c
-     /tmp/ccb89HYV.s:21     .text.XcpProtectResources:0000000000000000 $t
-     /tmp/ccb89HYV.s:26     .text.XcpProtectResources:0000000000000000 XcpProtectResources
-     /tmp/ccb89HYV.s:43     .text.XcpProtectResources:000000000000000c $d
-     /tmp/ccb89HYV.s:1565   .bss.xcpInfo:0000000000000000 xcpInfo
-     /tmp/ccb89HYV.s:48     .text.XcpSetCtoError:0000000000000000 $t
-     /tmp/ccb89HYV.s:53     .text.XcpSetCtoError:0000000000000000 XcpSetCtoError
-     /tmp/ccb89HYV.s:78     .text.XcpSetCtoError:0000000000000010 $d
-     /tmp/ccb89HYV.s:83     .text.XcpGetOrderedLong:0000000000000000 $t
-     /tmp/ccb89HYV.s:88     .text.XcpGetOrderedLong:0000000000000000 XcpGetOrderedLong
-     /tmp/ccb89HYV.s:127    .text.XcpSetOrderedLong:0000000000000000 $t
-     /tmp/ccb89HYV.s:132    .text.XcpSetOrderedLong:0000000000000000 XcpSetOrderedLong
-     /tmp/ccb89HYV.s:165    .text.XcpCmdDisconnect:0000000000000000 $t
-     /tmp/ccb89HYV.s:170    .text.XcpCmdDisconnect:0000000000000000 XcpCmdDisconnect
-     /tmp/ccb89HYV.s:204    .text.XcpCmdDisconnect:000000000000001c $d
-     /tmp/ccb89HYV.s:209    .text.XcpCmdGetStatus:0000000000000000 $t
-     /tmp/ccb89HYV.s:214    .text.XcpCmdGetStatus:0000000000000000 XcpCmdGetStatus
-     /tmp/ccb89HYV.s:255    .text.XcpCmdGetStatus:0000000000000020 $d
-     /tmp/ccb89HYV.s:260    .text.XcpCmdSynch:0000000000000000 $t
-     /tmp/ccb89HYV.s:265    .text.XcpCmdSynch:0000000000000000 XcpCmdSynch
-     /tmp/ccb89HYV.s:290    .text.XcpCmdGetId:0000000000000000 $t
-     /tmp/ccb89HYV.s:295    .text.XcpCmdGetId:0000000000000000 XcpCmdGetId
-     /tmp/ccb89HYV.s:347    .text.XcpCmdGetId:0000000000000024 $d
-     /tmp/ccb89HYV.s:1571   .rodata.xcpStationId:0000000000000000 xcpStationId
-     /tmp/ccb89HYV.s:353    .text.XcpCmdSetMta:0000000000000000 $t
-     /tmp/ccb89HYV.s:358    .text.XcpCmdSetMta:0000000000000000 XcpCmdSetMta
-     /tmp/ccb89HYV.s:393    .text.XcpCmdSetMta:0000000000000018 $d
-     /tmp/ccb89HYV.s:398    .text.XcpCmdProgramPrepare:0000000000000000 $t
-     /tmp/ccb89HYV.s:403    .text.XcpCmdProgramPrepare:0000000000000000 XcpCmdProgramPrepare
-     /tmp/ccb89HYV.s:428    .text.XcpCmdProgramStart:0000000000000000 $t
-     /tmp/ccb89HYV.s:433    .text.XcpCmdProgramStart:0000000000000000 XcpCmdProgramStart
-     /tmp/ccb89HYV.s:484    .text.XcpCmdProgramStart:0000000000000024 $d
-     /tmp/ccb89HYV.s:489    .text.XcpCmdConnect:0000000000000000 $t
-     /tmp/ccb89HYV.s:494    .text.XcpCmdConnect:0000000000000000 XcpCmdConnect
-     /tmp/ccb89HYV.s:571    .text.XcpCmdConnect:0000000000000044 $d
-     /tmp/ccb89HYV.s:576    .text.XcpCmdUpload:0000000000000000 $t
-     /tmp/ccb89HYV.s:581    .text.XcpCmdUpload:0000000000000000 XcpCmdUpload
-     /tmp/ccb89HYV.s:652    .text.XcpCmdUpload:0000000000000038 $d
-     /tmp/ccb89HYV.s:657    .text.XcpCmdShortUpload:0000000000000000 $t
-     /tmp/ccb89HYV.s:662    .text.XcpCmdShortUpload:0000000000000000 XcpCmdShortUpload
-     /tmp/ccb89HYV.s:739    .text.XcpCmdShortUpload:0000000000000040 $d
-     /tmp/ccb89HYV.s:744    .text.XcpComputeChecksum:0000000000000000 $t
-     /tmp/ccb89HYV.s:749    .text.XcpComputeChecksum:0000000000000000 XcpComputeChecksum
-     /tmp/ccb89HYV.s:813    .text.XcpCmdBuildCheckSum:0000000000000000 $t
-     /tmp/ccb89HYV.s:818    .text.XcpCmdBuildCheckSum:0000000000000000 XcpCmdBuildCheckSum
-     /tmp/ccb89HYV.s:890    .text.XcpCmdBuildCheckSum:0000000000000038 $d
-     /tmp/ccb89HYV.s:895    .text.XcpCmdProgramMax:0000000000000000 $t
-     /tmp/ccb89HYV.s:900    .text.XcpCmdProgramMax:0000000000000000 XcpCmdProgramMax
-     /tmp/ccb89HYV.s:966    .text.XcpCmdProgramMax:000000000000003c $d
-     /tmp/ccb89HYV.s:971    .text.XcpCmdProgram:0000000000000000 $t
-     /tmp/ccb89HYV.s:976    .text.XcpCmdProgram:0000000000000000 XcpCmdProgram
-     /tmp/ccb89HYV.s:1067   .text.XcpCmdProgram:0000000000000058 $d
-     /tmp/ccb89HYV.s:1072   .text.XcpCmdProgramClear:0000000000000000 $t
-     /tmp/ccb89HYV.s:1077   .text.XcpCmdProgramClear:0000000000000000 XcpCmdProgramClear
-     /tmp/ccb89HYV.s:1138   .text.XcpCmdProgramClear:000000000000002c $d
-     /tmp/ccb89HYV.s:1143   .text.XcpCmdProgramReset:0000000000000000 $t
-ARM GAS  /tmp/ccb89HYV.s 			page 61
+                            *ABS*:00000000 xcp.c
+     /tmp/ccEsu5FP.s:21     .text.XcpProtectResources:00000000 $t
+     /tmp/ccEsu5FP.s:26     .text.XcpProtectResources:00000000 XcpProtectResources
+     /tmp/ccEsu5FP.s:43     .text.XcpProtectResources:0000000c $d
+     /tmp/ccEsu5FP.s:1565   .bss.xcpInfo:00000000 xcpInfo
+     /tmp/ccEsu5FP.s:48     .text.XcpSetCtoError:00000000 $t
+     /tmp/ccEsu5FP.s:53     .text.XcpSetCtoError:00000000 XcpSetCtoError
+     /tmp/ccEsu5FP.s:78     .text.XcpSetCtoError:00000010 $d
+     /tmp/ccEsu5FP.s:83     .text.XcpGetOrderedLong:00000000 $t
+     /tmp/ccEsu5FP.s:88     .text.XcpGetOrderedLong:00000000 XcpGetOrderedLong
+     /tmp/ccEsu5FP.s:127    .text.XcpSetOrderedLong:00000000 $t
+     /tmp/ccEsu5FP.s:132    .text.XcpSetOrderedLong:00000000 XcpSetOrderedLong
+     /tmp/ccEsu5FP.s:165    .text.XcpCmdDisconnect:00000000 $t
+     /tmp/ccEsu5FP.s:170    .text.XcpCmdDisconnect:00000000 XcpCmdDisconnect
+     /tmp/ccEsu5FP.s:204    .text.XcpCmdDisconnect:0000001c $d
+     /tmp/ccEsu5FP.s:209    .text.XcpCmdGetStatus:00000000 $t
+     /tmp/ccEsu5FP.s:214    .text.XcpCmdGetStatus:00000000 XcpCmdGetStatus
+     /tmp/ccEsu5FP.s:255    .text.XcpCmdGetStatus:00000020 $d
+     /tmp/ccEsu5FP.s:260    .text.XcpCmdSynch:00000000 $t
+     /tmp/ccEsu5FP.s:265    .text.XcpCmdSynch:00000000 XcpCmdSynch
+     /tmp/ccEsu5FP.s:290    .text.XcpCmdGetId:00000000 $t
+     /tmp/ccEsu5FP.s:295    .text.XcpCmdGetId:00000000 XcpCmdGetId
+     /tmp/ccEsu5FP.s:347    .text.XcpCmdGetId:00000024 $d
+     /tmp/ccEsu5FP.s:1571   .rodata.xcpStationId:00000000 xcpStationId
+     /tmp/ccEsu5FP.s:353    .text.XcpCmdSetMta:00000000 $t
+     /tmp/ccEsu5FP.s:358    .text.XcpCmdSetMta:00000000 XcpCmdSetMta
+     /tmp/ccEsu5FP.s:393    .text.XcpCmdSetMta:00000018 $d
+     /tmp/ccEsu5FP.s:398    .text.XcpCmdProgramPrepare:00000000 $t
+     /tmp/ccEsu5FP.s:403    .text.XcpCmdProgramPrepare:00000000 XcpCmdProgramPrepare
+     /tmp/ccEsu5FP.s:428    .text.XcpCmdProgramStart:00000000 $t
+     /tmp/ccEsu5FP.s:433    .text.XcpCmdProgramStart:00000000 XcpCmdProgramStart
+     /tmp/ccEsu5FP.s:484    .text.XcpCmdProgramStart:00000024 $d
+     /tmp/ccEsu5FP.s:489    .text.XcpCmdConnect:00000000 $t
+     /tmp/ccEsu5FP.s:494    .text.XcpCmdConnect:00000000 XcpCmdConnect
+     /tmp/ccEsu5FP.s:571    .text.XcpCmdConnect:00000044 $d
+     /tmp/ccEsu5FP.s:576    .text.XcpCmdUpload:00000000 $t
+     /tmp/ccEsu5FP.s:581    .text.XcpCmdUpload:00000000 XcpCmdUpload
+     /tmp/ccEsu5FP.s:652    .text.XcpCmdUpload:00000038 $d
+     /tmp/ccEsu5FP.s:657    .text.XcpCmdShortUpload:00000000 $t
+     /tmp/ccEsu5FP.s:662    .text.XcpCmdShortUpload:00000000 XcpCmdShortUpload
+     /tmp/ccEsu5FP.s:739    .text.XcpCmdShortUpload:00000040 $d
+     /tmp/ccEsu5FP.s:744    .text.XcpComputeChecksum:00000000 $t
+     /tmp/ccEsu5FP.s:749    .text.XcpComputeChecksum:00000000 XcpComputeChecksum
+     /tmp/ccEsu5FP.s:813    .text.XcpCmdBuildCheckSum:00000000 $t
+     /tmp/ccEsu5FP.s:818    .text.XcpCmdBuildCheckSum:00000000 XcpCmdBuildCheckSum
+     /tmp/ccEsu5FP.s:890    .text.XcpCmdBuildCheckSum:00000038 $d
+     /tmp/ccEsu5FP.s:895    .text.XcpCmdProgramMax:00000000 $t
+     /tmp/ccEsu5FP.s:900    .text.XcpCmdProgramMax:00000000 XcpCmdProgramMax
+     /tmp/ccEsu5FP.s:966    .text.XcpCmdProgramMax:0000003c $d
+     /tmp/ccEsu5FP.s:971    .text.XcpCmdProgram:00000000 $t
+     /tmp/ccEsu5FP.s:976    .text.XcpCmdProgram:00000000 XcpCmdProgram
+     /tmp/ccEsu5FP.s:1067   .text.XcpCmdProgram:00000058 $d
+     /tmp/ccEsu5FP.s:1072   .text.XcpCmdProgramClear:00000000 $t
+     /tmp/ccEsu5FP.s:1077   .text.XcpCmdProgramClear:00000000 XcpCmdProgramClear
+     /tmp/ccEsu5FP.s:1138   .text.XcpCmdProgramClear:0000002c $d
+     /tmp/ccEsu5FP.s:1143   .text.XcpCmdProgramReset:00000000 $t
+ARM GAS  /tmp/ccEsu5FP.s 			page 61
 
 
-     /tmp/ccb89HYV.s:1148   .text.XcpCmdProgramReset:0000000000000000 XcpCmdProgramReset
-     /tmp/ccb89HYV.s:1178   .text.XcpCmdProgramReset:0000000000000014 $d
-     /tmp/ccb89HYV.s:1183   .text.XcpTransmitPacket:0000000000000000 $t
-     /tmp/ccb89HYV.s:1188   .text.XcpTransmitPacket:0000000000000000 XcpTransmitPacket
-     /tmp/ccb89HYV.s:1211   .text.XcpInit:0000000000000000 $t
-     /tmp/ccb89HYV.s:1217   .text.XcpInit:0000000000000000 XcpInit
-     /tmp/ccb89HYV.s:1249   .text.XcpInit:000000000000001c $d
-     /tmp/ccb89HYV.s:1254   .text.XcpIsConnected:0000000000000000 $t
-     /tmp/ccb89HYV.s:1260   .text.XcpIsConnected:0000000000000000 XcpIsConnected
-     /tmp/ccb89HYV.s:1281   .text.XcpIsConnected:000000000000000c $d
-     /tmp/ccb89HYV.s:1286   .text.XcpPacketTransmitted:0000000000000000 $t
-     /tmp/ccb89HYV.s:1292   .text.XcpPacketTransmitted:0000000000000000 XcpPacketTransmitted
-     /tmp/ccb89HYV.s:1309   .text.XcpPacketTransmitted:000000000000000c $d
-     /tmp/ccb89HYV.s:1314   .text.XcpPacketReceived:0000000000000000 $t
-     /tmp/ccb89HYV.s:1320   .text.XcpPacketReceived:0000000000000000 XcpPacketReceived
-     /tmp/ccb89HYV.s:1352   .text.XcpPacketReceived:000000000000001c $d
-     /tmp/ccb89HYV.s:1406   .text.XcpPacketReceived:0000000000000052 $t
-     /tmp/ccb89HYV.s:1557   .text.XcpPacketReceived:00000000000000e0 $d
-     /tmp/ccb89HYV.s:1562   .bss.xcpInfo:0000000000000000 $d
-     /tmp/ccb89HYV.s:1568   .rodata.xcpStationId:0000000000000000 $d
+     /tmp/ccEsu5FP.s:1148   .text.XcpCmdProgramReset:00000000 XcpCmdProgramReset
+     /tmp/ccEsu5FP.s:1178   .text.XcpCmdProgramReset:00000014 $d
+     /tmp/ccEsu5FP.s:1183   .text.XcpTransmitPacket:00000000 $t
+     /tmp/ccEsu5FP.s:1188   .text.XcpTransmitPacket:00000000 XcpTransmitPacket
+     /tmp/ccEsu5FP.s:1211   .text.XcpInit:00000000 $t
+     /tmp/ccEsu5FP.s:1217   .text.XcpInit:00000000 XcpInit
+     /tmp/ccEsu5FP.s:1249   .text.XcpInit:0000001c $d
+     /tmp/ccEsu5FP.s:1254   .text.XcpIsConnected:00000000 $t
+     /tmp/ccEsu5FP.s:1260   .text.XcpIsConnected:00000000 XcpIsConnected
+     /tmp/ccEsu5FP.s:1281   .text.XcpIsConnected:0000000c $d
+     /tmp/ccEsu5FP.s:1286   .text.XcpPacketTransmitted:00000000 $t
+     /tmp/ccEsu5FP.s:1292   .text.XcpPacketTransmitted:00000000 XcpPacketTransmitted
+     /tmp/ccEsu5FP.s:1309   .text.XcpPacketTransmitted:0000000c $d
+     /tmp/ccEsu5FP.s:1314   .text.XcpPacketReceived:00000000 $t
+     /tmp/ccEsu5FP.s:1320   .text.XcpPacketReceived:00000000 XcpPacketReceived
+     /tmp/ccEsu5FP.s:1352   .text.XcpPacketReceived:0000001c $d
+     /tmp/ccEsu5FP.s:1406   .text.XcpPacketReceived:00000052 $t
+     /tmp/ccEsu5FP.s:1557   .text.XcpPacketReceived:000000e0 $d
+     /tmp/ccEsu5FP.s:1562   .bss.xcpInfo:00000000 $d
+     /tmp/ccEsu5FP.s:1568   .rodata.xcpStationId:00000000 $d
 
 UNDEFINED SYMBOLS
 ComGetActiveInterfaceMaxRxLen

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccjh2AG5.s 			page 1
+ARM GAS  /tmp/ccFOGAPc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccjh2AG5.s 			page 1
   28:Core/Src/BLT/nvm.c **** 
   29:Core/Src/BLT/nvm.c **** /****************************************************************************************
   30:Core/Src/BLT/nvm.c **** * Include files
-ARM GAS  /tmp/ccjh2AG5.s 			page 2
+ARM GAS  /tmp/ccFOGAPc.s 			page 2
 
 
   31:Core/Src/BLT/nvm.c **** ****************************************************************************************/
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccjh2AG5.s 			page 1
   45              		.section	.text.NvmReinit,"ax",%progbits
   46              		.align	1
   47              		.global	NvmReinit
-ARM GAS  /tmp/ccjh2AG5.s 			page 3
+ARM GAS  /tmp/ccFOGAPc.s 			page 3
 
 
   48              		.syntax unified
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccjh2AG5.s 			page 1
   95:Core/Src/BLT/nvm.c **** ** \param     addr Start address.
   96:Core/Src/BLT/nvm.c **** ** \param     len  Length in bytes.
   97:Core/Src/BLT/nvm.c **** ** \param     data Pointer to the data buffer.
-ARM GAS  /tmp/ccjh2AG5.s 			page 4
+ARM GAS  /tmp/ccFOGAPc.s 			page 4
 
 
   98:Core/Src/BLT/nvm.c **** ** \return    BLT_TRUE if successful, BLT_FALSE otherwise.
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccjh2AG5.s 			page 1
  100              		.global	NvmErase
  101              		.syntax unified
  102              		.thumb
-ARM GAS  /tmp/ccjh2AG5.s 			page 5
+ARM GAS  /tmp/ccFOGAPc.s 			page 5
 
 
  103              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccjh2AG5.s 			page 1
  118              		.loc 1 172 10 is_stmt 0 view .LVU14
  119 0002 FFF7FEFF 		bl	FlashErase
  120              	.LVL5:
-ARM GAS  /tmp/ccjh2AG5.s 			page 6
+ARM GAS  /tmp/ccFOGAPc.s 			page 6
 
 
  173:Core/Src/BLT/nvm.c **** } /*** end of NvmErase ***/
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccjh2AG5.s 			page 1
  160              	.LFB5:
  192:Core/Src/BLT/nvm.c **** 
  193:Core/Src/BLT/nvm.c **** 
-ARM GAS  /tmp/ccjh2AG5.s 			page 7
+ARM GAS  /tmp/ccFOGAPc.s 			page 7
 
 
  194:Core/Src/BLT/nvm.c **** /************************************************************************************//**
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccjh2AG5.s 			page 1
  194              		.cfi_offset 14, -4
  217:Core/Src/BLT/nvm.c **** #if (BOOT_NVM_HOOKS_ENABLE > 0)
  218:Core/Src/BLT/nvm.c ****   /* give the application's NVM driver a chance to finish up */
-ARM GAS  /tmp/ccjh2AG5.s 			page 8
+ARM GAS  /tmp/ccFOGAPc.s 			page 8
 
 
  219:Core/Src/BLT/nvm.c ****   if (NvmDoneHook() == BLT_FALSE)
@@ -441,7 +441,7 @@ ARM GAS  /tmp/ccjh2AG5.s 			page 1
  196              		.loc 1 234 7 is_stmt 0 view .LVU26
  197 0002 FFF7FEFF 		bl	FlashWriteChecksum
  198              	.LVL8:
- 199              		.loc 1 234 6 view .LVU27
+ 199              		.loc 1 234 6 discriminator 1 view .LVU27
  200 0006 00B9     		cbnz	r0, .L16
  201              	.L14:
  235:Core/Src/BLT/nvm.c ****   {
@@ -468,25 +468,25 @@ ARM GAS  /tmp/ccjh2AG5.s 			page 1
  214              	.Letext0:
  215              		.file 2 "Core/Inc/BLT/types.h"
  216              		.file 3 "Core/Inc/BLT/flash.h"
-ARM GAS  /tmp/ccjh2AG5.s 			page 9
+ARM GAS  /tmp/ccFOGAPc.s 			page 9
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 nvm.c
-     /tmp/ccjh2AG5.s:21     .text.NvmInit:0000000000000000 $t
-     /tmp/ccjh2AG5.s:27     .text.NvmInit:0000000000000000 NvmInit
-     /tmp/ccjh2AG5.s:46     .text.NvmReinit:0000000000000000 $t
-     /tmp/ccjh2AG5.s:52     .text.NvmReinit:0000000000000000 NvmReinit
-     /tmp/ccjh2AG5.s:71     .text.NvmWrite:0000000000000000 $t
-     /tmp/ccjh2AG5.s:77     .text.NvmWrite:0000000000000000 NvmWrite
-     /tmp/ccjh2AG5.s:99     .text.NvmErase:0000000000000000 $t
-     /tmp/ccjh2AG5.s:105    .text.NvmErase:0000000000000000 NvmErase
-     /tmp/ccjh2AG5.s:127    .text.NvmVerifyChecksum:0000000000000000 $t
-     /tmp/ccjh2AG5.s:133    .text.NvmVerifyChecksum:0000000000000000 NvmVerifyChecksum
-     /tmp/ccjh2AG5.s:153    .text.NvmGetUserProgBaseAddress:0000000000000000 $t
-     /tmp/ccjh2AG5.s:159    .text.NvmGetUserProgBaseAddress:0000000000000000 NvmGetUserProgBaseAddress
-     /tmp/ccjh2AG5.s:179    .text.NvmDone:0000000000000000 $t
-     /tmp/ccjh2AG5.s:185    .text.NvmDone:0000000000000000 NvmDone
+                            *ABS*:00000000 nvm.c
+     /tmp/ccFOGAPc.s:21     .text.NvmInit:00000000 $t
+     /tmp/ccFOGAPc.s:27     .text.NvmInit:00000000 NvmInit
+     /tmp/ccFOGAPc.s:46     .text.NvmReinit:00000000 $t
+     /tmp/ccFOGAPc.s:52     .text.NvmReinit:00000000 NvmReinit
+     /tmp/ccFOGAPc.s:71     .text.NvmWrite:00000000 $t
+     /tmp/ccFOGAPc.s:77     .text.NvmWrite:00000000 NvmWrite
+     /tmp/ccFOGAPc.s:99     .text.NvmErase:00000000 $t
+     /tmp/ccFOGAPc.s:105    .text.NvmErase:00000000 NvmErase
+     /tmp/ccFOGAPc.s:127    .text.NvmVerifyChecksum:00000000 $t
+     /tmp/ccFOGAPc.s:133    .text.NvmVerifyChecksum:00000000 NvmVerifyChecksum
+     /tmp/ccFOGAPc.s:153    .text.NvmGetUserProgBaseAddress:00000000 $t
+     /tmp/ccFOGAPc.s:159    .text.NvmGetUserProgBaseAddress:00000000 NvmGetUserProgBaseAddress
+     /tmp/ccFOGAPc.s:179    .text.NvmDone:00000000 $t
+     /tmp/ccFOGAPc.s:185    .text.NvmDone:00000000 NvmDone
 
 UNDEFINED SYMBOLS
 FlashInit

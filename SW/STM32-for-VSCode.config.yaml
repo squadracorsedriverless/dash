@@ -125,3 +125,12 @@ sourceFiles:
 # However when compilation without the CubeMX Makefile is desired, this can be turned of.
 suppressMakefileWarning: false
     
+customMakefileRules:
+  - command: convert
+    rule: bin2srec -a 0x8002000 -i $(BUILD_DIR)/$(TARGET).bin -o $(BUILD_DIR)/$(TARGET).srec
+
+  - command: canflash
+    dependsOn: convert
+    rule: >
+      echo "flashing dash";
+      bootcommander -t=xcp_can -d=can0 -b=1000000 -tid=0A4 -rid=1FA $(BUILD_DIR)/$(TARGET).srec;

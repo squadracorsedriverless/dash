@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cclbfVRn.s 			page 1
+ARM GAS  /tmp/ccGuoZdI.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cclbfVRn.s 			page 1
   28:Core/Src/BLT/asserts.c **** 
   29:Core/Src/BLT/asserts.c **** /****************************************************************************************
   30:Core/Src/BLT/asserts.c **** * Include files
-ARM GAS  /tmp/cclbfVRn.s 			page 2
+ARM GAS  /tmp/ccGuoZdI.s 			page 2
 
 
   31:Core/Src/BLT/asserts.c **** ****************************************************************************************/
@@ -91,7 +91,7 @@ ARM GAS  /tmp/cclbfVRn.s 			page 1
   41              	.L2:
   46:Core/Src/BLT/asserts.c ****   /* hang the software so that it requires a hard reset */
   47:Core/Src/BLT/asserts.c ****   for (;;)
-  42              		.loc 1 47 3 is_stmt 1 discriminator 1 view .LVU2
+  42              		.loc 1 47 3 is_stmt 1 view .LVU2
   48:Core/Src/BLT/asserts.c ****   {
   49:Core/Src/BLT/asserts.c ****     /* keep servicing the watchdog so that this one does not cause a reset */
   50:Core/Src/BLT/asserts.c ****     CopService();
@@ -99,7 +99,7 @@ ARM GAS  /tmp/cclbfVRn.s 			page 1
   44 0002 FFF7FEFF 		bl	CopService
   45              	.LVL2:
   47:Core/Src/BLT/asserts.c ****   {
-  46              		.loc 1 47 3 discriminator 1 view .LVU4
+  46              		.loc 1 47 3 view .LVU4
   47 0006 FCE7     		b	.L2
   48              		.cfi_endproc
   49              	.LFE0:
@@ -107,13 +107,13 @@ ARM GAS  /tmp/cclbfVRn.s 			page 1
   52              	.Letext0:
   53              		.file 2 "Core/Inc/BLT/types.h"
   54              		.file 3 "Core/Inc/BLT/cop.h"
-ARM GAS  /tmp/cclbfVRn.s 			page 3
+ARM GAS  /tmp/ccGuoZdI.s 			page 3
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 asserts.c
-     /tmp/cclbfVRn.s:21     .text.AssertFailure:0000000000000000 $t
-     /tmp/cclbfVRn.s:27     .text.AssertFailure:0000000000000000 AssertFailure
+                            *ABS*:00000000 asserts.c
+     /tmp/ccGuoZdI.s:21     .text.AssertFailure:00000000 $t
+     /tmp/ccGuoZdI.s:27     .text.AssertFailure:00000000 AssertFailure
 
 UNDEFINED SYMBOLS
 CopService

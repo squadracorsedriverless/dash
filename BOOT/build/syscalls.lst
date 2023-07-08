@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccQW7l7D.s 			page 1
+ARM GAS  /tmp/ccI70qBF.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
   28:Core/Src/syscalls.c **** #include <signal.h>
   29:Core/Src/syscalls.c **** #include <time.h>
   30:Core/Src/syscalls.c **** #include <sys/time.h>
-ARM GAS  /tmp/ccQW7l7D.s 			page 2
+ARM GAS  /tmp/ccI70qBF.s 			page 2
 
 
   31:Core/Src/syscalls.c **** #include <sys/times.h>
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
   65              		.thumb_func
   67              	_kill:
   68              	.LVL0:
-ARM GAS  /tmp/ccQW7l7D.s 			page 3
+ARM GAS  /tmp/ccI70qBF.s 			page 3
 
 
   69              	.LFB27:
@@ -138,7 +138,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
   79              		.loc 1 55 2 is_stmt 1 view .LVU7
   80 0002 FFF7FEFF 		bl	__errno
   81              	.LVL1:
-  82              		.loc 1 55 8 is_stmt 0 view .LVU8
+  82              		.loc 1 55 8 is_stmt 0 discriminator 1 view .LVU8
   83 0006 1623     		movs	r3, #22
   84 0008 0360     		str	r3, [r0]
   56:Core/Src/syscalls.c **** 	return -1;
@@ -178,12 +178,12 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  115              	.LVL3:
  116              	.L6:
   62:Core/Src/syscalls.c **** 	while (1) {}		/* Make sure we hang here */
-ARM GAS  /tmp/ccQW7l7D.s 			page 4
+ARM GAS  /tmp/ccI70qBF.s 			page 4
 
 
- 117              		.loc 1 62 2 discriminator 1 view .LVU14
- 118              		.loc 1 62 13 discriminator 1 view .LVU15
- 119              		.loc 1 62 8 discriminator 1 view .LVU16
+ 117              		.loc 1 62 2 view .LVU14
+ 118              		.loc 1 62 13 view .LVU15
+ 119              		.loc 1 62 8 view .LVU16
  120 000a FEE7     		b	.L6
  121              		.cfi_endproc
  122              	.LFE28:
@@ -227,24 +227,24 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  155              	.L10:
   70:Core/Src/syscalls.c **** 	{
   71:Core/Src/syscalls.c **** 		*ptr++ = __io_getchar();
- 156              		.loc 1 71 3 is_stmt 1 discriminator 3 view .LVU23
- 157              		.loc 1 71 12 is_stmt 0 discriminator 3 view .LVU24
+ 156              		.loc 1 71 3 is_stmt 1 view .LVU23
+ 157              		.loc 1 71 12 is_stmt 0 view .LVU24
  158 000a FFF7FEFF 		bl	__io_getchar
  159              	.LVL7:
- 160              		.loc 1 71 7 discriminator 3 view .LVU25
+ 160              		.loc 1 71 7 discriminator 1 view .LVU25
  161 000e 2146     		mov	r1, r4
  162              	.LVL8:
- 163              		.loc 1 71 10 discriminator 3 view .LVU26
+ 163              		.loc 1 71 10 discriminator 1 view .LVU26
  164 0010 01F8010B 		strb	r0, [r1], #1
  165              	.LVL9:
   69:Core/Src/syscalls.c **** 	{
-ARM GAS  /tmp/ccQW7l7D.s 			page 5
+ARM GAS  /tmp/ccI70qBF.s 			page 5
 
 
  166              		.loc 1 69 42 is_stmt 1 discriminator 3 view .LVU27
  167 0014 0135     		adds	r5, r5, #1
  168              	.LVL10:
- 169              		.loc 1 71 7 is_stmt 0 discriminator 3 view .LVU28
+ 169              		.loc 1 71 7 is_stmt 0 discriminator 1 view .LVU28
  170 0016 0C46     		mov	r4, r1
  171              	.LVL11:
  172              	.L9:
@@ -298,18 +298,18 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  211 0006 0025     		movs	r5, #0
  212              		.loc 1 81 2 view .LVU38
  213 0008 04E0     		b	.L13
-ARM GAS  /tmp/ccQW7l7D.s 			page 6
+ARM GAS  /tmp/ccI70qBF.s 			page 6
 
 
  214              	.LVL14:
  215              	.L14:
   82:Core/Src/syscalls.c **** 	{
   83:Core/Src/syscalls.c **** 		__io_putchar(*ptr++);
- 216              		.loc 1 83 3 is_stmt 1 discriminator 3 view .LVU39
- 217              		.loc 1 83 3 is_stmt 0 discriminator 3 view .LVU40
+ 216              		.loc 1 83 3 is_stmt 1 view .LVU39
+ 217              		.loc 1 83 3 is_stmt 0 view .LVU40
  218 000a 14F8010B 		ldrb	r0, [r4], #1	@ zero_extendqisi2
  219              	.LVL15:
- 220              		.loc 1 83 3 discriminator 3 view .LVU41
+ 220              		.loc 1 83 3 view .LVU41
  221 000e FFF7FEFF 		bl	__io_putchar
  222              	.LVL16:
   81:Core/Src/syscalls.c **** 	{
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  258 0004 7047     		bx	lr
  259              		.cfi_endproc
  260              	.LFE31:
-ARM GAS  /tmp/ccQW7l7D.s 			page 7
+ARM GAS  /tmp/ccI70qBF.s 			page 7
 
 
  262              		.section	.text._fstat,"ax",%progbits
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  307 0000 0120     		movs	r0, #1
  308              	.LVL23:
  309              		.loc 1 103 1 view .LVU60
-ARM GAS  /tmp/ccQW7l7D.s 			page 8
+ARM GAS  /tmp/ccI70qBF.s 			page 8
 
 
  310 0002 7047     		bx	lr
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  113:Core/Src/syscalls.c **** 	return -1;
  359              		.loc 1 113 2 is_stmt 1 view .LVU67
  114:Core/Src/syscalls.c **** }
-ARM GAS  /tmp/ccQW7l7D.s 			page 9
+ARM GAS  /tmp/ccI70qBF.s 			page 9
 
 
  360              		.loc 1 114 1 is_stmt 0 view .LVU68
@@ -518,7 +518,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  392              		.loc 1 118 2 is_stmt 1 view .LVU72
  393 0002 FFF7FEFF 		bl	__errno
  394              	.LVL29:
- 395              		.loc 1 118 8 is_stmt 0 view .LVU73
+ 395              		.loc 1 118 8 is_stmt 0 discriminator 1 view .LVU73
  396 0006 0A23     		movs	r3, #10
  397 0008 0360     		str	r3, [r0]
  119:Core/Src/syscalls.c **** 	return -1;
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  412              	_unlink:
  413              	.LVL30:
  414              	.LFB37:
-ARM GAS  /tmp/ccQW7l7D.s 			page 10
+ARM GAS  /tmp/ccI70qBF.s 			page 10
 
 
  121:Core/Src/syscalls.c **** 
@@ -557,7 +557,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  424              		.loc 1 124 2 is_stmt 1 view .LVU78
  425 0002 FFF7FEFF 		bl	__errno
  426              	.LVL31:
- 427              		.loc 1 124 8 is_stmt 0 view .LVU79
+ 427              		.loc 1 124 8 is_stmt 0 discriminator 1 view .LVU79
  428 0006 0223     		movs	r3, #2
  429 0008 0360     		str	r3, [r0]
  125:Core/Src/syscalls.c **** 	return -1;
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  461              		.section	.text._stat,"ax",%progbits
  462              		.align	1
  463              		.global	_stat
-ARM GAS  /tmp/ccQW7l7D.s 			page 11
+ARM GAS  /tmp/ccI70qBF.s 			page 11
 
 
  464              		.syntax unified
@@ -655,10 +655,10 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  508              		.loc 1 141 2 is_stmt 1 view .LVU94
  509 0002 FFF7FEFF 		bl	__errno
  510              	.LVL37:
- 511              		.loc 1 141 8 is_stmt 0 view .LVU95
+ 511              		.loc 1 141 8 is_stmt 0 discriminator 1 view .LVU95
  512 0006 1F23     		movs	r3, #31
  513 0008 0360     		str	r3, [r0]
-ARM GAS  /tmp/ccQW7l7D.s 			page 12
+ARM GAS  /tmp/ccI70qBF.s 			page 12
 
 
  142:Core/Src/syscalls.c **** 	return -1;
@@ -692,7 +692,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  538              		.loc 1 147 2 view .LVU99
  539 0002 FFF7FEFF 		bl	__errno
  540              	.LVL38:
- 541              		.loc 1 147 8 is_stmt 0 view .LVU100
+ 541              		.loc 1 147 8 is_stmt 0 discriminator 1 view .LVU100
  542 0006 0B23     		movs	r3, #11
  543 0008 0360     		str	r3, [r0]
  148:Core/Src/syscalls.c **** 	return -1;
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  561              		.loc 1 152 1 is_stmt 1 view -0
  562              		.cfi_startproc
  563              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccQW7l7D.s 			page 13
+ARM GAS  /tmp/ccI70qBF.s 			page 13
 
 
  564              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -731,7 +731,7 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  570              		.loc 1 153 2 is_stmt 1 view .LVU105
  571 0002 FFF7FEFF 		bl	__errno
  572              	.LVL40:
- 573              		.loc 1 153 8 is_stmt 0 view .LVU106
+ 573              		.loc 1 153 8 is_stmt 0 discriminator 1 view .LVU106
  574 0006 0C23     		movs	r3, #12
  575 0008 0360     		str	r3, [r0]
  154:Core/Src/syscalls.c **** 	return -1;
@@ -764,51 +764,51 @@ ARM GAS  /tmp/ccQW7l7D.s 			page 1
  606              		.file 7 "/usr/arm-none-eabi/include/sys/stat.h"
  607              		.file 8 "/usr/arm-none-eabi/include/sys/times.h"
  608              		.file 9 "/usr/arm-none-eabi/include/sys/errno.h"
-ARM GAS  /tmp/ccQW7l7D.s 			page 14
+ARM GAS  /tmp/ccI70qBF.s 			page 14
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 syscalls.c
-     /tmp/ccQW7l7D.s:21     .text.initialise_monitor_handles:0000000000000000 $t
-     /tmp/ccQW7l7D.s:27     .text.initialise_monitor_handles:0000000000000000 initialise_monitor_handles
-     /tmp/ccQW7l7D.s:40     .text._getpid:0000000000000000 $t
-     /tmp/ccQW7l7D.s:46     .text._getpid:0000000000000000 _getpid
-     /tmp/ccQW7l7D.s:61     .text._kill:0000000000000000 $t
-     /tmp/ccQW7l7D.s:67     .text._kill:0000000000000000 _kill
-     /tmp/ccQW7l7D.s:93     .text._exit:0000000000000000 $t
-     /tmp/ccQW7l7D.s:99     .text._exit:0000000000000000 _exit
-     /tmp/ccQW7l7D.s:125    .text._read:0000000000000000 $t
-     /tmp/ccQW7l7D.s:131    .text._read:0000000000000000 _read
-     /tmp/ccQW7l7D.s:185    .text._write:0000000000000000 $t
-     /tmp/ccQW7l7D.s:191    .text._write:0000000000000000 _write
-     /tmp/ccQW7l7D.s:239    .text._close:0000000000000000 $t
-     /tmp/ccQW7l7D.s:245    .text._close:0000000000000000 _close
-     /tmp/ccQW7l7D.s:263    .text._fstat:0000000000000000 $t
-     /tmp/ccQW7l7D.s:269    .text._fstat:0000000000000000 _fstat
-     /tmp/ccQW7l7D.s:291    .text._isatty:0000000000000000 $t
-     /tmp/ccQW7l7D.s:297    .text._isatty:0000000000000000 _isatty
-     /tmp/ccQW7l7D.s:315    .text._lseek:0000000000000000 $t
-     /tmp/ccQW7l7D.s:321    .text._lseek:0000000000000000 _lseek
-     /tmp/ccQW7l7D.s:339    .text._open:0000000000000000 $t
-     /tmp/ccQW7l7D.s:345    .text._open:0000000000000000 _open
-     /tmp/ccQW7l7D.s:374    .text._wait:0000000000000000 $t
-     /tmp/ccQW7l7D.s:380    .text._wait:0000000000000000 _wait
-     /tmp/ccQW7l7D.s:406    .text._unlink:0000000000000000 $t
-     /tmp/ccQW7l7D.s:412    .text._unlink:0000000000000000 _unlink
-     /tmp/ccQW7l7D.s:438    .text._times:0000000000000000 $t
-     /tmp/ccQW7l7D.s:444    .text._times:0000000000000000 _times
-     /tmp/ccQW7l7D.s:462    .text._stat:0000000000000000 $t
-     /tmp/ccQW7l7D.s:468    .text._stat:0000000000000000 _stat
-     /tmp/ccQW7l7D.s:490    .text._link:0000000000000000 $t
-     /tmp/ccQW7l7D.s:496    .text._link:0000000000000000 _link
-     /tmp/ccQW7l7D.s:522    .text._fork:0000000000000000 $t
-     /tmp/ccQW7l7D.s:528    .text._fork:0000000000000000 _fork
-     /tmp/ccQW7l7D.s:552    .text._execve:0000000000000000 $t
-     /tmp/ccQW7l7D.s:558    .text._execve:0000000000000000 _execve
-     /tmp/ccQW7l7D.s:588    .data.environ:0000000000000000 environ
-     /tmp/ccQW7l7D.s:585    .data.environ:0000000000000000 $d
-     /tmp/ccQW7l7D.s:595    .bss.__env:0000000000000000 __env
-     /tmp/ccQW7l7D.s:592    .bss.__env:0000000000000000 $d
+                            *ABS*:00000000 syscalls.c
+     /tmp/ccI70qBF.s:21     .text.initialise_monitor_handles:00000000 $t
+     /tmp/ccI70qBF.s:27     .text.initialise_monitor_handles:00000000 initialise_monitor_handles
+     /tmp/ccI70qBF.s:40     .text._getpid:00000000 $t
+     /tmp/ccI70qBF.s:46     .text._getpid:00000000 _getpid
+     /tmp/ccI70qBF.s:61     .text._kill:00000000 $t
+     /tmp/ccI70qBF.s:67     .text._kill:00000000 _kill
+     /tmp/ccI70qBF.s:93     .text._exit:00000000 $t
+     /tmp/ccI70qBF.s:99     .text._exit:00000000 _exit
+     /tmp/ccI70qBF.s:125    .text._read:00000000 $t
+     /tmp/ccI70qBF.s:131    .text._read:00000000 _read
+     /tmp/ccI70qBF.s:185    .text._write:00000000 $t
+     /tmp/ccI70qBF.s:191    .text._write:00000000 _write
+     /tmp/ccI70qBF.s:239    .text._close:00000000 $t
+     /tmp/ccI70qBF.s:245    .text._close:00000000 _close
+     /tmp/ccI70qBF.s:263    .text._fstat:00000000 $t
+     /tmp/ccI70qBF.s:269    .text._fstat:00000000 _fstat
+     /tmp/ccI70qBF.s:291    .text._isatty:00000000 $t
+     /tmp/ccI70qBF.s:297    .text._isatty:00000000 _isatty
+     /tmp/ccI70qBF.s:315    .text._lseek:00000000 $t
+     /tmp/ccI70qBF.s:321    .text._lseek:00000000 _lseek
+     /tmp/ccI70qBF.s:339    .text._open:00000000 $t
+     /tmp/ccI70qBF.s:345    .text._open:00000000 _open
+     /tmp/ccI70qBF.s:374    .text._wait:00000000 $t
+     /tmp/ccI70qBF.s:380    .text._wait:00000000 _wait
+     /tmp/ccI70qBF.s:406    .text._unlink:00000000 $t
+     /tmp/ccI70qBF.s:412    .text._unlink:00000000 _unlink
+     /tmp/ccI70qBF.s:438    .text._times:00000000 $t
+     /tmp/ccI70qBF.s:444    .text._times:00000000 _times
+     /tmp/ccI70qBF.s:462    .text._stat:00000000 $t
+     /tmp/ccI70qBF.s:468    .text._stat:00000000 _stat
+     /tmp/ccI70qBF.s:490    .text._link:00000000 $t
+     /tmp/ccI70qBF.s:496    .text._link:00000000 _link
+     /tmp/ccI70qBF.s:522    .text._fork:00000000 $t
+     /tmp/ccI70qBF.s:528    .text._fork:00000000 _fork
+     /tmp/ccI70qBF.s:552    .text._execve:00000000 $t
+     /tmp/ccI70qBF.s:558    .text._execve:00000000 _execve
+     /tmp/ccI70qBF.s:588    .data.environ:00000000 environ
+     /tmp/ccI70qBF.s:585    .data.environ:00000000 $d
+     /tmp/ccI70qBF.s:595    .bss.__env:00000000 __env
+     /tmp/ccI70qBF.s:592    .bss.__env:00000000 $d
 
 UNDEFINED SYMBOLS
 __errno

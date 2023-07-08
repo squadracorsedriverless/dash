@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccsU8MGH.s 			page 1
+ARM GAS  /tmp/ccfH8Yoc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,14 +20,14 @@ ARM GAS  /tmp/ccsU8MGH.s 			page 1
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
   19              		.file 1 "Core/Src/BLT/can.c"
-  20              		.section	.text.CanGetSpeedConfig,"ax",%progbits
+  20              		.section	.text.CanInit,"ax",%progbits
   21              		.align	1
-  22              		.syntax unified
-  23              		.thumb
-  24              		.thumb_func
-  26              	CanGetSpeedConfig:
-  27              	.LVL0:
-  28              	.LFB218:
+  22              		.global	CanInit
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	CanInit:
+  28              	.LFB219:
    1:Core/Src/BLT/can.c **** /************************************************************************************//**
    2:Core/Src/BLT/can.c **** * \file         Source/ARMCM4_STM32F3/can.c
    3:Core/Src/BLT/can.c **** * \brief        Bootloader CAN communication interface source file.
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccsU8MGH.s 			page 1
   28:Core/Src/BLT/can.c **** 
   29:Core/Src/BLT/can.c **** 
   30:Core/Src/BLT/can.c **** /****************************************************************************************
-ARM GAS  /tmp/ccsU8MGH.s 			page 2
+ARM GAS  /tmp/ccfH8Yoc.s 			page 2
 
 
   31:Core/Src/BLT/can.c **** * Include files
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccsU8MGH.s 			page 1
   85:Core/Src/BLT/can.c ****   { 13, 5 },          /*  19 |  13   |   5   | 74% */
   86:Core/Src/BLT/can.c ****   { 14, 5 },          /*  20 |  14   |   5   | 75% */
   87:Core/Src/BLT/can.c ****   { 15, 5 },          /*  21 |  15   |   5   | 76% */
-ARM GAS  /tmp/ccsU8MGH.s 			page 3
+ARM GAS  /tmp/ccfH8Yoc.s 			page 3
 
 
   88:Core/Src/BLT/can.c ****   { 15, 6 },          /*  22 |  15   |   6   | 73% */
@@ -149,170 +149,40 @@ ARM GAS  /tmp/ccsU8MGH.s 			page 1
  113:Core/Src/BLT/can.c **** static blt_bool CanGetSpeedConfig(blt_int16u baud, blt_int16u *prescaler,
  114:Core/Src/BLT/can.c ****                                   blt_int8u *tseg1, blt_int8u *tseg2)
  115:Core/Src/BLT/can.c **** {
-  29              		.loc 1 115 1 view -0
-  30              		.cfi_startproc
-  31              		@ args = 0, pretend = 0, frame = 16
-  32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33              		.loc 1 115 1 is_stmt 0 view .LVU1
-  34 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-  35              		.cfi_def_cfa_offset 24
-  36              		.cfi_offset 4, -24
-  37              		.cfi_offset 5, -20
-  38              		.cfi_offset 6, -16
-  39              		.cfi_offset 7, -12
-  40              		.cfi_offset 8, -8
-  41              		.cfi_offset 14, -4
-  42 0004 84B0     		sub	sp, sp, #16
-  43              		.cfi_def_cfa_offset 40
-  44 0006 0446     		mov	r4, r0
-  45 0008 0D46     		mov	r5, r1
-  46 000a 1746     		mov	r7, r2
-  47 000c 9846     		mov	r8, r3
  116:Core/Src/BLT/can.c ****   blt_int8u  cnt;
-  48              		.loc 1 116 3 is_stmt 1 view .LVU2
  117:Core/Src/BLT/can.c ****   blt_int32u canClockFreqkHz;
-  49              		.loc 1 117 3 view .LVU3
  118:Core/Src/BLT/can.c ****   LL_RCC_ClocksTypeDef rccClocks;
-  50              		.loc 1 118 3 view .LVU4
  119:Core/Src/BLT/can.c **** 
  120:Core/Src/BLT/can.c ****   /* read clock frequencies */
  121:Core/Src/BLT/can.c ****   LL_RCC_GetSystemClocksFreq(&rccClocks);
-  51              		.loc 1 121 3 view .LVU5
-ARM GAS  /tmp/ccsU8MGH.s 			page 4
-
-
-  52 000e 6846     		mov	r0, sp
-  53              	.LVL1:
-  54              		.loc 1 121 3 is_stmt 0 view .LVU6
-  55 0010 FFF7FEFF 		bl	LL_RCC_GetSystemClocksFreq
-  56              	.LVL2:
  122:Core/Src/BLT/can.c ****   /* store CAN peripheral clock speed in kHz */
  123:Core/Src/BLT/can.c ****   canClockFreqkHz = rccClocks.PCLK1_Frequency / 1000u;
-  57              		.loc 1 123 3 is_stmt 1 view .LVU7
-  58              		.loc 1 123 19 is_stmt 0 view .LVU8
-  59 0014 0299     		ldr	r1, [sp, #8]
-  60 0016 174B     		ldr	r3, .L8
-  61 0018 A3FB0131 		umull	r3, r1, r3, r1
-  62 001c 8909     		lsrs	r1, r1, #6
-  63              	.LVL3:
  124:Core/Src/BLT/can.c **** 
  125:Core/Src/BLT/can.c ****   /* loop through all possible time quanta configurations to find a match */
  126:Core/Src/BLT/can.c ****   for (cnt=0; cnt < sizeof(canTiming)/sizeof(canTiming[0]); cnt++)
-  64              		.loc 1 126 3 is_stmt 1 view .LVU9
-  65              		.loc 1 126 11 is_stmt 0 view .LVU10
-  66 001e 0023     		movs	r3, #0
-  67              		.loc 1 126 3 view .LVU11
-  68 0020 01E0     		b	.L2
-  69              	.LVL4:
-  70              	.L3:
-  71              		.loc 1 126 64 is_stmt 1 discriminator 2 view .LVU12
-  72 0022 0133     		adds	r3, r3, #1
-  73              	.LVL5:
-  74              		.loc 1 126 64 is_stmt 0 discriminator 2 view .LVU13
-  75 0024 DBB2     		uxtb	r3, r3
-  76              	.LVL6:
-  77              	.L2:
-  78              		.loc 1 126 19 is_stmt 1 discriminator 1 view .LVU14
-  79 0026 112B     		cmp	r3, #17
-  80 0028 1FD8     		bhi	.L7
  127:Core/Src/BLT/can.c ****   {
  128:Core/Src/BLT/can.c ****     if ((canClockFreqkHz % (baud*(canTiming[cnt].tseg1+canTiming[cnt].tseg2+1))) == 0)
-  81              		.loc 1 128 5 view .LVU15
-  82              		.loc 1 128 49 is_stmt 0 view .LVU16
-  83 002a 134A     		ldr	r2, .L8+4
-  84 002c 12F81300 		ldrb	r0, [r2, r3, lsl #1]	@ zero_extendqisi2
-  85              		.loc 1 128 70 view .LVU17
-  86 0030 02EB4302 		add	r2, r2, r3, lsl #1
-  87 0034 5278     		ldrb	r2, [r2, #1]	@ zero_extendqisi2
-  88              		.loc 1 128 55 view .LVU18
-  89 0036 00EB020C 		add	ip, r0, r2
-  90              		.loc 1 128 33 view .LVU19
-  91 003a 0CFB044C 		mla	ip, ip, r4, r4
-  92              		.loc 1 128 26 view .LVU20
-  93 003e B1FBFCFE 		udiv	lr, r1, ip
-  94 0042 0CFB1E16 		mls	r6, ip, lr, r1
-  95              		.loc 1 128 8 view .LVU21
-  96 0046 002E     		cmp	r6, #0
-  97 0048 EBD1     		bne	.L3
  129:Core/Src/BLT/can.c ****     {
  130:Core/Src/BLT/can.c ****       /* compute the prescaler that goes with this TQ configuration */
  131:Core/Src/BLT/can.c ****       *prescaler = canClockFreqkHz/(baud*(canTiming[cnt].tseg1+canTiming[cnt].tseg2+1));
-  98              		.loc 1 131 7 is_stmt 1 view .LVU22
-ARM GAS  /tmp/ccsU8MGH.s 			page 5
-
-
-  99              		.loc 1 131 18 is_stmt 0 view .LVU23
- 100 004a 1FFA8EFC 		uxth	ip, lr
- 101 004e A5F800C0 		strh	ip, [r5]	@ movhi
  132:Core/Src/BLT/can.c **** 
  133:Core/Src/BLT/can.c ****       /* make sure the prescaler is valid */
  134:Core/Src/BLT/can.c ****       if ((*prescaler > 0) && (*prescaler <= 1024))
- 102              		.loc 1 134 7 is_stmt 1 view .LVU24
- 103              		.loc 1 134 28 is_stmt 0 view .LVU25
- 104 0052 0CF1FF3C 		add	ip, ip, #-1
- 105 0056 1FFA8CFC 		uxth	ip, ip
- 106              		.loc 1 134 10 view .LVU26
- 107 005a BCF5806F 		cmp	ip, #1024
- 108 005e E0D2     		bcs	.L3
  135:Core/Src/BLT/can.c ****       {
  136:Core/Src/BLT/can.c ****         /* store the bustiming configuration */
  137:Core/Src/BLT/can.c ****         *tseg1 = canTiming[cnt].tseg1;
- 109              		.loc 1 137 9 is_stmt 1 view .LVU27
- 110              		.loc 1 137 16 is_stmt 0 view .LVU28
- 111 0060 3870     		strb	r0, [r7]
  138:Core/Src/BLT/can.c ****         *tseg2 = canTiming[cnt].tseg2;
- 112              		.loc 1 138 9 is_stmt 1 view .LVU29
- 113              		.loc 1 138 16 is_stmt 0 view .LVU30
- 114 0062 88F80020 		strb	r2, [r8]
  139:Core/Src/BLT/can.c ****         /* found a good bus timing configuration */
  140:Core/Src/BLT/can.c ****         return BLT_TRUE;
- 115              		.loc 1 140 9 is_stmt 1 view .LVU31
- 116              		.loc 1 140 16 is_stmt 0 view .LVU32
- 117 0066 0120     		movs	r0, #1
- 118 0068 00E0     		b	.L4
- 119              	.L7:
  141:Core/Src/BLT/can.c ****       }
  142:Core/Src/BLT/can.c ****     }
  143:Core/Src/BLT/can.c ****   }
  144:Core/Src/BLT/can.c ****   /* could not find a good bus timing configuration */
+ARM GAS  /tmp/ccfH8Yoc.s 			page 4
+
+
  145:Core/Src/BLT/can.c ****   return BLT_FALSE;
- 120              		.loc 1 145 10 view .LVU33
- 121 006a 0020     		movs	r0, #0
- 122              	.L4:
  146:Core/Src/BLT/can.c **** } /*** end of CanGetSpeedConfig ***/
- 123              		.loc 1 146 1 view .LVU34
- 124 006c 04B0     		add	sp, sp, #16
- 125              		.cfi_def_cfa_offset 24
- 126              		@ sp needed
- 127 006e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 128              	.LVL7:
- 129              	.L9:
- 130              		.loc 1 146 1 view .LVU35
- 131 0072 00BF     		.align	2
- 132              	.L8:
- 133 0074 D34D6210 		.word	274877907
- 134 0078 00000000 		.word	canTiming
- 135              		.cfi_endproc
- 136              	.LFE218:
- 138              		.section	.rodata.CanInit.str1.4,"aMS",%progbits,1
- 139              		.align	2
- 140              	.LC0:
- 141 0000 436F7265 		.ascii	"Core/Src/BLT/can.c\000"
-ARM GAS  /tmp/ccsU8MGH.s 			page 6
-
-
- 141      2F537263 
- 141      2F424C54 
- 141      2F63616E 
- 141      2E6300
- 142              		.section	.text.CanInit,"ax",%progbits
- 143              		.align	1
- 144              		.global	CanInit
- 145              		.syntax unified
- 146              		.thumb
- 147              		.thumb_func
- 149              	CanInit:
- 150              	.LFB219:
  147:Core/Src/BLT/can.c **** 
  148:Core/Src/BLT/can.c **** 
  149:Core/Src/BLT/can.c **** /************************************************************************************//**
@@ -322,165 +192,133 @@ ARM GAS  /tmp/ccsU8MGH.s 			page 1
  153:Core/Src/BLT/can.c **** ****************************************************************************************/
  154:Core/Src/BLT/can.c **** void CanInit(void)
  155:Core/Src/BLT/can.c **** {
- 151              		.loc 1 155 1 is_stmt 1 view -0
- 152              		.cfi_startproc
- 153              		@ args = 0, pretend = 0, frame = 48
- 154              		@ frame_needed = 0, uses_anonymous_args = 0
- 155 0000 70B5     		push	{r4, r5, r6, lr}
- 156              		.cfi_def_cfa_offset 16
- 157              		.cfi_offset 4, -16
- 158              		.cfi_offset 5, -12
- 159              		.cfi_offset 6, -8
- 160              		.cfi_offset 14, -4
- 161 0002 8CB0     		sub	sp, sp, #48
- 162              		.cfi_def_cfa_offset 64
+  29              		.loc 1 155 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 40
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  39 0002 8AB0     		sub	sp, sp, #40
+  40              		.cfi_def_cfa_offset 56
  156:Core/Src/BLT/can.c ****   blt_int16u prescaler = 0;
- 163              		.loc 1 156 3 view .LVU37
- 164              		.loc 1 156 14 is_stmt 0 view .LVU38
- 165 0004 0023     		movs	r3, #0
- 166 0006 ADF82E30 		strh	r3, [sp, #46]	@ movhi
+  41              		.loc 1 156 3 view .LVU1
+  42              	.LVL0:
  157:Core/Src/BLT/can.c ****   blt_int8u  tseg1 = 0, tseg2 = 0;
- 167              		.loc 1 157 3 is_stmt 1 view .LVU39
- 168              		.loc 1 157 14 is_stmt 0 view .LVU40
- 169 000a 8DF82D30 		strb	r3, [sp, #45]
- 170              		.loc 1 157 25 view .LVU41
- 171 000e 8DF82C30 		strb	r3, [sp, #44]
+  43              		.loc 1 157 3 view .LVU2
  158:Core/Src/BLT/can.c ****   CAN_FilterTypeDef filterConfig;
- 172              		.loc 1 158 3 is_stmt 1 view .LVU42
+  44              		.loc 1 158 3 view .LVU3
  159:Core/Src/BLT/can.c ****   blt_int32u rxMsgId = BOOT_COM_CAN_RX_MSG_ID;
- 173              		.loc 1 159 3 view .LVU43
- 174              	.LVL8:
+  45              		.loc 1 159 3 view .LVU4
  160:Core/Src/BLT/can.c ****   blt_int32u rxFilterId, rxFilterMask;
- 175              		.loc 1 160 3 view .LVU44
+  46              		.loc 1 160 3 view .LVU5
  161:Core/Src/BLT/can.c **** 
  162:Core/Src/BLT/can.c ****   /* the current implementation supports CAN1. throw an assertion error in case a
  163:Core/Src/BLT/can.c ****    * different CAN channel is configured.
  164:Core/Src/BLT/can.c ****    */
  165:Core/Src/BLT/can.c ****   ASSERT_CT(BOOT_COM_CAN_CHANNEL_INDEX == 0);
- 176              		.loc 1 165 3 view .LVU45
-ARM GAS  /tmp/ccsU8MGH.s 			page 7
-
-
+  47              		.loc 1 165 3 view .LVU6
  166:Core/Src/BLT/can.c ****   /* obtain bittiming configuration information. */
- 167:Core/Src/BLT/can.c ****   if (CanGetSpeedConfig(BOOT_COM_CAN_BAUDRATE/1000, &prescaler, &tseg1, &tseg2) == BLT_FALSE)
- 177              		.loc 1 167 3 view .LVU46
- 178              		.loc 1 167 7 is_stmt 0 view .LVU47
- 179 0012 0BAB     		add	r3, sp, #44
- 180 0014 0DF12D02 		add	r2, sp, #45
- 181 0018 0DF12E01 		add	r1, sp, #46
- 182 001c 4FF47A70 		mov	r0, #1000
- 183 0020 FFF7FEFF 		bl	CanGetSpeedConfig
- 184              	.LVL9:
- 185              		.loc 1 167 6 view .LVU48
- 186 0024 0028     		cmp	r0, #0
- 187 0026 34D0     		beq	.L13
- 188              	.L11:
- 168:Core/Src/BLT/can.c ****   {
- 169:Core/Src/BLT/can.c ****     /* Incorrect configuration. The specified baudrate is not supported for the given
- 170:Core/Src/BLT/can.c ****      * clock configuration. Verify the following settings in blt_conf.h:
- 171:Core/Src/BLT/can.c ****      *   - BOOT_COM_CAN_BAUDRATE
- 172:Core/Src/BLT/can.c ****      *   - BOOT_CPU_XTAL_SPEED_KHZ
- 173:Core/Src/BLT/can.c ****      *   - BOOT_CPU_SYSTEM_SPEED_KHZ
- 174:Core/Src/BLT/can.c ****      */
- 175:Core/Src/BLT/can.c ****     ASSERT_RT(BLT_FALSE);
- 176:Core/Src/BLT/can.c ****   }
+ 167:Core/Src/BLT/can.c ****   // if (CanGetSpeedConfig(BOOT_COM_CAN_BAUDRATE/1000, &prescaler, &tseg1, &tseg2) == BLT_FALSE)
+ 168:Core/Src/BLT/can.c ****   // {
+ 169:Core/Src/BLT/can.c ****   //   /* Incorrect configuration. The specified baudrate is not supported for the given
+ 170:Core/Src/BLT/can.c ****   //    * clock configuration. Verify the following settings in blt_conf.h:
+ 171:Core/Src/BLT/can.c ****   //    *   - BOOT_COM_CAN_BAUDRATE
+ 172:Core/Src/BLT/can.c ****   //    *   - BOOT_CPU_XTAL_SPEED_KHZ
+ 173:Core/Src/BLT/can.c ****   //    *   - BOOT_CPU_SYSTEM_SPEED_KHZ
+ 174:Core/Src/BLT/can.c ****   //    */
+ 175:Core/Src/BLT/can.c ****   //   ASSERT_RT(BLT_FALSE);
+ 176:Core/Src/BLT/can.c ****   // }
  177:Core/Src/BLT/can.c **** 
  178:Core/Src/BLT/can.c ****   /* set the CAN controller configuration. */
  179:Core/Src/BLT/can.c ****   canHandle.Instance = CAN_CHANNEL;
- 189              		.loc 1 179 3 is_stmt 1 view .LVU49
- 190              		.loc 1 179 22 is_stmt 0 view .LVU50
- 191 0028 1C4C     		ldr	r4, .L14
- 192 002a 1D4B     		ldr	r3, .L14+4
- 193 002c 2360     		str	r3, [r4]
+  48              		.loc 1 179 3 view .LVU7
+  49              		.loc 1 179 22 is_stmt 0 view .LVU8
+  50 0004 184C     		ldr	r4, .L3
+ARM GAS  /tmp/ccfH8Yoc.s 			page 5
+
+
+  51 0006 194B     		ldr	r3, .L3+4
+  52 0008 2360     		str	r3, [r4]
  180:Core/Src/BLT/can.c ****   canHandle.Init.TimeTriggeredMode = DISABLE;
- 194              		.loc 1 180 3 is_stmt 1 view .LVU51
- 195              		.loc 1 180 36 is_stmt 0 view .LVU52
- 196 002e 0025     		movs	r5, #0
- 197 0030 2576     		strb	r5, [r4, #24]
+  53              		.loc 1 180 3 is_stmt 1 view .LVU9
+  54              		.loc 1 180 36 is_stmt 0 view .LVU10
+  55 000a 0025     		movs	r5, #0
+  56 000c 2576     		strb	r5, [r4, #24]
  181:Core/Src/BLT/can.c ****   canHandle.Init.AutoBusOff = DISABLE;
- 198              		.loc 1 181 3 is_stmt 1 view .LVU53
- 199              		.loc 1 181 29 is_stmt 0 view .LVU54
- 200 0032 6576     		strb	r5, [r4, #25]
+  57              		.loc 1 181 3 is_stmt 1 view .LVU11
+  58              		.loc 1 181 29 is_stmt 0 view .LVU12
+  59 000e 6576     		strb	r5, [r4, #25]
  182:Core/Src/BLT/can.c ****   canHandle.Init.AutoWakeUp = DISABLE;
- 201              		.loc 1 182 3 is_stmt 1 view .LVU55
- 202              		.loc 1 182 29 is_stmt 0 view .LVU56
- 203 0034 A576     		strb	r5, [r4, #26]
+  60              		.loc 1 182 3 is_stmt 1 view .LVU13
+  61              		.loc 1 182 29 is_stmt 0 view .LVU14
+  62 0010 A576     		strb	r5, [r4, #26]
  183:Core/Src/BLT/can.c ****   canHandle.Init.AutoRetransmission = ENABLE;
- 204              		.loc 1 183 3 is_stmt 1 view .LVU57
- 205              		.loc 1 183 37 is_stmt 0 view .LVU58
- 206 0036 0126     		movs	r6, #1
- 207 0038 E676     		strb	r6, [r4, #27]
+  63              		.loc 1 183 3 is_stmt 1 view .LVU15
+  64              		.loc 1 183 37 is_stmt 0 view .LVU16
+  65 0012 0126     		movs	r6, #1
+  66 0014 E676     		strb	r6, [r4, #27]
  184:Core/Src/BLT/can.c ****   canHandle.Init.ReceiveFifoLocked = DISABLE;
- 208              		.loc 1 184 3 is_stmt 1 view .LVU59
- 209              		.loc 1 184 36 is_stmt 0 view .LVU60
- 210 003a 2577     		strb	r5, [r4, #28]
+  67              		.loc 1 184 3 is_stmt 1 view .LVU17
+  68              		.loc 1 184 36 is_stmt 0 view .LVU18
+  69 0016 2577     		strb	r5, [r4, #28]
  185:Core/Src/BLT/can.c ****   canHandle.Init.TransmitFifoPriority = DISABLE;
- 211              		.loc 1 185 3 is_stmt 1 view .LVU61
- 212              		.loc 1 185 39 is_stmt 0 view .LVU62
- 213 003c 6577     		strb	r5, [r4, #29]
-ARM GAS  /tmp/ccsU8MGH.s 			page 8
-
-
+  70              		.loc 1 185 3 is_stmt 1 view .LVU19
+  71              		.loc 1 185 39 is_stmt 0 view .LVU20
+  72 0018 6577     		strb	r5, [r4, #29]
  186:Core/Src/BLT/can.c ****   canHandle.Init.Mode = CAN_MODE_NORMAL;
- 214              		.loc 1 186 3 is_stmt 1 view .LVU63
- 215              		.loc 1 186 23 is_stmt 0 view .LVU64
- 216 003e A560     		str	r5, [r4, #8]
+  73              		.loc 1 186 3 is_stmt 1 view .LVU21
+  74              		.loc 1 186 23 is_stmt 0 view .LVU22
+  75 001a A560     		str	r5, [r4, #8]
  187:Core/Src/BLT/can.c ****   canHandle.Init.SyncJumpWidth = CAN_SJW_1TQ;
- 217              		.loc 1 187 3 is_stmt 1 view .LVU65
- 218              		.loc 1 187 32 is_stmt 0 view .LVU66
- 219 0040 E560     		str	r5, [r4, #12]
- 188:Core/Src/BLT/can.c ****   canHandle.Init.TimeSeg1 = ((blt_int32u)tseg1 - 1) << CAN_BTR_TS1_Pos;
- 220              		.loc 1 188 3 is_stmt 1 view .LVU67
- 221              		.loc 1 188 30 is_stmt 0 view .LVU68
- 222 0042 9DF82D30 		ldrb	r3, [sp, #45]	@ zero_extendqisi2
- 223              		.loc 1 188 48 view .LVU69
- 224 0046 013B     		subs	r3, r3, #1
- 225              		.loc 1 188 53 view .LVU70
- 226 0048 1B04     		lsls	r3, r3, #16
- 227              		.loc 1 188 27 view .LVU71
- 228 004a 2361     		str	r3, [r4, #16]
- 189:Core/Src/BLT/can.c ****   canHandle.Init.TimeSeg2 = ((blt_int32u)tseg2 - 1) << CAN_BTR_TS2_Pos;
- 229              		.loc 1 189 3 is_stmt 1 view .LVU72
- 230              		.loc 1 189 30 is_stmt 0 view .LVU73
- 231 004c 9DF82C30 		ldrb	r3, [sp, #44]	@ zero_extendqisi2
- 232              		.loc 1 189 48 view .LVU74
- 233 0050 013B     		subs	r3, r3, #1
- 234              		.loc 1 189 53 view .LVU75
- 235 0052 1B05     		lsls	r3, r3, #20
- 236              		.loc 1 189 27 view .LVU76
- 237 0054 6361     		str	r3, [r4, #20]
- 190:Core/Src/BLT/can.c ****   canHandle.Init.Prescaler = prescaler;
- 238              		.loc 1 190 3 is_stmt 1 view .LVU77
- 239              		.loc 1 190 28 is_stmt 0 view .LVU78
- 240 0056 BDF82E30 		ldrh	r3, [sp, #46]
- 241 005a 6360     		str	r3, [r4, #4]
+  76              		.loc 1 187 3 is_stmt 1 view .LVU23
+  77              		.loc 1 187 32 is_stmt 0 view .LVU24
+  78 001c E560     		str	r5, [r4, #12]
+ 188:Core/Src/BLT/can.c ****   canHandle.Init.TimeSeg1 = ((blt_int32u)15 - 1) << CAN_BTR_TS1_Pos;
+  79              		.loc 1 188 3 is_stmt 1 view .LVU25
+  80              		.loc 1 188 27 is_stmt 0 view .LVU26
+  81 001e 4FF46023 		mov	r3, #917504
+  82 0022 2361     		str	r3, [r4, #16]
+ 189:Core/Src/BLT/can.c ****   canHandle.Init.TimeSeg2 = ((blt_int32u)2 - 1) << CAN_BTR_TS2_Pos;
+  83              		.loc 1 189 3 is_stmt 1 view .LVU27
+  84              		.loc 1 189 27 is_stmt 0 view .LVU28
+  85 0024 4FF48013 		mov	r3, #1048576
+  86 0028 6361     		str	r3, [r4, #20]
+ 190:Core/Src/BLT/can.c ****   canHandle.Init.Prescaler = 2;
+  87              		.loc 1 190 3 is_stmt 1 view .LVU29
+  88              		.loc 1 190 28 is_stmt 0 view .LVU30
+  89 002a 0223     		movs	r3, #2
+  90 002c 6360     		str	r3, [r4, #4]
  191:Core/Src/BLT/can.c ****   /* initialize the CAN controller. this only fails if the CAN controller hardware is
  192:Core/Src/BLT/can.c ****    * faulty. no need to evaluate the return value as there is nothing we can do about
  193:Core/Src/BLT/can.c ****    * a faulty CAN controller.
  194:Core/Src/BLT/can.c ****    */
  195:Core/Src/BLT/can.c ****   (void)HAL_CAN_Init(&canHandle);
- 242              		.loc 1 195 3 is_stmt 1 view .LVU79
- 243              		.loc 1 195 9 is_stmt 0 view .LVU80
- 244 005c 2046     		mov	r0, r4
- 245 005e FFF7FEFF 		bl	HAL_CAN_Init
- 246              	.LVL10:
+  91              		.loc 1 195 3 is_stmt 1 view .LVU31
+ARM GAS  /tmp/ccfH8Yoc.s 			page 6
+
+
+  92              		.loc 1 195 9 is_stmt 0 view .LVU32
+  93 002e 2046     		mov	r0, r4
+  94 0030 FFF7FEFF 		bl	HAL_CAN_Init
+  95              	.LVL1:
  196:Core/Src/BLT/can.c ****   /* determine the reception filter mask and id values such that it only leaves one
  197:Core/Src/BLT/can.c ****    * CAN identifier through (BOOT_COM_CAN_RX_MSG_ID).
  198:Core/Src/BLT/can.c ****    */
  199:Core/Src/BLT/can.c ****   if ((rxMsgId & 0x80000000) == 0)
- 247              		.loc 1 199 3 is_stmt 1 view .LVU81
+  96              		.loc 1 199 3 is_stmt 1 view .LVU33
  200:Core/Src/BLT/can.c ****   {
  201:Core/Src/BLT/can.c ****     rxFilterId = rxMsgId << CAN_RI0R_STID_Pos;
- 248              		.loc 1 201 5 view .LVU82
+  97              		.loc 1 201 5 view .LVU34
  202:Core/Src/BLT/can.c ****     rxFilterMask = (CAN_RI0R_STID_Msk) | CAN_RI0R_IDE;
- 249              		.loc 1 202 5 view .LVU83
+  98              		.loc 1 202 5 view .LVU35
  203:Core/Src/BLT/can.c ****   }
  204:Core/Src/BLT/can.c ****   else
  205:Core/Src/BLT/can.c ****   {
  206:Core/Src/BLT/can.c ****     /* negate the ID-type bit */
-ARM GAS  /tmp/ccsU8MGH.s 			page 9
-
-
  207:Core/Src/BLT/can.c ****     rxMsgId &= ~0x80000000;
  208:Core/Src/BLT/can.c ****     rxFilterId = (rxMsgId << CAN_RI0R_EXID_Pos) | CAN_RI0R_IDE;
  209:Core/Src/BLT/can.c ****     rxFilterMask = (CAN_RI0R_EXID_Msk) | CAN_RI0R_IDE;
@@ -490,159 +328,145 @@ ARM GAS  /tmp/ccsU8MGH.s 			page 1
  213:Core/Src/BLT/can.c ****    */
  214:Core/Src/BLT/can.c ****   /* filter 0 is the first filter assigned to the bxCAN master (CAN1) */
  215:Core/Src/BLT/can.c ****   filterConfig.FilterBank = 0;
- 250              		.loc 1 215 3 view .LVU84
- 251              		.loc 1 215 27 is_stmt 0 view .LVU85
- 252 0062 0695     		str	r5, [sp, #24]
+  99              		.loc 1 215 3 view .LVU36
+ 100              		.loc 1 215 27 is_stmt 0 view .LVU37
+ 101 0034 0595     		str	r5, [sp, #20]
  216:Core/Src/BLT/can.c ****   filterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
- 253              		.loc 1 216 3 is_stmt 1 view .LVU86
- 254              		.loc 1 216 27 is_stmt 0 view .LVU87
- 255 0064 0795     		str	r5, [sp, #28]
+ 102              		.loc 1 216 3 is_stmt 1 view .LVU38
+ 103              		.loc 1 216 27 is_stmt 0 view .LVU39
+ 104 0036 0695     		str	r5, [sp, #24]
  217:Core/Src/BLT/can.c ****   filterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
- 256              		.loc 1 217 3 is_stmt 1 view .LVU88
- 257              		.loc 1 217 28 is_stmt 0 view .LVU89
- 258 0066 0896     		str	r6, [sp, #32]
+ 105              		.loc 1 217 3 is_stmt 1 view .LVU40
+ 106              		.loc 1 217 28 is_stmt 0 view .LVU41
+ 107 0038 0796     		str	r6, [sp, #28]
  218:Core/Src/BLT/can.c ****   filterConfig.FilterIdHigh = (rxFilterId >> 16) & 0x0000FFFFu;
- 259              		.loc 1 218 3 is_stmt 1 view .LVU90
- 260              		.loc 1 218 29 is_stmt 0 view .LVU91
- 261 0068 E023     		movs	r3, #224
- 262 006a 0193     		str	r3, [sp, #4]
+ 108              		.loc 1 218 3 is_stmt 1 view .LVU42
+ 109              		.loc 1 218 29 is_stmt 0 view .LVU43
+ 110 003a 4FF4A453 		mov	r3, #5248
+ 111 003e 0093     		str	r3, [sp]
  219:Core/Src/BLT/can.c ****   filterConfig.FilterIdLow = rxFilterId & 0x0000FFFFu;
- 263              		.loc 1 219 3 is_stmt 1 view .LVU92
- 264              		.loc 1 219 28 is_stmt 0 view .LVU93
- 265 006c 0295     		str	r5, [sp, #8]
+ 112              		.loc 1 219 3 is_stmt 1 view .LVU44
+ 113              		.loc 1 219 28 is_stmt 0 view .LVU45
+ 114 0040 0195     		str	r5, [sp, #4]
  220:Core/Src/BLT/can.c ****   filterConfig.FilterMaskIdHigh = (rxFilterMask >> 16) & 0x0000FFFFu;
- 266              		.loc 1 220 3 is_stmt 1 view .LVU94
- 267              		.loc 1 220 33 is_stmt 0 view .LVU95
- 268 006e 4FF6E073 		movw	r3, #65504
- 269 0072 0393     		str	r3, [sp, #12]
+ 115              		.loc 1 220 3 is_stmt 1 view .LVU46
+ 116              		.loc 1 220 33 is_stmt 0 view .LVU47
+ 117 0042 4FF6E073 		movw	r3, #65504
+ 118 0046 0293     		str	r3, [sp, #8]
  221:Core/Src/BLT/can.c ****   filterConfig.FilterMaskIdLow = rxFilterMask & 0x0000FFFFu;
- 270              		.loc 1 221 3 is_stmt 1 view .LVU96
- 271              		.loc 1 221 32 is_stmt 0 view .LVU97
- 272 0074 0423     		movs	r3, #4
- 273 0076 0493     		str	r3, [sp, #16]
+ 119              		.loc 1 221 3 is_stmt 1 view .LVU48
+ 120              		.loc 1 221 32 is_stmt 0 view .LVU49
+ 121 0048 0423     		movs	r3, #4
+ 122 004a 0393     		str	r3, [sp, #12]
+ARM GAS  /tmp/ccfH8Yoc.s 			page 7
+
+
  222:Core/Src/BLT/can.c ****   filterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
- 274              		.loc 1 222 3 is_stmt 1 view .LVU98
- 275              		.loc 1 222 37 is_stmt 0 view .LVU99
- 276 0078 0595     		str	r5, [sp, #20]
+ 123              		.loc 1 222 3 is_stmt 1 view .LVU50
+ 124              		.loc 1 222 37 is_stmt 0 view .LVU51
+ 125 004c 0495     		str	r5, [sp, #16]
  223:Core/Src/BLT/can.c ****   filterConfig.FilterActivation = ENABLE;
- 277              		.loc 1 223 3 is_stmt 1 view .LVU100
- 278              		.loc 1 223 33 is_stmt 0 view .LVU101
- 279 007a 0996     		str	r6, [sp, #36]
+ 126              		.loc 1 223 3 is_stmt 1 view .LVU52
+ 127              		.loc 1 223 33 is_stmt 0 view .LVU53
+ 128 004e 0896     		str	r6, [sp, #32]
  224:Core/Src/BLT/can.c ****   /* select the start slave bank number (for CAN1). this configuration assigns filter
  225:Core/Src/BLT/can.c ****    * banks 0..13 to CAN1 and 14..27 to CAN2.
  226:Core/Src/BLT/can.c ****    */
  227:Core/Src/BLT/can.c ****   filterConfig.SlaveStartFilterBank = 14;
- 280              		.loc 1 227 3 is_stmt 1 view .LVU102
- 281              		.loc 1 227 37 is_stmt 0 view .LVU103
- 282 007c 0E23     		movs	r3, #14
- 283 007e 0A93     		str	r3, [sp, #40]
+ 129              		.loc 1 227 3 is_stmt 1 view .LVU54
+ 130              		.loc 1 227 37 is_stmt 0 view .LVU55
+ 131 0050 0E23     		movs	r3, #14
+ 132 0052 0993     		str	r3, [sp, #36]
  228:Core/Src/BLT/can.c ****   (void)HAL_CAN_ConfigFilter(&canHandle, &filterConfig);
- 284              		.loc 1 228 3 is_stmt 1 view .LVU104
-ARM GAS  /tmp/ccsU8MGH.s 			page 10
-
-
- 285              		.loc 1 228 9 is_stmt 0 view .LVU105
- 286 0080 01A9     		add	r1, sp, #4
- 287 0082 2046     		mov	r0, r4
- 288 0084 FFF7FEFF 		bl	HAL_CAN_ConfigFilter
- 289              	.LVL11:
+ 133              		.loc 1 228 3 is_stmt 1 view .LVU56
+ 134              		.loc 1 228 9 is_stmt 0 view .LVU57
+ 135 0054 6946     		mov	r1, sp
+ 136 0056 2046     		mov	r0, r4
+ 137 0058 FFF7FEFF 		bl	HAL_CAN_ConfigFilter
+ 138              	.LVL2:
  229:Core/Src/BLT/can.c ****   /* start the CAN peripheral. no need to evaluate the return value as there is nothing
  230:Core/Src/BLT/can.c ****    * we can do about a faulty CAN controller. */
  231:Core/Src/BLT/can.c ****   (void)HAL_CAN_Start(&canHandle);
- 290              		.loc 1 231 3 is_stmt 1 view .LVU106
- 291              		.loc 1 231 9 is_stmt 0 view .LVU107
- 292 0088 2046     		mov	r0, r4
- 293 008a FFF7FEFF 		bl	HAL_CAN_Start
- 294              	.LVL12:
+ 139              		.loc 1 231 3 is_stmt 1 view .LVU58
+ 140              		.loc 1 231 9 is_stmt 0 view .LVU59
+ 141 005c 2046     		mov	r0, r4
+ 142 005e FFF7FEFF 		bl	HAL_CAN_Start
+ 143              	.LVL3:
  232:Core/Src/BLT/can.c **** } /*** end of CanInit ***/
- 295              		.loc 1 232 1 view .LVU108
- 296 008e 0CB0     		add	sp, sp, #48
- 297              		.cfi_remember_state
- 298              		.cfi_def_cfa_offset 16
- 299              		@ sp needed
- 300 0090 70BD     		pop	{r4, r5, r6, pc}
- 301              	.LVL13:
- 302              	.L13:
- 303              		.cfi_restore_state
- 175:Core/Src/BLT/can.c ****   }
- 304              		.loc 1 175 5 is_stmt 1 discriminator 2 view .LVU109
- 175:Core/Src/BLT/can.c ****   }
- 305              		.loc 1 175 5 discriminator 2 view .LVU110
- 306 0092 AF21     		movs	r1, #175
- 307 0094 0348     		ldr	r0, .L14+8
- 308 0096 FFF7FEFF 		bl	AssertFailure
- 309              	.LVL14:
- 310 009a C5E7     		b	.L11
- 311              	.L15:
- 312              		.align	2
- 313              	.L14:
- 314 009c 00000000 		.word	canHandle
- 315 00a0 00640040 		.word	1073767424
- 316 00a4 00000000 		.word	.LC0
- 317              		.cfi_endproc
- 318              	.LFE219:
- 320              		.section	.text.CanTransmitPacket,"ax",%progbits
- 321              		.align	1
- 322              		.global	CanTransmitPacket
- 323              		.syntax unified
- 324              		.thumb
- 325              		.thumb_func
- 327              	CanTransmitPacket:
- 328              	.LVL15:
- 329              	.LFB220:
+ 144              		.loc 1 232 1 view .LVU60
+ 145 0062 0AB0     		add	sp, sp, #40
+ 146              		.cfi_def_cfa_offset 16
+ 147              		@ sp needed
+ 148 0064 70BD     		pop	{r4, r5, r6, pc}
+ 149              	.L4:
+ 150 0066 00BF     		.align	2
+ 151              	.L3:
+ 152 0068 00000000 		.word	canHandle
+ 153 006c 00640040 		.word	1073767424
+ 154              		.cfi_endproc
+ 155              	.LFE219:
+ 157              		.section	.text.CanTransmitPacket,"ax",%progbits
+ 158              		.align	1
+ 159              		.global	CanTransmitPacket
+ 160              		.syntax unified
+ 161              		.thumb
+ 162              		.thumb_func
+ 164              	CanTransmitPacket:
+ 165              	.LVL4:
+ 166              	.LFB220:
  233:Core/Src/BLT/can.c **** 
  234:Core/Src/BLT/can.c **** 
  235:Core/Src/BLT/can.c **** /************************************************************************************//**
  236:Core/Src/BLT/can.c **** ** \brief     Transmits a packet formatted for the communication interface.
+ARM GAS  /tmp/ccfH8Yoc.s 			page 8
+
+
  237:Core/Src/BLT/can.c **** ** \param     data Pointer to byte array with data that it to be transmitted.
  238:Core/Src/BLT/can.c **** ** \param     len  Number of bytes that are to be transmitted.
  239:Core/Src/BLT/can.c **** ** \return    none.
  240:Core/Src/BLT/can.c **** **
-ARM GAS  /tmp/ccsU8MGH.s 			page 11
-
-
  241:Core/Src/BLT/can.c **** ****************************************************************************************/
  242:Core/Src/BLT/can.c **** void CanTransmitPacket(blt_int8u *data, blt_int8u len)
  243:Core/Src/BLT/can.c **** {
- 330              		.loc 1 243 1 view -0
- 331              		.cfi_startproc
- 332              		@ args = 0, pretend = 0, frame = 32
- 333              		@ frame_needed = 0, uses_anonymous_args = 0
- 334              		.loc 1 243 1 is_stmt 0 view .LVU112
- 335 0000 10B5     		push	{r4, lr}
- 336              		.cfi_def_cfa_offset 8
- 337              		.cfi_offset 4, -8
- 338              		.cfi_offset 14, -4
- 339 0002 88B0     		sub	sp, sp, #32
- 340              		.cfi_def_cfa_offset 40
- 341 0004 0246     		mov	r2, r0
+ 167              		.loc 1 243 1 is_stmt 1 view -0
+ 168              		.cfi_startproc
+ 169              		@ args = 0, pretend = 0, frame = 32
+ 170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 171              		.loc 1 243 1 is_stmt 0 view .LVU62
+ 172 0000 10B5     		push	{r4, lr}
+ 173              		.cfi_def_cfa_offset 8
+ 174              		.cfi_offset 4, -8
+ 175              		.cfi_offset 14, -4
+ 176 0002 88B0     		sub	sp, sp, #32
+ 177              		.cfi_def_cfa_offset 40
+ 178 0004 0246     		mov	r2, r0
  244:Core/Src/BLT/can.c ****   blt_int32u txMsgId = BOOT_COM_CAN_TX_MSG_ID;
- 342              		.loc 1 244 3 is_stmt 1 view .LVU113
- 343              	.LVL16:
+ 179              		.loc 1 244 3 is_stmt 1 view .LVU63
+ 180              	.LVL5:
  245:Core/Src/BLT/can.c ****   CAN_TxHeaderTypeDef txMsgHeader;
- 344              		.loc 1 245 3 view .LVU114
+ 181              		.loc 1 245 3 view .LVU64
  246:Core/Src/BLT/can.c ****   blt_int32u txMsgMailbox;
- 345              		.loc 1 246 3 view .LVU115
+ 182              		.loc 1 246 3 view .LVU65
  247:Core/Src/BLT/can.c ****   blt_int32u timeout;
- 346              		.loc 1 247 3 view .LVU116
+ 183              		.loc 1 247 3 view .LVU66
  248:Core/Src/BLT/can.c ****   HAL_StatusTypeDef txStatus;
- 347              		.loc 1 248 3 view .LVU117
+ 184              		.loc 1 248 3 view .LVU67
  249:Core/Src/BLT/can.c **** 
  250:Core/Src/BLT/can.c ****   /* configure the message that should be transmitted. */
  251:Core/Src/BLT/can.c ****   if ((txMsgId & 0x80000000) == 0)
- 348              		.loc 1 251 3 view .LVU118
+ 185              		.loc 1 251 3 view .LVU68
  252:Core/Src/BLT/can.c ****   {
  253:Core/Src/BLT/can.c ****     /* set the 11-bit CAN identifier. */
  254:Core/Src/BLT/can.c ****     txMsgHeader.StdId = txMsgId;
- 349              		.loc 1 254 5 view .LVU119
- 350              		.loc 1 254 23 is_stmt 0 view .LVU120
- 351 0006 40F6FA73 		movw	r3, #4090
- 352 000a 0293     		str	r3, [sp, #8]
+ 186              		.loc 1 254 5 view .LVU69
+ 187              		.loc 1 254 23 is_stmt 0 view .LVU70
+ 188 0006 4FF4FD73 		mov	r3, #506
+ 189 000a 0293     		str	r3, [sp, #8]
  255:Core/Src/BLT/can.c ****     txMsgHeader.IDE = CAN_ID_STD;
- 353              		.loc 1 255 5 is_stmt 1 view .LVU121
- 354              		.loc 1 255 21 is_stmt 0 view .LVU122
- 355 000c 0023     		movs	r3, #0
- 356 000e 0493     		str	r3, [sp, #16]
+ 190              		.loc 1 255 5 is_stmt 1 view .LVU71
+ 191              		.loc 1 255 21 is_stmt 0 view .LVU72
+ 192 000c 0023     		movs	r3, #0
+ 193 000e 0493     		str	r3, [sp, #16]
  256:Core/Src/BLT/can.c ****   }
  257:Core/Src/BLT/can.c ****   else
  258:Core/Src/BLT/can.c ****   {
@@ -653,37 +477,37 @@ ARM GAS  /tmp/ccsU8MGH.s 			page 1
  263:Core/Src/BLT/can.c ****     txMsgHeader.IDE = CAN_ID_EXT;
  264:Core/Src/BLT/can.c ****   }
  265:Core/Src/BLT/can.c ****   txMsgHeader.RTR = CAN_RTR_DATA;
- 357              		.loc 1 265 3 is_stmt 1 view .LVU123
- 358              		.loc 1 265 19 is_stmt 0 view .LVU124
- 359 0010 0593     		str	r3, [sp, #20]
+ 194              		.loc 1 265 3 is_stmt 1 view .LVU73
+ARM GAS  /tmp/ccfH8Yoc.s 			page 9
+
+
+ 195              		.loc 1 265 19 is_stmt 0 view .LVU74
+ 196 0010 0593     		str	r3, [sp, #20]
  266:Core/Src/BLT/can.c ****   txMsgHeader.DLC = len;
- 360              		.loc 1 266 3 is_stmt 1 view .LVU125
-ARM GAS  /tmp/ccsU8MGH.s 			page 12
-
-
- 361              		.loc 1 266 19 is_stmt 0 view .LVU126
- 362 0012 0691     		str	r1, [sp, #24]
+ 197              		.loc 1 266 3 is_stmt 1 view .LVU75
+ 198              		.loc 1 266 19 is_stmt 0 view .LVU76
+ 199 0012 0691     		str	r1, [sp, #24]
  267:Core/Src/BLT/can.c **** 
  268:Core/Src/BLT/can.c ****   /* submit the message for transmission. */
  269:Core/Src/BLT/can.c ****   txStatus = HAL_CAN_AddTxMessage(&canHandle, &txMsgHeader, data,
- 363              		.loc 1 269 3 is_stmt 1 view .LVU127
- 364              		.loc 1 269 14 is_stmt 0 view .LVU128
- 365 0014 01AB     		add	r3, sp, #4
- 366 0016 02A9     		add	r1, sp, #8
- 367              	.LVL17:
- 368              		.loc 1 269 14 view .LVU129
- 369 0018 0B48     		ldr	r0, .L22
- 370              	.LVL18:
- 371              		.loc 1 269 14 view .LVU130
- 372 001a FFF7FEFF 		bl	HAL_CAN_AddTxMessage
- 373              	.LVL19:
+ 200              		.loc 1 269 3 is_stmt 1 view .LVU77
+ 201              		.loc 1 269 14 is_stmt 0 view .LVU78
+ 202 0014 01AB     		add	r3, sp, #4
+ 203 0016 02A9     		add	r1, sp, #8
+ 204              	.LVL6:
+ 205              		.loc 1 269 14 view .LVU79
+ 206 0018 0B48     		ldr	r0, .L11
+ 207              	.LVL7:
+ 208              		.loc 1 269 14 view .LVU80
+ 209 001a FFF7FEFF 		bl	HAL_CAN_AddTxMessage
+ 210              	.LVL8:
  270:Core/Src/BLT/can.c ****                                   (uint32_t *)&txMsgMailbox);
  271:Core/Src/BLT/can.c ****   if (txStatus == HAL_OK)
- 374              		.loc 1 271 3 is_stmt 1 view .LVU131
- 375              		.loc 1 271 6 is_stmt 0 view .LVU132
- 376 001e 08B1     		cbz	r0, .L21
- 377              	.LVL20:
- 378              	.L16:
+ 211              		.loc 1 271 3 is_stmt 1 view .LVU81
+ 212              		.loc 1 271 6 is_stmt 0 view .LVU82
+ 213 001e 08B1     		cbz	r0, .L10
+ 214              	.LVL9:
+ 215              	.L5:
  272:Core/Src/BLT/can.c ****   {
  273:Core/Src/BLT/can.c ****     /* determine timeout time for the transmit completion. */
  274:Core/Src/BLT/can.c ****     timeout = TimerGet() + CAN_MSG_TX_TIMEOUT_MS;
@@ -702,149 +526,149 @@ ARM GAS  /tmp/ccsU8MGH.s 			page 1
  287:Core/Src/BLT/can.c ****     }
  288:Core/Src/BLT/can.c ****   }
  289:Core/Src/BLT/can.c **** } /*** end of CanTransmitPacket ***/
- 379              		.loc 1 289 1 view .LVU133
- 380 0020 08B0     		add	sp, sp, #32
- 381              		.cfi_remember_state
- 382              		.cfi_def_cfa_offset 8
- 383              		@ sp needed
- 384 0022 10BD     		pop	{r4, pc}
- 385              	.LVL21:
- 386              	.L21:
- 387              		.cfi_restore_state
+ 216              		.loc 1 289 1 view .LVU83
+ 217 0020 08B0     		add	sp, sp, #32
+ 218              		.cfi_remember_state
+ 219              		.cfi_def_cfa_offset 8
+ 220              		@ sp needed
+ 221 0022 10BD     		pop	{r4, pc}
+ 222              	.LVL10:
+ 223              	.L10:
+ 224              		.cfi_restore_state
  274:Core/Src/BLT/can.c ****     /* poll for completion of the transmit operation. */
- 388              		.loc 1 274 5 is_stmt 1 view .LVU134
+ 225              		.loc 1 274 5 is_stmt 1 view .LVU84
  274:Core/Src/BLT/can.c ****     /* poll for completion of the transmit operation. */
- 389              		.loc 1 274 15 is_stmt 0 view .LVU135
- 390 0024 FFF7FEFF 		bl	TimerGet
- 391              	.LVL22:
- 274:Core/Src/BLT/can.c ****     /* poll for completion of the transmit operation. */
-ARM GAS  /tmp/ccsU8MGH.s 			page 13
+ARM GAS  /tmp/ccfH8Yoc.s 			page 10
 
 
- 392              		.loc 1 274 13 view .LVU136
- 393 0028 00F13204 		add	r4, r0, #50
- 394              	.LVL23:
+ 226              		.loc 1 274 15 is_stmt 0 view .LVU85
+ 227 0024 FFF7FEFF 		bl	TimerGet
+ 228              	.LVL11:
+ 274:Core/Src/BLT/can.c ****     /* poll for completion of the transmit operation. */
+ 229              		.loc 1 274 13 discriminator 1 view .LVU86
+ 230 0028 00F13204 		add	r4, r0, #50
+ 231              	.LVL12:
  276:Core/Src/BLT/can.c ****     {
- 395              		.loc 1 276 5 is_stmt 1 view .LVU137
- 396              	.L18:
+ 232              		.loc 1 276 5 is_stmt 1 view .LVU87
+ 233              	.L7:
  276:Core/Src/BLT/can.c ****     {
- 397              		.loc 1 276 65 view .LVU138
+ 234              		.loc 1 276 65 view .LVU88
  276:Core/Src/BLT/can.c ****     {
- 398              		.loc 1 276 12 is_stmt 0 view .LVU139
- 399 002c 0199     		ldr	r1, [sp, #4]
- 400 002e 0648     		ldr	r0, .L22
- 401 0030 FFF7FEFF 		bl	HAL_CAN_IsTxMessagePending
- 402              	.LVL24:
+ 235              		.loc 1 276 12 is_stmt 0 view .LVU89
+ 236 002c 0199     		ldr	r1, [sp, #4]
+ 237 002e 0648     		ldr	r0, .L11
+ 238 0030 FFF7FEFF 		bl	HAL_CAN_IsTxMessagePending
+ 239              	.LVL13:
  276:Core/Src/BLT/can.c ****     {
- 403              		.loc 1 276 65 view .LVU140
- 404 0034 0028     		cmp	r0, #0
- 405 0036 F3D0     		beq	.L16
+ 240              		.loc 1 276 65 discriminator 1 view .LVU90
+ 241 0034 0028     		cmp	r0, #0
+ 242 0036 F3D0     		beq	.L5
  279:Core/Src/BLT/can.c ****       /* break loop upon timeout. this would indicate a hardware failure or no other
- 406              		.loc 1 279 7 is_stmt 1 view .LVU141
- 407 0038 FFF7FEFF 		bl	CopService
- 408              	.LVL25:
+ 243              		.loc 1 279 7 is_stmt 1 view .LVU91
+ 244 0038 FFF7FEFF 		bl	CopService
+ 245              	.LVL14:
  283:Core/Src/BLT/can.c ****       {
- 409              		.loc 1 283 7 view .LVU142
+ 246              		.loc 1 283 7 view .LVU92
  283:Core/Src/BLT/can.c ****       {
- 410              		.loc 1 283 11 is_stmt 0 view .LVU143
- 411 003c FFF7FEFF 		bl	TimerGet
- 412              	.LVL26:
+ 247              		.loc 1 283 11 is_stmt 0 view .LVU93
+ 248 003c FFF7FEFF 		bl	TimerGet
+ 249              	.LVL15:
  283:Core/Src/BLT/can.c ****       {
- 413              		.loc 1 283 10 view .LVU144
- 414 0040 A042     		cmp	r0, r4
- 415 0042 F3D9     		bls	.L18
- 416 0044 ECE7     		b	.L16
- 417              	.L23:
- 418 0046 00BF     		.align	2
- 419              	.L22:
- 420 0048 00000000 		.word	canHandle
- 421              		.cfi_endproc
- 422              	.LFE220:
- 424              		.section	.text.CanReceivePacket,"ax",%progbits
- 425              		.align	1
- 426              		.global	CanReceivePacket
- 427              		.syntax unified
- 428              		.thumb
- 429              		.thumb_func
- 431              	CanReceivePacket:
- 432              	.LVL27:
- 433              	.LFB221:
+ 250              		.loc 1 283 10 discriminator 1 view .LVU94
+ 251 0040 A042     		cmp	r0, r4
+ 252 0042 F3D9     		bls	.L7
+ 253 0044 ECE7     		b	.L5
+ 254              	.L12:
+ 255 0046 00BF     		.align	2
+ 256              	.L11:
+ 257 0048 00000000 		.word	canHandle
+ 258              		.cfi_endproc
+ 259              	.LFE220:
+ 261              		.section	.text.CanReceivePacket,"ax",%progbits
+ 262              		.align	1
+ 263              		.global	CanReceivePacket
+ 264              		.syntax unified
+ 265              		.thumb
+ 266              		.thumb_func
+ 268              	CanReceivePacket:
+ 269              	.LVL16:
+ 270              	.LFB221:
  290:Core/Src/BLT/can.c **** 
  291:Core/Src/BLT/can.c **** 
  292:Core/Src/BLT/can.c **** /************************************************************************************//**
  293:Core/Src/BLT/can.c **** ** \brief     Receives a communication interface packet if one is present.
  294:Core/Src/BLT/can.c **** ** \param     data Pointer to byte array where the data is to be stored.
+ARM GAS  /tmp/ccfH8Yoc.s 			page 11
+
+
  295:Core/Src/BLT/can.c **** ** \param     len Pointer where the length of the packet is to be stored.
  296:Core/Src/BLT/can.c **** ** \return    BLT_TRUE is a packet was received, BLT_FALSE otherwise.
  297:Core/Src/BLT/can.c **** **
  298:Core/Src/BLT/can.c **** ****************************************************************************************/
-ARM GAS  /tmp/ccsU8MGH.s 			page 14
-
-
  299:Core/Src/BLT/can.c **** blt_bool CanReceivePacket(blt_int8u *data, blt_int8u *len)
  300:Core/Src/BLT/can.c **** {
- 434              		.loc 1 300 1 is_stmt 1 view -0
- 435              		.cfi_startproc
- 436              		@ args = 0, pretend = 0, frame = 32
- 437              		@ frame_needed = 0, uses_anonymous_args = 0
- 438              		.loc 1 300 1 is_stmt 0 view .LVU146
- 439 0000 10B5     		push	{r4, lr}
- 440              		.cfi_def_cfa_offset 8
- 441              		.cfi_offset 4, -8
- 442              		.cfi_offset 14, -4
- 443 0002 88B0     		sub	sp, sp, #32
- 444              		.cfi_def_cfa_offset 40
- 445 0004 0346     		mov	r3, r0
- 446 0006 0C46     		mov	r4, r1
+ 271              		.loc 1 300 1 is_stmt 1 view -0
+ 272              		.cfi_startproc
+ 273              		@ args = 0, pretend = 0, frame = 32
+ 274              		@ frame_needed = 0, uses_anonymous_args = 0
+ 275              		.loc 1 300 1 is_stmt 0 view .LVU96
+ 276 0000 10B5     		push	{r4, lr}
+ 277              		.cfi_def_cfa_offset 8
+ 278              		.cfi_offset 4, -8
+ 279              		.cfi_offset 14, -4
+ 280 0002 88B0     		sub	sp, sp, #32
+ 281              		.cfi_def_cfa_offset 40
+ 282 0004 0346     		mov	r3, r0
+ 283 0006 0C46     		mov	r4, r1
  301:Core/Src/BLT/can.c ****   blt_int32u rxMsgId = BOOT_COM_CAN_RX_MSG_ID;
- 447              		.loc 1 301 3 is_stmt 1 view .LVU147
- 448              	.LVL28:
+ 284              		.loc 1 301 3 is_stmt 1 view .LVU97
+ 285              	.LVL17:
  302:Core/Src/BLT/can.c ****   blt_bool result = BLT_FALSE;
- 449              		.loc 1 302 3 view .LVU148
+ 286              		.loc 1 302 3 view .LVU98
  303:Core/Src/BLT/can.c ****   CAN_RxHeaderTypeDef rxMsgHeader;
- 450              		.loc 1 303 3 view .LVU149
+ 287              		.loc 1 303 3 view .LVU99
  304:Core/Src/BLT/can.c **** 
  305:Core/Src/BLT/can.c ****   if (HAL_CAN_GetRxMessage(&canHandle, CAN_RX_FIFO0, &rxMsgHeader, data) == HAL_OK)
- 451              		.loc 1 305 3 view .LVU150
- 452              		.loc 1 305 7 is_stmt 0 view .LVU151
- 453 0008 01AA     		add	r2, sp, #4
- 454 000a 0021     		movs	r1, #0
- 455              	.LVL29:
- 456              		.loc 1 305 7 view .LVU152
- 457 000c 0748     		ldr	r0, .L28
- 458              	.LVL30:
- 459              		.loc 1 305 7 view .LVU153
- 460 000e FFF7FEFF 		bl	HAL_CAN_GetRxMessage
- 461              	.LVL31:
- 462              		.loc 1 305 6 view .LVU154
- 463 0012 40B9     		cbnz	r0, .L26
+ 288              		.loc 1 305 3 view .LVU100
+ 289              		.loc 1 305 7 is_stmt 0 view .LVU101
+ 290 0008 01AA     		add	r2, sp, #4
+ 291 000a 0021     		movs	r1, #0
+ 292              	.LVL18:
+ 293              		.loc 1 305 7 view .LVU102
+ 294 000c 0748     		ldr	r0, .L17
+ 295              	.LVL19:
+ 296              		.loc 1 305 7 view .LVU103
+ 297 000e FFF7FEFF 		bl	HAL_CAN_GetRxMessage
+ 298              	.LVL20:
+ 299              		.loc 1 305 6 discriminator 1 view .LVU104
+ 300 0012 40B9     		cbnz	r0, .L15
  306:Core/Src/BLT/can.c ****   {
  307:Core/Src/BLT/can.c ****     /* check if this message has the configured CAN packet identifier. */
  308:Core/Src/BLT/can.c ****     if ((rxMsgId & 0x80000000) == 0)
- 464              		.loc 1 308 5 is_stmt 1 view .LVU155
+ 301              		.loc 1 308 5 is_stmt 1 view .LVU105
  309:Core/Src/BLT/can.c ****     {
  310:Core/Src/BLT/can.c ****       /* was an 11-bit CAN message received that matches? */
  311:Core/Src/BLT/can.c ****       if ( (rxMsgHeader.StdId == rxMsgId) &&
- 465              		.loc 1 311 7 view .LVU156
- 466              		.loc 1 311 24 is_stmt 0 view .LVU157
- 467 0014 019B     		ldr	r3, [sp, #4]
- 468              		.loc 1 311 10 view .LVU158
- 469 0016 072B     		cmp	r3, #7
- 470 0018 06D1     		bne	.L25
+ 302              		.loc 1 311 7 view .LVU106
+ 303              		.loc 1 311 24 is_stmt 0 view .LVU107
+ 304 0014 019B     		ldr	r3, [sp, #4]
+ 305              		.loc 1 311 10 view .LVU108
+ 306 0016 A42B     		cmp	r3, #164
+ 307 0018 06D1     		bne	.L14
  312:Core/Src/BLT/can.c ****            (rxMsgHeader.IDE == CAN_ID_STD) )
- 471              		.loc 1 312 24 discriminator 1 view .LVU159
- 472 001a 039B     		ldr	r3, [sp, #12]
+ 308              		.loc 1 312 24 view .LVU109
+ 309 001a 039B     		ldr	r3, [sp, #12]
+ARM GAS  /tmp/ccfH8Yoc.s 			page 12
+
+
  311:Core/Src/BLT/can.c ****            (rxMsgHeader.IDE == CAN_ID_STD) )
- 473              		.loc 1 311 43 discriminator 1 view .LVU160
- 474 001c 23B9     		cbnz	r3, .L25
+ 310              		.loc 1 311 43 discriminator 1 view .LVU110
+ 311 001c 23B9     		cbnz	r3, .L14
  313:Core/Src/BLT/can.c ****       {
-ARM GAS  /tmp/ccsU8MGH.s 			page 15
-
-
  314:Core/Src/BLT/can.c ****         /* set flag that a packet with a matching CAN identifier was received. */
  315:Core/Src/BLT/can.c ****         result = BLT_TRUE;
- 475              		.loc 1 315 9 is_stmt 1 view .LVU161
- 476              	.LVL32:
+ 312              		.loc 1 315 9 is_stmt 1 view .LVU111
+ 313              	.LVL21:
  316:Core/Src/BLT/can.c ****       }
  317:Core/Src/BLT/can.c ****     }
  318:Core/Src/BLT/can.c ****     else
@@ -862,138 +686,86 @@ ARM GAS  /tmp/ccsU8MGH.s 			page 1
  330:Core/Src/BLT/can.c ****   }
  331:Core/Src/BLT/can.c ****   /* store the data length. */
  332:Core/Src/BLT/can.c ****   if (result == BLT_TRUE)
- 477              		.loc 1 332 3 view .LVU162
+ 314              		.loc 1 332 3 view .LVU112
  333:Core/Src/BLT/can.c ****   {
  334:Core/Src/BLT/can.c ****     *len = rxMsgHeader.DLC;
- 478              		.loc 1 334 5 view .LVU163
- 479              		.loc 1 334 23 is_stmt 0 view .LVU164
- 480 001e 059B     		ldr	r3, [sp, #20]
- 481              		.loc 1 334 10 view .LVU165
- 482 0020 2370     		strb	r3, [r4]
+ 315              		.loc 1 334 5 view .LVU113
+ 316              		.loc 1 334 23 is_stmt 0 view .LVU114
+ 317 001e 059B     		ldr	r3, [sp, #20]
+ 318              		.loc 1 334 10 view .LVU115
+ 319 0020 2370     		strb	r3, [r4]
  315:Core/Src/BLT/can.c ****       }
- 483              		.loc 1 315 16 view .LVU166
- 484 0022 0120     		movs	r0, #1
- 485 0024 00E0     		b	.L25
- 486              	.LVL33:
- 487              	.L26:
+ 320              		.loc 1 315 16 view .LVU116
+ 321 0022 0120     		movs	r0, #1
+ 322 0024 00E0     		b	.L14
+ 323              	.LVL22:
+ 324              	.L15:
  302:Core/Src/BLT/can.c ****   CAN_RxHeaderTypeDef rxMsgHeader;
- 488              		.loc 1 302 12 view .LVU167
- 489 0026 0020     		movs	r0, #0
- 490              	.LVL34:
- 491              	.L25:
+ 325              		.loc 1 302 12 view .LVU117
+ 326 0026 0020     		movs	r0, #0
+ 327              	.LVL23:
+ 328              	.L14:
  335:Core/Src/BLT/can.c ****   }
  336:Core/Src/BLT/can.c ****   /* Give the result back to the caller. */
  337:Core/Src/BLT/can.c ****   return result;
- 492              		.loc 1 337 3 is_stmt 1 view .LVU168
+ 329              		.loc 1 337 3 is_stmt 1 view .LVU118
  338:Core/Src/BLT/can.c **** } /*** end of CanReceivePacket ***/
- 493              		.loc 1 338 1 is_stmt 0 view .LVU169
- 494 0028 08B0     		add	sp, sp, #32
- 495              		.cfi_def_cfa_offset 8
- 496              		@ sp needed
- 497 002a 10BD     		pop	{r4, pc}
- 498              	.LVL35:
- 499              	.L29:
- 500              		.loc 1 338 1 view .LVU170
- 501              		.align	2
- 502              	.L28:
- 503 002c 00000000 		.word	canHandle
- 504              		.cfi_endproc
-ARM GAS  /tmp/ccsU8MGH.s 			page 16
+ 330              		.loc 1 338 1 is_stmt 0 view .LVU119
+ 331 0028 08B0     		add	sp, sp, #32
+ 332              		.cfi_def_cfa_offset 8
+ 333              		@ sp needed
+ 334 002a 10BD     		pop	{r4, pc}
+ 335              	.LVL24:
+ 336              	.L18:
+ 337              		.loc 1 338 1 view .LVU120
+ARM GAS  /tmp/ccfH8Yoc.s 			page 13
 
 
- 505              	.LFE221:
- 507              		.section	.bss.canHandle,"aw",%nobits
- 508              		.align	2
- 511              	canHandle:
- 512 0000 00000000 		.space	40
- 512      00000000 
- 512      00000000 
- 512      00000000 
- 512      00000000 
- 513              		.section	.rodata.canTiming,"a"
- 514              		.align	2
- 517              	canTiming:
- 518 0000 05       		.byte	5
- 519 0001 02       		.byte	2
- 520 0002 06       		.byte	6
- 521 0003 02       		.byte	2
- 522 0004 06       		.byte	6
- 523 0005 03       		.byte	3
- 524 0006 07       		.byte	7
- 525 0007 03       		.byte	3
- 526 0008 08       		.byte	8
- 527 0009 03       		.byte	3
- 528 000a 09       		.byte	9
- 529 000b 03       		.byte	3
- 530 000c 09       		.byte	9
- 531 000d 04       		.byte	4
- 532 000e 0A       		.byte	10
- 533 000f 04       		.byte	4
- 534 0010 0B       		.byte	11
- 535 0011 04       		.byte	4
- 536 0012 0C       		.byte	12
- 537 0013 04       		.byte	4
- 538 0014 0C       		.byte	12
- 539 0015 05       		.byte	5
- 540 0016 0D       		.byte	13
- 541 0017 05       		.byte	5
- 542 0018 0E       		.byte	14
- 543 0019 05       		.byte	5
- 544 001a 0F       		.byte	15
- 545 001b 05       		.byte	5
- 546 001c 0F       		.byte	15
- 547 001d 06       		.byte	6
- 548 001e 10       		.byte	16
- 549 001f 06       		.byte	6
- 550 0020 10       		.byte	16
- 551 0021 07       		.byte	7
- 552 0022 10       		.byte	16
- 553 0023 08       		.byte	8
- 554              		.text
- 555              	.Letext0:
- 556              		.file 2 "Core/Inc/BLT/types.h"
- 557              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 558              		.file 4 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 559              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f302x8.h"
- 560              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h"
- 561              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
- 562              		.file 8 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_can.h"
-ARM GAS  /tmp/ccsU8MGH.s 			page 17
-
-
- 563              		.file 9 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_rcc.h"
- 564              		.file 10 "Core/Inc/BLT/asserts.h"
- 565              		.file 11 "Core/Inc/BLT/cop.h"
- 566              		.file 12 "Core/Inc/BLT/timer.h"
-ARM GAS  /tmp/ccsU8MGH.s 			page 18
+ 338              		.align	2
+ 339              	.L17:
+ 340 002c 00000000 		.word	canHandle
+ 341              		.cfi_endproc
+ 342              	.LFE221:
+ 344              		.section	.bss.canHandle,"aw",%nobits
+ 345              		.align	2
+ 348              	canHandle:
+ 349 0000 00000000 		.space	40
+ 349      00000000 
+ 349      00000000 
+ 349      00000000 
+ 349      00000000 
+ 350              		.text
+ 351              	.Letext0:
+ 352              		.file 2 "Core/Inc/BLT/types.h"
+ 353              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 354              		.file 4 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 355              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f302x8.h"
+ 356              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h"
+ 357              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 358              		.file 8 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_can.h"
+ 359              		.file 9 "Core/Inc/BLT/cop.h"
+ 360              		.file 10 "Core/Inc/BLT/timer.h"
+ARM GAS  /tmp/ccfH8Yoc.s 			page 14
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 can.c
-     /tmp/ccsU8MGH.s:21     .text.CanGetSpeedConfig:0000000000000000 $t
-     /tmp/ccsU8MGH.s:26     .text.CanGetSpeedConfig:0000000000000000 CanGetSpeedConfig
-     /tmp/ccsU8MGH.s:133    .text.CanGetSpeedConfig:0000000000000074 $d
-     /tmp/ccsU8MGH.s:517    .rodata.canTiming:0000000000000000 canTiming
-     /tmp/ccsU8MGH.s:139    .rodata.CanInit.str1.4:0000000000000000 $d
-     /tmp/ccsU8MGH.s:143    .text.CanInit:0000000000000000 $t
-     /tmp/ccsU8MGH.s:149    .text.CanInit:0000000000000000 CanInit
-     /tmp/ccsU8MGH.s:314    .text.CanInit:000000000000009c $d
-     /tmp/ccsU8MGH.s:511    .bss.canHandle:0000000000000000 canHandle
-     /tmp/ccsU8MGH.s:321    .text.CanTransmitPacket:0000000000000000 $t
-     /tmp/ccsU8MGH.s:327    .text.CanTransmitPacket:0000000000000000 CanTransmitPacket
-     /tmp/ccsU8MGH.s:420    .text.CanTransmitPacket:0000000000000048 $d
-     /tmp/ccsU8MGH.s:425    .text.CanReceivePacket:0000000000000000 $t
-     /tmp/ccsU8MGH.s:431    .text.CanReceivePacket:0000000000000000 CanReceivePacket
-     /tmp/ccsU8MGH.s:503    .text.CanReceivePacket:000000000000002c $d
-     /tmp/ccsU8MGH.s:508    .bss.canHandle:0000000000000000 $d
-     /tmp/ccsU8MGH.s:514    .rodata.canTiming:0000000000000000 $d
+                            *ABS*:00000000 can.c
+     /tmp/ccfH8Yoc.s:21     .text.CanInit:00000000 $t
+     /tmp/ccfH8Yoc.s:27     .text.CanInit:00000000 CanInit
+     /tmp/ccfH8Yoc.s:152    .text.CanInit:00000068 $d
+     /tmp/ccfH8Yoc.s:348    .bss.canHandle:00000000 canHandle
+     /tmp/ccfH8Yoc.s:158    .text.CanTransmitPacket:00000000 $t
+     /tmp/ccfH8Yoc.s:164    .text.CanTransmitPacket:00000000 CanTransmitPacket
+     /tmp/ccfH8Yoc.s:257    .text.CanTransmitPacket:00000048 $d
+     /tmp/ccfH8Yoc.s:262    .text.CanReceivePacket:00000000 $t
+     /tmp/ccfH8Yoc.s:268    .text.CanReceivePacket:00000000 CanReceivePacket
+     /tmp/ccfH8Yoc.s:340    .text.CanReceivePacket:0000002c $d
+     /tmp/ccfH8Yoc.s:345    .bss.canHandle:00000000 $d
 
 UNDEFINED SYMBOLS
-LL_RCC_GetSystemClocksFreq
 HAL_CAN_Init
 HAL_CAN_ConfigFilter
 HAL_CAN_Start
-AssertFailure
 HAL_CAN_AddTxMessage
 TimerGet
 HAL_CAN_IsTxMessagePending

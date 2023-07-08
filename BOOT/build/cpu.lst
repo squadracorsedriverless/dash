@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cckziXaL.s 			page 1
+ARM GAS  /tmp/ccCEiX53.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cckziXaL.s 			page 1
   28:Core/Src/BLT/cpu.c **** 
   29:Core/Src/BLT/cpu.c **** /****************************************************************************************
   30:Core/Src/BLT/cpu.c **** * Include files
-ARM GAS  /tmp/cckziXaL.s 			page 2
+ARM GAS  /tmp/ccCEiX53.s 			page 2
 
 
   31:Core/Src/BLT/cpu.c **** ****************************************************************************************/
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cckziXaL.s 			page 1
   48              		.syntax unified
   49              		.thumb
   50              		.thumb_func
-ARM GAS  /tmp/cckziXaL.s 			page 3
+ARM GAS  /tmp/ccCEiX53.s 			page 3
 
 
   52              	CpuStartUserProgram:
@@ -150,7 +150,7 @@ ARM GAS  /tmp/cckziXaL.s 			page 1
   64              		.loc 1 80 7 is_stmt 0 view .LVU6
   65 0002 FFF7FEFF 		bl	NvmVerifyChecksum
   66              	.LVL1:
-  67              		.loc 1 80 6 view .LVU7
+  67              		.loc 1 80 6 discriminator 1 view .LVU7
   68 0006 00B9     		cbnz	r0, .L6
   69              	.L3:
   81:Core/Src/BLT/cpu.c ****   {
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cckziXaL.s 			page 1
  103:Core/Src/BLT/cpu.c ****     ComDeferredInit();
  104:Core/Src/BLT/cpu.c ****   #endif
  105:Core/Src/BLT/cpu.c ****     /* callback requests the user program to not be started */
-ARM GAS  /tmp/cckziXaL.s 			page 4
+ARM GAS  /tmp/ccCEiX53.s 			page 4
 
 
  106:Core/Src/BLT/cpu.c ****     return;
@@ -218,69 +218,79 @@ ARM GAS  /tmp/cckziXaL.s 			page 1
   70              		.loc 1 139 1 view .LVU8
   71 0008 10BD     		pop	{r4, pc}
   72              	.L6:
+  95:Core/Src/BLT/cpu.c ****   {
+  73              		.loc 1 95 3 is_stmt 1 view .LVU9
+  95:Core/Src/BLT/cpu.c ****   {
+  74              		.loc 1 95 7 is_stmt 0 view .LVU10
+  75 000a FFF7FEFF 		bl	CpuUserProgramStartHook
+  76              	.LVL2:
+  95:Core/Src/BLT/cpu.c ****   {
+  77              		.loc 1 95 6 discriminator 1 view .LVU11
+  78 000e 0028     		cmp	r0, #0
+  79 0010 FAD0     		beq	.L3
  111:Core/Src/BLT/cpu.c **** #endif
-  73              		.loc 1 111 3 is_stmt 1 view .LVU9
-  74 000a FFF7FEFF 		bl	ComFree
-  75              	.LVL2:
+  80              		.loc 1 111 3 is_stmt 1 view .LVU12
+  81 0012 FFF7FEFF 		bl	ComFree
+  82              	.LVL3:
  114:Core/Src/BLT/cpu.c ****   /* reset the timer */
-  76              		.loc 1 114 3 view .LVU10
-  77 000e FFF7FEFF 		bl	HAL_DeInit
-  78              	.LVL3:
+  83              		.loc 1 114 3 view .LVU13
+  84 0016 FFF7FEFF 		bl	HAL_DeInit
+  85              	.LVL4:
  116:Core/Src/BLT/cpu.c ****   /* remap user program's vector table */
-  79              		.loc 1 116 3 view .LVU11
-  80 0012 FFF7FEFF 		bl	TimerReset
-  81              	.LVL4:
- 118:Core/Src/BLT/cpu.c ****   /* set the address where the bootloader needs to jump to. this is the address of
-  82              		.loc 1 118 3 view .LVU12
- 118:Core/Src/BLT/cpu.c ****   /* set the address where the bootloader needs to jump to. this is the address of
-  83              		.loc 1 118 15 is_stmt 0 view .LVU13
-  84 0016 FFF7FEFF 		bl	NvmGetUserProgBaseAddress
-  85              	.LVL5:
- 118:Core/Src/BLT/cpu.c ****   /* set the address where the bootloader needs to jump to. this is the address of
-  86              		.loc 1 118 48 view .LVU14
-ARM GAS  /tmp/cckziXaL.s 			page 5
+  86              		.loc 1 116 3 view .LVU14
+ARM GAS  /tmp/ccCEiX53.s 			page 5
 
 
-  87 001a 20F06040 		bic	r0, r0, #-536870912
-  88 001e 20F07F00 		bic	r0, r0, #127
+  87 001a FFF7FEFF 		bl	TimerReset
+  88              	.LVL5:
  118:Core/Src/BLT/cpu.c ****   /* set the address where the bootloader needs to jump to. this is the address of
-  89              		.loc 1 118 13 view .LVU15
-  90 0022 044B     		ldr	r3, .L7
-  91 0024 9860     		str	r0, [r3, #8]
+  89              		.loc 1 118 3 view .LVU15
+ 118:Core/Src/BLT/cpu.c ****   /* set the address where the bootloader needs to jump to. this is the address of
+  90              		.loc 1 118 15 is_stmt 0 view .LVU16
+  91 001e FFF7FEFF 		bl	NvmGetUserProgBaseAddress
+  92              	.LVL6:
+ 118:Core/Src/BLT/cpu.c ****   /* set the address where the bootloader needs to jump to. this is the address of
+  93              		.loc 1 118 48 discriminator 1 view .LVU17
+  94 0022 20F06040 		bic	r0, r0, #-536870912
+  95 0026 20F07F00 		bic	r0, r0, #127
+ 118:Core/Src/BLT/cpu.c ****   /* set the address where the bootloader needs to jump to. this is the address of
+  96              		.loc 1 118 13 discriminator 1 view .LVU18
+  97 002a 044B     		ldr	r3, .L7
+  98 002c 9860     		str	r0, [r3, #8]
  123:Core/Src/BLT/cpu.c ****   /* The Cortex-M4 core has interrupts enabled out of reset. the bootloader
-  92              		.loc 1 123 3 is_stmt 1 view .LVU16
+  99              		.loc 1 123 3 is_stmt 1 view .LVU19
  123:Core/Src/BLT/cpu.c ****   /* The Cortex-M4 core has interrupts enabled out of reset. the bootloader
-  93              		.loc 1 123 53 is_stmt 0 view .LVU17
-  94 0026 FFF7FEFF 		bl	NvmGetUserProgBaseAddress
-  95              	.LVL6:
+ 100              		.loc 1 123 53 is_stmt 0 view .LVU20
+ 101 002e FFF7FEFF 		bl	NvmGetUserProgBaseAddress
+ 102              	.LVL7:
  123:Core/Src/BLT/cpu.c ****   /* The Cortex-M4 core has interrupts enabled out of reset. the bootloader
-  96              		.loc 1 123 39 view .LVU18
-  97 002a 4468     		ldr	r4, [r0, #4]
-  98              	.LVL7:
+ 103              		.loc 1 123 39 discriminator 1 view .LVU21
+ 104 0032 4468     		ldr	r4, [r0, #4]
+ 105              	.LVL8:
  128:Core/Src/BLT/cpu.c ****   /* start the user program by activating its reset interrupt service routine */
-  99              		.loc 1 128 3 is_stmt 1 view .LVU19
- 100 002c FFF7FEFF 		bl	CpuIrqEnable
- 101              	.LVL8:
+ 106              		.loc 1 128 3 is_stmt 1 view .LVU22
+ 107 0034 FFF7FEFF 		bl	CpuIrqEnable
+ 108              	.LVL9:
  130:Core/Src/BLT/cpu.c **** #if (BOOT_COM_DEFERRED_INIT_ENABLE > 0) && (BOOT_COM_ENABLE > 0)
- 102              		.loc 1 130 3 view .LVU20
- 103 0030 A047     		blx	r4
- 104              	.LVL9:
- 105 0032 E9E7     		b	.L3
- 106              	.L8:
- 107              		.align	2
- 108              	.L7:
- 109 0034 00ED00E0 		.word	-536810240
- 110              		.cfi_endproc
- 111              	.LFE124:
- 113              		.section	.text.CpuMemCopy,"ax",%progbits
- 114              		.align	1
- 115              		.global	CpuMemCopy
- 116              		.syntax unified
- 117              		.thumb
- 118              		.thumb_func
- 120              	CpuMemCopy:
- 121              	.LVL10:
- 122              	.LFB125:
+ 109              		.loc 1 130 3 view .LVU23
+ 110 0038 A047     		blx	r4
+ 111              	.LVL10:
+ 112 003a E5E7     		b	.L3
+ 113              	.L8:
+ 114              		.align	2
+ 115              	.L7:
+ 116 003c 00ED00E0 		.word	-536810240
+ 117              		.cfi_endproc
+ 118              	.LFE124:
+ 120              		.section	.text.CpuMemCopy,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	CpuMemCopy
+ 123              		.syntax unified
+ 124              		.thumb
+ 125              		.thumb_func
+ 127              	CpuMemCopy:
+ 128              	.LVL11:
+ 129              	.LFB125:
  140:Core/Src/BLT/cpu.c **** 
  141:Core/Src/BLT/cpu.c **** 
  142:Core/Src/BLT/cpu.c **** /************************************************************************************//**
@@ -288,97 +298,97 @@ ARM GAS  /tmp/cckziXaL.s 			page 1
  144:Core/Src/BLT/cpu.c **** ** \param     dest Destination address for the data.
  145:Core/Src/BLT/cpu.c **** ** \param     src  Source address of the data.
  146:Core/Src/BLT/cpu.c **** ** \param     len  length of the data in bytes.
+ARM GAS  /tmp/ccCEiX53.s 			page 6
+
+
  147:Core/Src/BLT/cpu.c **** ** \return    none.
  148:Core/Src/BLT/cpu.c **** **
  149:Core/Src/BLT/cpu.c **** ****************************************************************************************/
  150:Core/Src/BLT/cpu.c **** void CpuMemCopy(blt_addr dest, blt_addr src, blt_int16u len)
  151:Core/Src/BLT/cpu.c **** {
- 123              		.loc 1 151 1 view -0
- 124              		.cfi_startproc
- 125              		@ args = 0, pretend = 0, frame = 0
- 126              		@ frame_needed = 0, uses_anonymous_args = 0
- 127              		.loc 1 151 1 is_stmt 0 view .LVU22
-ARM GAS  /tmp/cckziXaL.s 			page 6
-
-
- 128 0000 70B5     		push	{r4, r5, r6, lr}
- 129              		.cfi_def_cfa_offset 16
- 130              		.cfi_offset 4, -16
- 131              		.cfi_offset 5, -12
- 132              		.cfi_offset 6, -8
- 133              		.cfi_offset 14, -4
+ 130              		.loc 1 151 1 view -0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		.loc 1 151 1 is_stmt 0 view .LVU25
+ 135 0000 70B5     		push	{r4, r5, r6, lr}
+ 136              		.cfi_def_cfa_offset 16
+ 137              		.cfi_offset 4, -16
+ 138              		.cfi_offset 5, -12
+ 139              		.cfi_offset 6, -8
+ 140              		.cfi_offset 14, -4
  152:Core/Src/BLT/cpu.c ****   blt_int8u *from, *to;
- 134              		.loc 1 152 3 is_stmt 1 view .LVU23
+ 141              		.loc 1 152 3 is_stmt 1 view .LVU26
  153:Core/Src/BLT/cpu.c **** 
  154:Core/Src/BLT/cpu.c ****   /* set casted pointers */
  155:Core/Src/BLT/cpu.c ****   from = (blt_int8u *)src;
- 135              		.loc 1 155 3 view .LVU24
- 136              		.loc 1 155 8 is_stmt 0 view .LVU25
- 137 0002 0D46     		mov	r5, r1
- 138              	.LVL11:
+ 142              		.loc 1 155 3 view .LVU27
+ 143              		.loc 1 155 8 is_stmt 0 view .LVU28
+ 144 0002 0D46     		mov	r5, r1
+ 145              	.LVL12:
  156:Core/Src/BLT/cpu.c ****   to = (blt_int8u *)dest;
- 139              		.loc 1 156 3 is_stmt 1 view .LVU26
- 140              		.loc 1 156 6 is_stmt 0 view .LVU27
- 141 0004 0446     		mov	r4, r0
- 142              	.LVL12:
+ 146              		.loc 1 156 3 is_stmt 1 view .LVU29
+ 147              		.loc 1 156 6 is_stmt 0 view .LVU30
+ 148 0004 0446     		mov	r4, r0
+ 149              	.LVL13:
  157:Core/Src/BLT/cpu.c **** 
  158:Core/Src/BLT/cpu.c ****   /* copy all bytes from source address to destination address */
  159:Core/Src/BLT/cpu.c ****   while (len-- > 0)
- 143              		.loc 1 159 3 is_stmt 1 view .LVU28
- 144              		.loc 1 159 9 is_stmt 0 view .LVU29
- 145 0006 06E0     		b	.L10
- 146              	.LVL13:
- 147              	.L11:
+ 150              		.loc 1 159 3 is_stmt 1 view .LVU31
+ 151              		.loc 1 159 9 is_stmt 0 view .LVU32
+ 152 0006 06E0     		b	.L10
+ 153              	.LVL14:
+ 154              	.L11:
  160:Core/Src/BLT/cpu.c ****   {
  161:Core/Src/BLT/cpu.c ****     /* store byte value from source to destination */
  162:Core/Src/BLT/cpu.c ****     *to++ = *from++;
- 148              		.loc 1 162 5 is_stmt 1 view .LVU30
- 149              		.loc 1 162 13 is_stmt 0 view .LVU31
- 150 0008 15F8013B 		ldrb	r3, [r5], #1	@ zero_extendqisi2
- 151              	.LVL14:
- 152              		.loc 1 162 11 view .LVU32
- 153 000c 04F8013B 		strb	r3, [r4], #1
- 154              	.LVL15:
+ 155              		.loc 1 162 5 is_stmt 1 view .LVU33
+ 156              		.loc 1 162 13 is_stmt 0 view .LVU34
+ 157 0008 15F8013B 		ldrb	r3, [r5], #1	@ zero_extendqisi2
+ 158              	.LVL15:
+ 159              		.loc 1 162 11 view .LVU35
+ 160 000c 04F8013B 		strb	r3, [r4], #1
+ 161              	.LVL16:
  163:Core/Src/BLT/cpu.c ****     /* keep the watchdog happy */
  164:Core/Src/BLT/cpu.c ****     CopService();
- 155              		.loc 1 164 5 is_stmt 1 view .LVU33
- 156 0010 FFF7FEFF 		bl	CopService
- 157              	.LVL16:
+ 162              		.loc 1 164 5 is_stmt 1 view .LVU36
+ 163 0010 FFF7FEFF 		bl	CopService
+ 164              	.LVL17:
  159:Core/Src/BLT/cpu.c ****   {
- 158              		.loc 1 159 13 is_stmt 0 view .LVU34
- 159 0014 3246     		mov	r2, r6
- 160              	.LVL17:
- 161              	.L10:
- 159:Core/Src/BLT/cpu.c ****   {
- 162              		.loc 1 159 16 is_stmt 1 view .LVU35
- 159:Core/Src/BLT/cpu.c ****   {
- 163              		.loc 1 159 13 is_stmt 0 view .LVU36
- 164 0016 531E     		subs	r3, r2, #1
- 165 0018 9EB2     		uxth	r6, r3
- 166              	.LVL18:
- 159:Core/Src/BLT/cpu.c ****   {
- 167              		.loc 1 159 16 view .LVU37
-ARM GAS  /tmp/cckziXaL.s 			page 7
+ 165              		.loc 1 159 13 is_stmt 0 view .LVU37
+ 166 0014 3246     		mov	r2, r6
+ 167              	.LVL18:
+ARM GAS  /tmp/ccCEiX53.s 			page 7
 
 
- 168 001a 002A     		cmp	r2, #0
- 169 001c F4D1     		bne	.L11
+ 168              	.L10:
+ 159:Core/Src/BLT/cpu.c ****   {
+ 169              		.loc 1 159 16 is_stmt 1 view .LVU38
+ 159:Core/Src/BLT/cpu.c ****   {
+ 170              		.loc 1 159 13 is_stmt 0 view .LVU39
+ 171 0016 531E     		subs	r3, r2, #1
+ 172 0018 9EB2     		uxth	r6, r3
+ 173              	.LVL19:
+ 159:Core/Src/BLT/cpu.c ****   {
+ 174              		.loc 1 159 16 view .LVU40
+ 175 001a 002A     		cmp	r2, #0
+ 176 001c F4D1     		bne	.L11
  165:Core/Src/BLT/cpu.c ****   }
  166:Core/Src/BLT/cpu.c **** } /*** end of CpuMemCopy ***/
- 170              		.loc 1 166 1 view .LVU38
- 171 001e 70BD     		pop	{r4, r5, r6, pc}
- 172              		.loc 1 166 1 view .LVU39
- 173              		.cfi_endproc
- 174              	.LFE125:
- 176              		.section	.text.CpuMemSet,"ax",%progbits
- 177              		.align	1
- 178              		.global	CpuMemSet
- 179              		.syntax unified
- 180              		.thumb
- 181              		.thumb_func
- 183              	CpuMemSet:
- 184              	.LVL19:
- 185              	.LFB126:
+ 177              		.loc 1 166 1 view .LVU41
+ 178 001e 70BD     		pop	{r4, r5, r6, pc}
+ 179              		.loc 1 166 1 view .LVU42
+ 180              		.cfi_endproc
+ 181              	.LFE125:
+ 183              		.section	.text.CpuMemSet,"ax",%progbits
+ 184              		.align	1
+ 185              		.global	CpuMemSet
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 190              	CpuMemSet:
+ 191              	.LVL20:
+ 192              	.LFB126:
  167:Core/Src/BLT/cpu.c **** 
  168:Core/Src/BLT/cpu.c **** 
  169:Core/Src/BLT/cpu.c **** /************************************************************************************//**
@@ -391,104 +401,108 @@ ARM GAS  /tmp/cckziXaL.s 			page 1
  176:Core/Src/BLT/cpu.c **** ****************************************************************************************/
  177:Core/Src/BLT/cpu.c **** void CpuMemSet(blt_addr dest, blt_int8u value, blt_int16u len)
  178:Core/Src/BLT/cpu.c **** {
- 186              		.loc 1 178 1 is_stmt 1 view -0
- 187              		.cfi_startproc
- 188              		@ args = 0, pretend = 0, frame = 0
- 189              		@ frame_needed = 0, uses_anonymous_args = 0
- 190              		.loc 1 178 1 is_stmt 0 view .LVU41
- 191 0000 70B5     		push	{r4, r5, r6, lr}
- 192              		.cfi_def_cfa_offset 16
- 193              		.cfi_offset 4, -16
- 194              		.cfi_offset 5, -12
- 195              		.cfi_offset 6, -8
- 196              		.cfi_offset 14, -4
- 197 0002 0E46     		mov	r6, r1
+ 193              		.loc 1 178 1 is_stmt 1 view -0
+ 194              		.cfi_startproc
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197              		.loc 1 178 1 is_stmt 0 view .LVU44
+ 198 0000 70B5     		push	{r4, r5, r6, lr}
+ 199              		.cfi_def_cfa_offset 16
+ 200              		.cfi_offset 4, -16
+ 201              		.cfi_offset 5, -12
+ 202              		.cfi_offset 6, -8
+ 203              		.cfi_offset 14, -4
+ 204 0002 0E46     		mov	r6, r1
  179:Core/Src/BLT/cpu.c ****   blt_int8u *to;
- 198              		.loc 1 179 3 is_stmt 1 view .LVU42
+ 205              		.loc 1 179 3 is_stmt 1 view .LVU45
  180:Core/Src/BLT/cpu.c **** 
  181:Core/Src/BLT/cpu.c ****   /* set casted pointer */
  182:Core/Src/BLT/cpu.c ****   to = (blt_int8u *)dest;
- 199              		.loc 1 182 3 view .LVU43
- 200              		.loc 1 182 6 is_stmt 0 view .LVU44
- 201 0004 0446     		mov	r4, r0
- 202              	.LVL20:
+ARM GAS  /tmp/ccCEiX53.s 			page 8
+
+
+ 206              		.loc 1 182 3 view .LVU46
+ 207              		.loc 1 182 6 is_stmt 0 view .LVU47
+ 208 0004 0446     		mov	r4, r0
+ 209              	.LVL21:
  183:Core/Src/BLT/cpu.c **** 
  184:Core/Src/BLT/cpu.c ****   /* set all bytes at the destination address to the specified value */
  185:Core/Src/BLT/cpu.c ****   while (len-- > 0)
- 203              		.loc 1 185 3 is_stmt 1 view .LVU45
- 204              		.loc 1 185 9 is_stmt 0 view .LVU46
- 205 0006 04E0     		b	.L14
-ARM GAS  /tmp/cckziXaL.s 			page 8
-
-
- 206              	.LVL21:
- 207              	.L15:
+ 210              		.loc 1 185 3 is_stmt 1 view .LVU48
+ 211              		.loc 1 185 9 is_stmt 0 view .LVU49
+ 212 0006 04E0     		b	.L14
+ 213              	.LVL22:
+ 214              	.L15:
  186:Core/Src/BLT/cpu.c ****   {
  187:Core/Src/BLT/cpu.c ****     /* set byte value */
  188:Core/Src/BLT/cpu.c ****     *to++ = value;
- 208              		.loc 1 188 5 is_stmt 1 view .LVU47
- 209              		.loc 1 188 11 is_stmt 0 view .LVU48
- 210 0008 04F8016B 		strb	r6, [r4], #1
- 211              	.LVL22:
+ 215              		.loc 1 188 5 is_stmt 1 view .LVU50
+ 216              		.loc 1 188 11 is_stmt 0 view .LVU51
+ 217 0008 04F8016B 		strb	r6, [r4], #1
+ 218              	.LVL23:
  189:Core/Src/BLT/cpu.c ****     /* keep the watchdog happy */
  190:Core/Src/BLT/cpu.c ****     CopService();
- 212              		.loc 1 190 5 is_stmt 1 view .LVU49
- 213 000c FFF7FEFF 		bl	CopService
- 214              	.LVL23:
+ 219              		.loc 1 190 5 is_stmt 1 view .LVU52
+ 220 000c FFF7FEFF 		bl	CopService
+ 221              	.LVL24:
  185:Core/Src/BLT/cpu.c ****   {
- 215              		.loc 1 185 13 is_stmt 0 view .LVU50
- 216 0010 2A46     		mov	r2, r5
- 217              	.LVL24:
- 218              	.L14:
+ 222              		.loc 1 185 13 is_stmt 0 view .LVU53
+ 223 0010 2A46     		mov	r2, r5
+ 224              	.LVL25:
+ 225              	.L14:
  185:Core/Src/BLT/cpu.c ****   {
- 219              		.loc 1 185 16 is_stmt 1 view .LVU51
+ 226              		.loc 1 185 16 is_stmt 1 view .LVU54
  185:Core/Src/BLT/cpu.c ****   {
- 220              		.loc 1 185 13 is_stmt 0 view .LVU52
- 221 0012 531E     		subs	r3, r2, #1
- 222 0014 9DB2     		uxth	r5, r3
- 223              	.LVL25:
+ 227              		.loc 1 185 13 is_stmt 0 view .LVU55
+ 228 0012 531E     		subs	r3, r2, #1
+ 229 0014 9DB2     		uxth	r5, r3
+ 230              	.LVL26:
  185:Core/Src/BLT/cpu.c ****   {
- 224              		.loc 1 185 16 view .LVU53
- 225 0016 002A     		cmp	r2, #0
- 226 0018 F6D1     		bne	.L15
+ 231              		.loc 1 185 16 view .LVU56
+ 232 0016 002A     		cmp	r2, #0
+ 233 0018 F6D1     		bne	.L15
  191:Core/Src/BLT/cpu.c ****   }
  192:Core/Src/BLT/cpu.c **** } /*** end of CpuMemSet ***/
- 227              		.loc 1 192 1 view .LVU54
- 228 001a 70BD     		pop	{r4, r5, r6, pc}
- 229              		.loc 1 192 1 view .LVU55
- 230              		.cfi_endproc
- 231              	.LFE126:
- 233              		.text
- 234              	.Letext0:
- 235              		.file 2 "Core/Inc/BLT/types.h"
- 236              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 237              		.file 4 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 238              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 239              		.file 6 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
- 240              		.file 7 "Core/Inc/BLT/cop.h"
- 241              		.file 8 "Core/Inc/BLT/cpu.h"
- 242              		.file 9 "Core/Inc/BLT/timer.h"
- 243              		.file 10 "Core/Inc/BLT/nvm.h"
- 244              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
- 245              		.file 12 "Core/Inc/BLT/com.h"
-ARM GAS  /tmp/cckziXaL.s 			page 9
+ 234              		.loc 1 192 1 view .LVU57
+ 235 001a 70BD     		pop	{r4, r5, r6, pc}
+ 236              		.loc 1 192 1 view .LVU58
+ 237              		.cfi_endproc
+ 238              	.LFE126:
+ 240              		.text
+ 241              	.Letext0:
+ 242              		.file 2 "Core/Inc/BLT/types.h"
+ 243              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 244              		.file 4 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 245              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 246              		.file 6 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 247              		.file 7 "Core/Inc/BLT/cop.h"
+ 248              		.file 8 "Core/Inc/BLT/cpu.h"
+ 249              		.file 9 "Core/Inc/BLT/timer.h"
+ARM GAS  /tmp/ccCEiX53.s 			page 9
+
+
+ 250              		.file 10 "Core/Inc/BLT/nvm.h"
+ 251              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 252              		.file 12 "Core/Inc/BLT/com.h"
+ARM GAS  /tmp/ccCEiX53.s 			page 10
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 cpu.c
-     /tmp/cckziXaL.s:21     .text.CpuInit:0000000000000000 $t
-     /tmp/cckziXaL.s:27     .text.CpuInit:0000000000000000 CpuInit
-     /tmp/cckziXaL.s:46     .text.CpuStartUserProgram:0000000000000000 $t
-     /tmp/cckziXaL.s:52     .text.CpuStartUserProgram:0000000000000000 CpuStartUserProgram
-     /tmp/cckziXaL.s:109    .text.CpuStartUserProgram:0000000000000034 $d
-     /tmp/cckziXaL.s:114    .text.CpuMemCopy:0000000000000000 $t
-     /tmp/cckziXaL.s:120    .text.CpuMemCopy:0000000000000000 CpuMemCopy
-     /tmp/cckziXaL.s:177    .text.CpuMemSet:0000000000000000 $t
-     /tmp/cckziXaL.s:183    .text.CpuMemSet:0000000000000000 CpuMemSet
+                            *ABS*:00000000 cpu.c
+     /tmp/ccCEiX53.s:21     .text.CpuInit:00000000 $t
+     /tmp/ccCEiX53.s:27     .text.CpuInit:00000000 CpuInit
+     /tmp/ccCEiX53.s:46     .text.CpuStartUserProgram:00000000 $t
+     /tmp/ccCEiX53.s:52     .text.CpuStartUserProgram:00000000 CpuStartUserProgram
+     /tmp/ccCEiX53.s:116    .text.CpuStartUserProgram:0000003c $d
+     /tmp/ccCEiX53.s:121    .text.CpuMemCopy:00000000 $t
+     /tmp/ccCEiX53.s:127    .text.CpuMemCopy:00000000 CpuMemCopy
+     /tmp/ccCEiX53.s:184    .text.CpuMemSet:00000000 $t
+     /tmp/ccCEiX53.s:190    .text.CpuMemSet:00000000 CpuMemSet
 
 UNDEFINED SYMBOLS
 CpuIrqDisable
 NvmVerifyChecksum
+CpuUserProgramStartHook
 ComFree
 HAL_DeInit
 TimerReset

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccepCjKs.s 			page 1
+ARM GAS  /tmp/ccdIbtoD.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
   28:Core/Src/BLT/flash.c **** 
   29:Core/Src/BLT/flash.c **** /****************************************************************************************
   30:Core/Src/BLT/flash.c **** * Include files
-ARM GAS  /tmp/ccepCjKs.s 			page 2
+ARM GAS  /tmp/ccdIbtoD.s 			page 2
 
 
   31:Core/Src/BLT/flash.c **** ****************************************************************************************/
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
   85:Core/Src/BLT/flash.c **** {
   86:Core/Src/BLT/flash.c ****   blt_addr   sector_start;                       /**< sector start address             */
   87:Core/Src/BLT/flash.c ****   blt_int32u sector_size;                        /**< sector size in bytes             */
-ARM GAS  /tmp/ccepCjKs.s 			page 3
+ARM GAS  /tmp/ccdIbtoD.s 			page 3
 
 
   88:Core/Src/BLT/flash.c **** } tFlashSector;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  142:Core/Src/BLT/flash.c ****    * interfaces enabled. when for example only UART is needed, then the space required
  143:Core/Src/BLT/flash.c ****    * for the bootloader can be made a lot smaller here.
  144:Core/Src/BLT/flash.c ****    */
-ARM GAS  /tmp/ccepCjKs.s 			page 4
+ARM GAS  /tmp/ccdIbtoD.s 			page 4
 
 
  145:Core/Src/BLT/flash.c ****   /* { 0x08000000, 0x00800 },           flash sector  0 - 2kb (reserved for bootloader)*/
@@ -223,11 +223,11 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  184:Core/Src/BLT/flash.c ****   /* { 0x08000000, 0x00800 },           flash sector  0 - 2kb (reserved for bootloader)*/
  185:Core/Src/BLT/flash.c ****   /* { 0x08000800, 0x00800 },           flash sector  1 - 2kb (reserved for bootloader)*/
  186:Core/Src/BLT/flash.c ****   /* { 0x08001000, 0x00800 },           flash sector  2 - 2kb (reserved for bootloader)*/
- 187:Core/Src/BLT/flash.c ****   /* { 0x08001800, 0x00800 },           flash sector  3 - 2kb (reserved for bootloader)*/
- 188:Core/Src/BLT/flash.c ****   /*{ 0x08002000, 0x00800 },            flash sector  4 - 2kb (reserved for bootloader)*/
- 189:Core/Src/BLT/flash.c ****   /*{ 0x08002800, 0x00800 },            flash sector  5 - 2kb (reserved for bootloader)*/
- 190:Core/Src/BLT/flash.c ****   /*{ 0x08003000, 0x00800 },            flash sector  6 - 2kb (reserved for bootloader)*/
- 191:Core/Src/BLT/flash.c ****   /*{ 0x08003800, 0x00800 },            flash sector  7 - 2kb (reserved for bootloader)*/
+ 187:Core/Src/BLT/flash.c ****   // { 0x08001800, 0x00800 },             /* flash sector  3 - 2kb (reserved for bootloader)*/
+ 188:Core/Src/BLT/flash.c ****   { 0x08002000, 0x00800 },              /* flash sector  4 - 2kb (reserved for bootloader)*/
+ 189:Core/Src/BLT/flash.c ****   { 0x08002800, 0x00800 },              /* flash sector  5 - 2kb (reserved for bootloader)*/
+ 190:Core/Src/BLT/flash.c ****   { 0x08003000, 0x00800 },              /* flash sector  6 - 2kb (reserved for bootloader)*/
+ 191:Core/Src/BLT/flash.c ****   { 0x08003800, 0x00800 },              /* flash sector  7 - 2kb (reserved for bootloader)*/
  192:Core/Src/BLT/flash.c ****   { 0x08004000, 0x00800 },              /* flash sector  8 - 2kb                       */
  193:Core/Src/BLT/flash.c ****   { 0x08004800, 0x00800 },              /* flash sector  9 - 2kb                       */
  194:Core/Src/BLT/flash.c ****   { 0x08005000, 0x00800 },              /* flash sector 10 - 2kb                       */
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  199:Core/Src/BLT/flash.c ****   { 0x08007800, 0x00800 },              /* flash sector 15 - 2kb                       */
  200:Core/Src/BLT/flash.c ****   { 0x08008000, 0x08000 },              /* flash sectors 16 to 31 - 32kb               */
  201:Core/Src/BLT/flash.c ****   { 0x08010000, 0x10000 },              /* flash sectors 32 to 63 - 64kb               */
-ARM GAS  /tmp/ccepCjKs.s 			page 5
+ARM GAS  /tmp/ccdIbtoD.s 			page 5
 
 
  202:Core/Src/BLT/flash.c ****   { 0x08020000, 0x20000 },              /* flash sectors 64 to 127 - 128kb             */
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  256:Core/Src/BLT/flash.c **** ** \brief     Reinitializes the flash driver.
  257:Core/Src/BLT/flash.c **** ** \return    none.
  258:Core/Src/BLT/flash.c **** **
-ARM GAS  /tmp/ccepCjKs.s 			page 6
+ARM GAS  /tmp/ccdIbtoD.s 			page 6
 
 
  259:Core/Src/BLT/flash.c **** ****************************************************************************************/
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  313:Core/Src/BLT/flash.c **** **
  314:Core/Src/BLT/flash.c **** ****************************************************************************************/
  315:Core/Src/BLT/flash.c **** blt_bool FlashErase(blt_addr addr, blt_int32u len)
-ARM GAS  /tmp/ccepCjKs.s 			page 7
+ARM GAS  /tmp/ccdIbtoD.s 			page 7
 
 
  316:Core/Src/BLT/flash.c **** {
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  370:Core/Src/BLT/flash.c ****       /* flag error and stop erase operation */
  371:Core/Src/BLT/flash.c ****       result = BLT_FALSE;
  372:Core/Src/BLT/flash.c ****       break;
-ARM GAS  /tmp/ccepCjKs.s 			page 8
+ARM GAS  /tmp/ccdIbtoD.s 			page 8
 
 
  373:Core/Src/BLT/flash.c ****     }
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  427:Core/Src/BLT/flash.c **** 
  428:Core/Src/BLT/flash.c **** #if (BOOT_FLASH_CRYPTO_HOOKS_ENABLE > 0)
  429:Core/Src/BLT/flash.c ****   /* perform decryption of the bootblock, before calculating the checksum and writing it
-ARM GAS  /tmp/ccepCjKs.s 			page 9
+ARM GAS  /tmp/ccdIbtoD.s 			page 9
 
 
  430:Core/Src/BLT/flash.c ****    * to flash memory.
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  484:Core/Src/BLT/flash.c **** } /*** end of FlashVerifyChecksum ***/
  485:Core/Src/BLT/flash.c **** 
  486:Core/Src/BLT/flash.c **** 
-ARM GAS  /tmp/ccepCjKs.s 			page 10
+ARM GAS  /tmp/ccdIbtoD.s 			page 10
 
 
  487:Core/Src/BLT/flash.c **** /************************************************************************************//**
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
   33              		.loc 1 538 1 is_stmt 0 view .LVU1
-ARM GAS  /tmp/ccepCjKs.s 			page 11
+ARM GAS  /tmp/ccdIbtoD.s 			page 11
 
 
   34 0000 08B5     		push	{r3, lr}
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
   70              	.LVL5:
   71              	.L4:
  548:Core/Src/BLT/flash.c ****   }
-ARM GAS  /tmp/ccepCjKs.s 			page 12
+ARM GAS  /tmp/ccdIbtoD.s 			page 12
 
 
   72              		.loc 1 548 12 view .LVU16
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  593:Core/Src/BLT/flash.c ****   }
  594:Core/Src/BLT/flash.c **** 
  595:Core/Src/BLT/flash.c ****   /* initialize tne new block when necessary */
-ARM GAS  /tmp/ccepCjKs.s 			page 13
+ARM GAS  /tmp/ccdIbtoD.s 			page 13
 
 
  596:Core/Src/BLT/flash.c ****   if (FlashInitBlock(block, base_addr) == BLT_FALSE)
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  650:Core/Src/BLT/flash.c ****   dst = &(block->data[address - block->base_addr]);
  651:Core/Src/BLT/flash.c ****   src = data;
  652:Core/Src/BLT/flash.c ****   do
-ARM GAS  /tmp/ccepCjKs.s 			page 14
+ARM GAS  /tmp/ccdIbtoD.s 			page 14
 
 
  653:Core/Src/BLT/flash.c ****   {
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  692:Core/Src/BLT/flash.c ****   blt_int32u prog_data;
  104              		.loc 1 692 3 view .LVU21
  693:Core/Src/BLT/flash.c ****   blt_int32u word_cnt;
-ARM GAS  /tmp/ccepCjKs.s 			page 15
+ARM GAS  /tmp/ccdIbtoD.s 			page 15
 
 
  105              		.loc 1 693 3 view .LVU22
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  131              		.loc 1 721 5 is_stmt 1 view .LVU34
  132 001c FFF7FEFF 		bl	CopService
  133              	.LVL13:
-ARM GAS  /tmp/ccepCjKs.s 			page 16
+ARM GAS  /tmp/ccdIbtoD.s 			page 16
 
 
  722:Core/Src/BLT/flash.c ****     /* program the word */
@@ -911,10 +911,10 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  139 0026 0220     		movs	r0, #2
  140 0028 FFF7FEFF 		bl	HAL_FLASH_Program
  141              	.LVL14:
- 142              		.loc 1 723 8 view .LVU37
+ 142              		.loc 1 723 8 discriminator 1 view .LVU37
  143 002c 8046     		mov	r8, r0
  144              	.LVL15:
- 145              		.loc 1 723 8 view .LVU38
+ 145              		.loc 1 723 8 discriminator 1 view .LVU38
  146 002e 40B9     		cbnz	r0, .L10
  724:Core/Src/BLT/flash.c ****     {
  725:Core/Src/BLT/flash.c ****       result = BLT_FALSE;
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  737:Core/Src/BLT/flash.c ****   HAL_FLASH_Lock();
  169              		.loc 1 737 3 is_stmt 1 view .LVU46
  170 0046 FFF7FEFF 		bl	HAL_FLASH_Lock
-ARM GAS  /tmp/ccepCjKs.s 			page 17
+ARM GAS  /tmp/ccdIbtoD.s 			page 17
 
 
  171              	.LVL20:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  596:Core/Src/BLT/flash.c ****   {
  216              		.loc 1 596 3 is_stmt 1 view .LVU57
  596:Core/Src/BLT/flash.c ****   {
-ARM GAS  /tmp/ccepCjKs.s 			page 18
+ARM GAS  /tmp/ccdIbtoD.s 			page 18
 
 
  217              		.loc 1 596 7 is_stmt 0 view .LVU58
@@ -1027,7 +1027,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  220 0018 FFF7FEFF 		bl	FlashInitBlock
  221              	.LVL23:
  596:Core/Src/BLT/flash.c ****   {
- 222              		.loc 1 596 6 view .LVU59
+ 222              		.loc 1 596 6 discriminator 1 view .LVU59
  223 001c 48B1     		cbz	r0, .L22
  224              	.LVL24:
  225              	.L13:
@@ -1044,7 +1044,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  233 0022 FFF7FEFF 		bl	FlashWriteBlock
  234              	.LVL26:
  589:Core/Src/BLT/flash.c ****     {
- 235              		.loc 1 589 8 view .LVU63
+ 235              		.loc 1 589 8 discriminator 1 view .LVU63
  236 0026 0028     		cmp	r0, #0
  237 0028 F4D1     		bne	.L14
  591:Core/Src/BLT/flash.c ****     }
@@ -1073,12 +1073,12 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  256 0036 00BF     		.align	2
  257              	.L23:
  258 0038 00000000 		.word	bootBlockInfo
- 259 003c 00400008 		.word	134234112
+ 259 003c 00200008 		.word	134225920
  260 0040 00000000 		.word	blockInfo
  261              		.cfi_endproc
  262              	.LFE132:
  264              		.section	.text.FlashAddToBlock,"ax",%progbits
-ARM GAS  /tmp/ccepCjKs.s 			page 19
+ARM GAS  /tmp/ccdIbtoD.s 			page 19
 
 
  265              		.align	1
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  308              		.loc 1 639 12 is_stmt 0 view .LVU80
  309 001c 3368     		ldr	r3, [r6]
  639:Core/Src/BLT/flash.c ****   {
-ARM GAS  /tmp/ccepCjKs.s 			page 20
+ARM GAS  /tmp/ccdIbtoD.s 			page 20
 
 
  310              		.loc 1 639 6 view .LVU81
@@ -1177,7 +1177,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  334 002e FFF7FEFF 		bl	FlashInitBlock
  335              	.LVL39:
  632:Core/Src/BLT/flash.c ****     {
- 336              		.loc 1 632 8 view .LVU91
+ 336              		.loc 1 632 8 discriminator 1 view .LVU91
  337 0032 0028     		cmp	r0, #0
  338 0034 F2D1     		bne	.L26
  339 0036 1FE0     		b	.L27
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  350 0042 0028     		cmp	r0, #0
  351 0044 EDD1     		bne	.L28
  645:Core/Src/BLT/flash.c ****     }
-ARM GAS  /tmp/ccepCjKs.s 			page 21
+ARM GAS  /tmp/ccdIbtoD.s 			page 21
 
 
  352              		.loc 1 645 14 view .LVU96
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  389 0064 08F50071 		add	r1, r8, #512
  390 0068 3046     		mov	r0, r6
  391 006a FFF7FEFF 		bl	FlashSwitchBlock
-ARM GAS  /tmp/ccepCjKs.s 			page 22
+ARM GAS  /tmp/ccdIbtoD.s 			page 22
 
 
  392              	.LVL47:
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  436              		.loc 1 250 23 is_stmt 0 view .LVU125
  437 0000 4FF0FF33 		mov	r3, #-1
  438 0004 024A     		ldr	r2, .L38
-ARM GAS  /tmp/ccepCjKs.s 			page 23
+ARM GAS  /tmp/ccdIbtoD.s 			page 23
 
 
  439 0006 1360     		str	r3, [r2]
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  487              		.section	.text.FlashWrite,"ax",%progbits
  488              		.align	1
  489              		.global	FlashWrite
-ARM GAS  /tmp/ccepCjKs.s 			page 24
+ARM GAS  /tmp/ccdIbtoD.s 			page 24
 
 
  490              		.syntax unified
@@ -1421,7 +1421,7 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  518 0010 8842     		cmp	r0, r1
  519 0012 18D3     		bcc	.L47
  279:Core/Src/BLT/flash.c ****   blt_addr base_addr;
- 520              		.loc 1 279 1 discriminator 1 view .LVU145
+ 520              		.loc 1 279 1 view .LVU145
  521 0014 10B5     		push	{r4, lr}
  522              		.cfi_def_cfa_offset 8
  523              		.cfi_offset 4, -8
@@ -1438,798 +1438,792 @@ ARM GAS  /tmp/ccepCjKs.s 			page 1
  531 001c A142     		cmp	r1, r4
  532 001e 14D8     		bhi	.L48
  295:Core/Src/BLT/flash.c ****   if (base_addr == flashLayout[0].sector_start)
-ARM GAS  /tmp/ccepCjKs.s 			page 25
+ARM GAS  /tmp/ccdIbtoD.s 			page 25
 
 
  533              		.loc 1 295 3 is_stmt 1 view .LVU149
  295:Core/Src/BLT/flash.c ****   if (base_addr == flashLayout[0].sector_start)
  534              		.loc 1 295 13 is_stmt 0 view .LVU150
- 535 0020 20F4FF71 		bic	r1, r0, #510
- 536 0024 21F00101 		bic	r1, r1, #1
+ 535 0020 20F4FF74 		bic	r4, r0, #510
+ 536 0024 24F00104 		bic	r4, r4, #1
  537              	.LVL55:
  296:Core/Src/BLT/flash.c ****   {
  538              		.loc 1 296 3 is_stmt 1 view .LVU151
  296:Core/Src/BLT/flash.c ****   {
  539              		.loc 1 296 6 is_stmt 0 view .LVU152
- 540 0028 0A4C     		ldr	r4, .L54+4
- 541 002a A142     		cmp	r1, r4
+ 540 0028 0A49     		ldr	r1, .L54+4
+ 541 002a 8C42     		cmp	r4, r1
  542 002c 04D0     		beq	.L53
  302:Core/Src/BLT/flash.c **** } /*** end of FlashWrite ***/
  543              		.loc 1 302 3 is_stmt 1 view .LVU153
  302:Core/Src/BLT/flash.c **** } /*** end of FlashWrite ***/
  544              		.loc 1 302 10 is_stmt 0 view .LVU154
  545 002e 0146     		mov	r1, r0
- 546              	.LVL56:
+ 546 0030 0948     		ldr	r0, .L54+8
+ 547              	.LVL56:
  302:Core/Src/BLT/flash.c **** } /*** end of FlashWrite ***/
- 547              		.loc 1 302 10 view .LVU155
- 548 0030 0948     		ldr	r0, .L54+8
- 549              	.LVL57:
- 302:Core/Src/BLT/flash.c **** } /*** end of FlashWrite ***/
- 550              		.loc 1 302 10 view .LVU156
- 551 0032 FFF7FEFF 		bl	FlashAddToBlock
- 552              	.LVL58:
- 553              	.L44:
+ 548              		.loc 1 302 10 view .LVU155
+ 549 0032 FFF7FEFF 		bl	FlashAddToBlock
+ 550              	.LVL57:
+ 551              	.L44:
  303:Core/Src/BLT/flash.c **** 
- 554              		.loc 1 303 1 view .LVU157
- 555 0036 10BD     		pop	{r4, pc}
- 556              	.LVL59:
- 557              	.L53:
+ 552              		.loc 1 303 1 view .LVU156
+ 553 0036 10BD     		pop	{r4, pc}
+ 554              	.LVL58:
+ 555              	.L53:
  299:Core/Src/BLT/flash.c ****   }
- 558              		.loc 1 299 5 is_stmt 1 view .LVU158
+ 556              		.loc 1 299 5 is_stmt 1 view .LVU157
  299:Core/Src/BLT/flash.c ****   }
- 559              		.loc 1 299 12 is_stmt 0 view .LVU159
- 560 0038 0146     		mov	r1, r0
- 561              	.LVL60:
+ 557              		.loc 1 299 12 is_stmt 0 view .LVU158
+ 558 0038 0146     		mov	r1, r0
+ 559 003a 0848     		ldr	r0, .L54+12
+ 560              	.LVL59:
  299:Core/Src/BLT/flash.c ****   }
- 562              		.loc 1 299 12 view .LVU160
- 563 003a 0848     		ldr	r0, .L54+12
- 564              	.LVL61:
+ 561              		.loc 1 299 12 view .LVU159
+ 562 003c FFF7FEFF 		bl	FlashAddToBlock
+ 563              	.LVL60:
  299:Core/Src/BLT/flash.c ****   }
- 565              		.loc 1 299 12 view .LVU161
- 566 003c FFF7FEFF 		bl	FlashAddToBlock
- 567              	.LVL62:
- 299:Core/Src/BLT/flash.c ****   }
- 568              		.loc 1 299 12 view .LVU162
- 569 0040 F9E7     		b	.L44
- 570              	.LVL63:
- 571              	.L46:
- 572              		.cfi_def_cfa_offset 0
- 573              		.cfi_restore 4
- 574              		.cfi_restore 14
+ 564              		.loc 1 299 12 view .LVU160
+ 565 0040 F9E7     		b	.L44
+ 566              	.LVL61:
+ 567              	.L46:
+ 568              		.cfi_def_cfa_offset 0
+ 569              		.cfi_restore 4
+ 570              		.cfi_restore 14
  285:Core/Src/BLT/flash.c ****   }
- 575              		.loc 1 285 12 view .LVU163
-ARM GAS  /tmp/ccepCjKs.s 			page 26
+ 571              		.loc 1 285 12 view .LVU161
+ 572 0042 0020     		movs	r0, #0
+ 573              	.LVL62:
+ 285:Core/Src/BLT/flash.c ****   }
+ 574              		.loc 1 285 12 view .LVU162
+ 575 0044 7047     		bx	lr
+ 576              	.LVL63:
+ARM GAS  /tmp/ccdIbtoD.s 			page 26
 
 
- 576 0042 0020     		movs	r0, #0
- 577              	.LVL64:
- 285:Core/Src/BLT/flash.c ****   }
- 578              		.loc 1 285 12 view .LVU164
- 579 0044 7047     		bx	lr
- 580              	.LVL65:
- 581              	.L47:
+ 577              	.L47:
  291:Core/Src/BLT/flash.c ****   }
- 582              		.loc 1 291 12 view .LVU165
- 583 0046 0020     		movs	r0, #0
- 584              	.LVL66:
+ 578              		.loc 1 291 12 view .LVU163
+ 579 0046 0020     		movs	r0, #0
+ 580              	.LVL64:
  303:Core/Src/BLT/flash.c **** 
- 585              		.loc 1 303 1 view .LVU166
- 586 0048 7047     		bx	lr
- 587              	.LVL67:
- 588              	.L48:
- 589              		.cfi_def_cfa_offset 8
- 590              		.cfi_offset 4, -8
- 591              		.cfi_offset 14, -4
+ 581              		.loc 1 303 1 view .LVU164
+ 582 0048 7047     		bx	lr
+ 583              	.LVL65:
+ 584              	.L48:
+ 585              		.cfi_def_cfa_offset 8
+ 586              		.cfi_offset 4, -8
+ 587              		.cfi_offset 14, -4
  291:Core/Src/BLT/flash.c ****   }
- 592              		.loc 1 291 12 view .LVU167
- 593 004a 0020     		movs	r0, #0
- 594              	.LVL68:
+ 588              		.loc 1 291 12 view .LVU165
+ 589 004a 0020     		movs	r0, #0
+ 590              	.LVL66:
  291:Core/Src/BLT/flash.c ****   }
- 595              		.loc 1 291 12 view .LVU168
- 596 004c F3E7     		b	.L44
- 597              	.L55:
- 598 004e 00BF     		.align	2
- 599              	.L54:
- 600 0050 FFFF0308 		.word	134479871
- 601 0054 00400008 		.word	134234112
- 602 0058 00000000 		.word	blockInfo
- 603 005c 00000000 		.word	bootBlockInfo
- 604              		.cfi_endproc
- 605              	.LFE125:
- 607              		.section	.text.FlashErase,"ax",%progbits
- 608              		.align	1
- 609              		.global	FlashErase
- 610              		.syntax unified
- 611              		.thumb
- 612              		.thumb_func
- 614              	FlashErase:
- 615              	.LVL69:
- 616              	.LFB126:
+ 591              		.loc 1 291 12 view .LVU166
+ 592 004c F3E7     		b	.L44
+ 593              	.L55:
+ 594 004e 00BF     		.align	2
+ 595              	.L54:
+ 596 0050 FFFF0308 		.word	134479871
+ 597 0054 00200008 		.word	134225920
+ 598 0058 00000000 		.word	blockInfo
+ 599 005c 00000000 		.word	bootBlockInfo
+ 600              		.cfi_endproc
+ 601              	.LFE125:
+ 603              		.section	.text.FlashErase,"ax",%progbits
+ 604              		.align	1
+ 605              		.global	FlashErase
+ 606              		.syntax unified
+ 607              		.thumb
+ 608              		.thumb_func
+ 610              	FlashErase:
+ 611              	.LVL67:
+ 612              	.LFB126:
  316:Core/Src/BLT/flash.c ****   blt_addr erase_base_addr;
- 617              		.loc 1 316 1 is_stmt 1 view -0
- 618              		.cfi_startproc
- 619              		@ args = 0, pretend = 0, frame = 16
- 620              		@ frame_needed = 0, uses_anonymous_args = 0
+ 613              		.loc 1 316 1 is_stmt 1 view -0
+ 614              		.cfi_startproc
+ 615              		@ args = 0, pretend = 0, frame = 16
+ 616              		@ frame_needed = 0, uses_anonymous_args = 0
  316:Core/Src/BLT/flash.c ****   blt_addr erase_base_addr;
- 621              		.loc 1 316 1 is_stmt 0 view .LVU170
- 622 0000 30B5     		push	{r4, r5, lr}
- 623              		.cfi_def_cfa_offset 12
- 624              		.cfi_offset 4, -12
- 625              		.cfi_offset 5, -8
- 626              		.cfi_offset 14, -4
- 627 0002 85B0     		sub	sp, sp, #20
-ARM GAS  /tmp/ccepCjKs.s 			page 27
-
-
- 628              		.cfi_def_cfa_offset 32
+ 617              		.loc 1 316 1 is_stmt 0 view .LVU168
+ 618 0000 30B5     		push	{r4, r5, lr}
+ 619              		.cfi_def_cfa_offset 12
+ 620              		.cfi_offset 4, -12
+ 621              		.cfi_offset 5, -8
+ 622              		.cfi_offset 14, -4
+ 623 0002 85B0     		sub	sp, sp, #20
+ 624              		.cfi_def_cfa_offset 32
  317:Core/Src/BLT/flash.c ****   blt_int32u total_erase_len;
- 629              		.loc 1 317 3 is_stmt 1 view .LVU171
+ 625              		.loc 1 317 3 is_stmt 1 view .LVU169
  318:Core/Src/BLT/flash.c ****   blt_int16u nr_of_erase_sectors;
- 630              		.loc 1 318 3 view .LVU172
+ 626              		.loc 1 318 3 view .LVU170
  319:Core/Src/BLT/flash.c ****   blt_int32u pageError = 0;
- 631              		.loc 1 319 3 view .LVU173
+ARM GAS  /tmp/ccdIbtoD.s 			page 27
+
+
+ 627              		.loc 1 319 3 view .LVU171
  320:Core/Src/BLT/flash.c ****   blt_int16u sector_idx;
- 632              		.loc 1 320 3 view .LVU174
+ 628              		.loc 1 320 3 view .LVU172
  320:Core/Src/BLT/flash.c ****   blt_int16u sector_idx;
- 633              		.loc 1 320 14 is_stmt 0 view .LVU175
- 634 0004 0023     		movs	r3, #0
- 635 0006 0393     		str	r3, [sp, #12]
+ 629              		.loc 1 320 14 is_stmt 0 view .LVU173
+ 630 0004 0023     		movs	r3, #0
+ 631 0006 0393     		str	r3, [sp, #12]
  321:Core/Src/BLT/flash.c ****   FLASH_EraseInitTypeDef eraseInitStruct;
- 636              		.loc 1 321 3 is_stmt 1 view .LVU176
+ 632              		.loc 1 321 3 is_stmt 1 view .LVU174
  322:Core/Src/BLT/flash.c ****   blt_bool result = BLT_TRUE;
- 637              		.loc 1 322 3 view .LVU177
+ 633              		.loc 1 322 3 view .LVU175
  323:Core/Src/BLT/flash.c **** 
- 638              		.loc 1 323 3 view .LVU178
- 639              	.LVL70:
+ 634              		.loc 1 323 3 view .LVU176
+ 635              	.LVL68:
  326:Core/Src/BLT/flash.c ****   {
- 640              		.loc 1 326 3 view .LVU179
+ 636              		.loc 1 326 3 view .LVU177
  326:Core/Src/BLT/flash.c ****   {
- 641              		.loc 1 326 12 is_stmt 0 view .LVU180
- 642 0008 4A1E     		subs	r2, r1, #1
+ 637              		.loc 1 326 12 is_stmt 0 view .LVU178
+ 638 0008 4A1E     		subs	r2, r1, #1
  326:Core/Src/BLT/flash.c ****   {
- 643              		.loc 1 326 38 view .LVU181
- 644 000a 1F4B     		ldr	r3, .L68
- 645 000c 1B1A     		subs	r3, r3, r0
+ 639              		.loc 1 326 38 view .LVU179
+ 640 000a 1F4B     		ldr	r3, .L68
+ 641 000c 1B1A     		subs	r3, r3, r0
  326:Core/Src/BLT/flash.c ****   {
- 646              		.loc 1 326 6 view .LVU182
- 647 000e 9A42     		cmp	r2, r3
- 648 0010 31D8     		bhi	.L62
+ 642              		.loc 1 326 6 view .LVU180
+ 643 000e 9A42     		cmp	r2, r3
+ 644 0010 31D8     		bhi	.L62
  334:Core/Src/BLT/flash.c ****   
- 649              		.loc 1 334 3 is_stmt 1 view .LVU183
+ 645              		.loc 1 334 3 is_stmt 1 view .LVU181
  334:Core/Src/BLT/flash.c ****   
- 650              		.loc 1 334 19 is_stmt 0 view .LVU184
- 651 0012 20F4FF63 		bic	r3, r0, #2040
- 652 0016 23F00703 		bic	r3, r3, #7
- 653              	.LVL71:
+ 646              		.loc 1 334 19 is_stmt 0 view .LVU182
+ 647 0012 20F4FF63 		bic	r3, r0, #2040
+ 648 0016 23F00703 		bic	r3, r3, #7
+ 649              	.LVL69:
  337:Core/Src/BLT/flash.c ****   {
- 654              		.loc 1 337 3 is_stmt 1 view .LVU185
+ 650              		.loc 1 337 3 is_stmt 1 view .LVU183
  337:Core/Src/BLT/flash.c ****   {
- 655              		.loc 1 337 6 is_stmt 0 view .LVU186
- 656 001a 1C4A     		ldr	r2, .L68+4
- 657 001c 9342     		cmp	r3, r2
- 658 001e 2ED3     		bcc	.L63
+ 651              		.loc 1 337 6 is_stmt 0 view .LVU184
+ 652 001a 1C4A     		ldr	r2, .L68+4
+ 653 001c 9342     		cmp	r3, r2
+ 654 001e 2ED3     		bcc	.L63
  337:Core/Src/BLT/flash.c ****   {
- 659              		.loc 1 337 56 discriminator 1 view .LVU187
- 660 0020 0A18     		adds	r2, r1, r0
+ 655              		.loc 1 337 56 discriminator 1 view .LVU185
+ 656 0020 0A18     		adds	r2, r1, r0
  337:Core/Src/BLT/flash.c ****   {
- 661              		.loc 1 337 60 discriminator 1 view .LVU188
- 662 0022 013A     		subs	r2, r2, #1
+ 657              		.loc 1 337 60 discriminator 1 view .LVU186
+ 658 0022 013A     		subs	r2, r2, #1
  337:Core/Src/BLT/flash.c ****   {
- 663              		.loc 1 337 47 discriminator 1 view .LVU189
- 664 0024 184C     		ldr	r4, .L68
- 665 0026 A242     		cmp	r2, r4
-ARM GAS  /tmp/ccepCjKs.s 			page 28
+ 659              		.loc 1 337 47 discriminator 1 view .LVU187
+ 660 0024 184C     		ldr	r4, .L68
+ 661 0026 A242     		cmp	r2, r4
+ 662 0028 2BD8     		bhi	.L64
+ 343:Core/Src/BLT/flash.c **** 
+ 663              		.loc 1 343 3 is_stmt 1 view .LVU188
+ 343:Core/Src/BLT/flash.c **** 
+ 664              		.loc 1 343 33 is_stmt 0 view .LVU189
+ 665 002a C01A     		subs	r0, r0, r3
+ARM GAS  /tmp/ccdIbtoD.s 			page 28
 
 
- 666 0028 2BD8     		bhi	.L64
+ 666              	.LVL70:
  343:Core/Src/BLT/flash.c **** 
- 667              		.loc 1 343 3 is_stmt 1 view .LVU190
- 343:Core/Src/BLT/flash.c **** 
- 668              		.loc 1 343 33 is_stmt 0 view .LVU191
- 669 002a C01A     		subs	r0, r0, r3
- 670              	.LVL72:
- 343:Core/Src/BLT/flash.c **** 
- 671              		.loc 1 343 19 view .LVU192
- 672 002c 0844     		add	r0, r0, r1
- 673              	.LVL73:
+ 667              		.loc 1 343 19 view .LVU190
+ 668 002c 0844     		add	r0, r0, r1
+ 669              	.LVL71:
  346:Core/Src/BLT/flash.c ****   if ((total_erase_len % FLASH_ERASE_SECTOR_SIZE) > 0)
- 674              		.loc 1 346 3 is_stmt 1 view .LVU193
+ 670              		.loc 1 346 3 is_stmt 1 view .LVU191
  346:Core/Src/BLT/flash.c ****   if ((total_erase_len % FLASH_ERASE_SECTOR_SIZE) > 0)
- 675              		.loc 1 346 23 is_stmt 0 view .LVU194
- 676 002e C0F3CF25 		ubfx	r5, r0, #11, #16
- 677              	.LVL74:
+ 671              		.loc 1 346 23 is_stmt 0 view .LVU192
+ 672 002e C0F3CF25 		ubfx	r5, r0, #11, #16
+ 673              	.LVL72:
  347:Core/Src/BLT/flash.c ****   {
- 678              		.loc 1 347 3 is_stmt 1 view .LVU195
+ 674              		.loc 1 347 3 is_stmt 1 view .LVU193
  347:Core/Src/BLT/flash.c ****   {
- 679              		.loc 1 347 24 is_stmt 0 view .LVU196
- 680 0032 C0F30A00 		ubfx	r0, r0, #0, #11
- 681              	.LVL75:
+ 675              		.loc 1 347 24 is_stmt 0 view .LVU194
+ 676 0032 C0F30A00 		ubfx	r0, r0, #0, #11
+ 677              	.LVL73:
  347:Core/Src/BLT/flash.c ****   {
- 682              		.loc 1 347 6 view .LVU197
- 683 0036 08B1     		cbz	r0, .L58
+ 678              		.loc 1 347 6 view .LVU195
+ 679 0036 08B1     		cbz	r0, .L58
  349:Core/Src/BLT/flash.c ****   }
- 684              		.loc 1 349 5 is_stmt 1 view .LVU198
+ 680              		.loc 1 349 5 is_stmt 1 view .LVU196
  349:Core/Src/BLT/flash.c ****   }
- 685              		.loc 1 349 24 is_stmt 0 view .LVU199
- 686 0038 0135     		adds	r5, r5, #1
- 687              	.LVL76:
+ 681              		.loc 1 349 24 is_stmt 0 view .LVU197
+ 682 0038 0135     		adds	r5, r5, #1
+ 683              	.LVL74:
  349:Core/Src/BLT/flash.c ****   }
- 688              		.loc 1 349 24 view .LVU200
- 689 003a ADB2     		uxth	r5, r5
- 690              	.LVL77:
- 691              	.L58:
+ 684              		.loc 1 349 24 view .LVU198
+ 685 003a ADB2     		uxth	r5, r5
+ 686              	.LVL75:
+ 687              	.L58:
  353:Core/Src/BLT/flash.c ****   eraseInitStruct.PageAddress = erase_base_addr;
- 692              		.loc 1 353 3 is_stmt 1 view .LVU201
+ 688              		.loc 1 353 3 is_stmt 1 view .LVU199
  353:Core/Src/BLT/flash.c ****   eraseInitStruct.PageAddress = erase_base_addr;
- 693              		.loc 1 353 31 is_stmt 0 view .LVU202
- 694 003c 0024     		movs	r4, #0
- 695 003e 0094     		str	r4, [sp]
+ 689              		.loc 1 353 31 is_stmt 0 view .LVU200
+ 690 003c 0024     		movs	r4, #0
+ 691 003e 0094     		str	r4, [sp]
  354:Core/Src/BLT/flash.c ****   eraseInitStruct.NbPages     = 1;
- 696              		.loc 1 354 3 is_stmt 1 view .LVU203
+ 692              		.loc 1 354 3 is_stmt 1 view .LVU201
  354:Core/Src/BLT/flash.c ****   eraseInitStruct.NbPages     = 1;
- 697              		.loc 1 354 31 is_stmt 0 view .LVU204
- 698 0040 0193     		str	r3, [sp, #4]
+ 693              		.loc 1 354 31 is_stmt 0 view .LVU202
+ 694 0040 0193     		str	r3, [sp, #4]
  355:Core/Src/BLT/flash.c **** 
- 699              		.loc 1 355 3 is_stmt 1 view .LVU205
+ 695              		.loc 1 355 3 is_stmt 1 view .LVU203
  355:Core/Src/BLT/flash.c **** 
- 700              		.loc 1 355 31 is_stmt 0 view .LVU206
- 701 0042 0123     		movs	r3, #1
- 702              	.LVL78:
+ 696              		.loc 1 355 31 is_stmt 0 view .LVU204
+ 697 0042 0123     		movs	r3, #1
+ 698              	.LVL76:
  355:Core/Src/BLT/flash.c **** 
- 703              		.loc 1 355 31 view .LVU207
- 704 0044 0293     		str	r3, [sp, #8]
-ARM GAS  /tmp/ccepCjKs.s 			page 29
-
-
+ 699              		.loc 1 355 31 view .LVU205
+ 700 0044 0293     		str	r3, [sp, #8]
  358:Core/Src/BLT/flash.c **** 
- 705              		.loc 1 358 3 is_stmt 1 view .LVU208
- 706 0046 FFF7FEFF 		bl	HAL_FLASH_Unlock
- 707              	.LVL79:
+ 701              		.loc 1 358 3 is_stmt 1 view .LVU206
+ 702 0046 FFF7FEFF 		bl	HAL_FLASH_Unlock
+ 703              	.LVL77:
  363:Core/Src/BLT/flash.c ****   {
- 708              		.loc 1 363 3 view .LVU209
- 709              	.L59:
+ 704              		.loc 1 363 3 view .LVU207
+ARM GAS  /tmp/ccdIbtoD.s 			page 29
+
+
+ 705              	.L59:
  363:Core/Src/BLT/flash.c ****   {
- 710              		.loc 1 363 35 discriminator 1 view .LVU210
- 711 004a A542     		cmp	r5, r4
- 712 004c 0DD9     		bls	.L67
+ 706              		.loc 1 363 35 discriminator 1 view .LVU208
+ 707 004a A542     		cmp	r5, r4
+ 708 004c 0DD9     		bls	.L67
  366:Core/Src/BLT/flash.c ****     /* erase the sector. */
- 713              		.loc 1 366 5 view .LVU211
- 714 004e FFF7FEFF 		bl	CopService
- 715              	.LVL80:
+ 709              		.loc 1 366 5 view .LVU209
+ 710 004e FFF7FEFF 		bl	CopService
+ 711              	.LVL78:
  368:Core/Src/BLT/flash.c ****     {
- 716              		.loc 1 368 5 view .LVU212
+ 712              		.loc 1 368 5 view .LVU210
  368:Core/Src/BLT/flash.c ****     {
- 717              		.loc 1 368 9 is_stmt 0 view .LVU213
- 718 0052 03A9     		add	r1, sp, #12
- 719 0054 6846     		mov	r0, sp
- 720 0056 FFF7FEFF 		bl	HAL_FLASHEx_Erase
- 721              	.LVL81:
+ 713              		.loc 1 368 9 is_stmt 0 view .LVU211
+ 714 0052 03A9     		add	r1, sp, #12
+ 715 0054 6846     		mov	r0, sp
+ 716 0056 FFF7FEFF 		bl	HAL_FLASHEx_Erase
+ 717              	.LVL79:
  368:Core/Src/BLT/flash.c ****     {
- 722              		.loc 1 368 8 view .LVU214
- 723 005a 50B9     		cbnz	r0, .L65
+ 718              		.loc 1 368 8 discriminator 1 view .LVU212
+ 719 005a 50B9     		cbnz	r0, .L65
  375:Core/Src/BLT/flash.c ****   }
- 724              		.loc 1 375 5 is_stmt 1 discriminator 2 view .LVU215
+ 720              		.loc 1 375 5 is_stmt 1 view .LVU213
  375:Core/Src/BLT/flash.c ****   }
- 725              		.loc 1 375 20 is_stmt 0 discriminator 2 view .LVU216
- 726 005c 019B     		ldr	r3, [sp, #4]
+ 721              		.loc 1 375 20 is_stmt 0 view .LVU214
+ 722 005c 019B     		ldr	r3, [sp, #4]
  375:Core/Src/BLT/flash.c ****   }
- 727              		.loc 1 375 33 discriminator 2 view .LVU217
- 728 005e 03F50063 		add	r3, r3, #2048
- 729 0062 0193     		str	r3, [sp, #4]
+ 723              		.loc 1 375 33 view .LVU215
+ 724 005e 03F50063 		add	r3, r3, #2048
+ 725 0062 0193     		str	r3, [sp, #4]
  363:Core/Src/BLT/flash.c ****   {
- 730              		.loc 1 363 68 is_stmt 1 discriminator 2 view .LVU218
- 731 0064 0134     		adds	r4, r4, #1
- 732              	.LVL82:
+ 726              		.loc 1 363 68 is_stmt 1 discriminator 2 view .LVU216
+ 727 0064 0134     		adds	r4, r4, #1
+ 728              	.LVL80:
  363:Core/Src/BLT/flash.c ****   {
- 733              		.loc 1 363 68 is_stmt 0 discriminator 2 view .LVU219
- 734 0066 A4B2     		uxth	r4, r4
- 735              	.LVL83:
+ 729              		.loc 1 363 68 is_stmt 0 discriminator 2 view .LVU217
+ 730 0066 A4B2     		uxth	r4, r4
+ 731              	.LVL81:
  363:Core/Src/BLT/flash.c ****   {
- 736              		.loc 1 363 68 discriminator 2 view .LVU220
- 737 0068 EFE7     		b	.L59
- 738              	.L67:
+ 732              		.loc 1 363 68 discriminator 2 view .LVU218
+ 733 0068 EFE7     		b	.L59
+ 734              	.L67:
  323:Core/Src/BLT/flash.c **** 
- 739              		.loc 1 323 12 view .LVU221
- 740 006a 0124     		movs	r4, #1
- 741              	.LVL84:
- 742              	.L60:
+ 735              		.loc 1 323 12 view .LVU219
+ 736 006a 0124     		movs	r4, #1
+ 737              	.LVL82:
+ 738              	.L60:
  379:Core/Src/BLT/flash.c **** 
- 743              		.loc 1 379 3 is_stmt 1 view .LVU222
- 744 006c FFF7FEFF 		bl	HAL_FLASH_Lock
- 745              	.LVL85:
+ 739              		.loc 1 379 3 is_stmt 1 view .LVU220
+ 740 006c FFF7FEFF 		bl	HAL_FLASH_Lock
+ 741              	.LVL83:
  382:Core/Src/BLT/flash.c **** } /*** end of FlashErase ***/
-ARM GAS  /tmp/ccepCjKs.s 			page 30
+ 742              		.loc 1 382 3 view .LVU221
+ 382:Core/Src/BLT/flash.c **** } /*** end of FlashErase ***/
+ 743              		.loc 1 382 10 is_stmt 0 view .LVU222
+ 744 0070 02E0     		b	.L57
+ 745              	.LVL84:
+ 746              	.L65:
+ARM GAS  /tmp/ccdIbtoD.s 			page 30
 
 
- 746              		.loc 1 382 3 view .LVU223
- 382:Core/Src/BLT/flash.c **** } /*** end of FlashErase ***/
- 747              		.loc 1 382 10 is_stmt 0 view .LVU224
- 748 0070 02E0     		b	.L57
- 749              	.LVL86:
- 750              	.L65:
  371:Core/Src/BLT/flash.c ****       break;
- 751              		.loc 1 371 14 view .LVU225
- 752 0072 0024     		movs	r4, #0
- 753              	.LVL87:
+ 747              		.loc 1 371 14 view .LVU223
+ 748 0072 0024     		movs	r4, #0
+ 749              	.LVL85:
  371:Core/Src/BLT/flash.c ****       break;
- 754              		.loc 1 371 14 view .LVU226
- 755 0074 FAE7     		b	.L60
- 756              	.LVL88:
- 757              	.L62:
+ 750              		.loc 1 371 14 view .LVU224
+ 751 0074 FAE7     		b	.L60
+ 752              	.LVL86:
+ 753              	.L62:
  328:Core/Src/BLT/flash.c ****   }
- 758              		.loc 1 328 12 view .LVU227
- 759 0076 0024     		movs	r4, #0
- 760              	.LVL89:
- 761              	.L57:
+ 754              		.loc 1 328 12 view .LVU225
+ 755 0076 0024     		movs	r4, #0
+ 756              	.LVL87:
+ 757              	.L57:
  383:Core/Src/BLT/flash.c **** 
- 762              		.loc 1 383 1 view .LVU228
- 763 0078 2046     		mov	r0, r4
- 764 007a 05B0     		add	sp, sp, #20
- 765              		.cfi_remember_state
- 766              		.cfi_def_cfa_offset 12
- 767              		@ sp needed
- 768 007c 30BD     		pop	{r4, r5, pc}
- 769              	.LVL90:
- 770              	.L63:
- 771              		.cfi_restore_state
+ 758              		.loc 1 383 1 view .LVU226
+ 759 0078 2046     		mov	r0, r4
+ 760 007a 05B0     		add	sp, sp, #20
+ 761              		.cfi_remember_state
+ 762              		.cfi_def_cfa_offset 12
+ 763              		@ sp needed
+ 764 007c 30BD     		pop	{r4, r5, pc}
+ 765              	.LVL88:
+ 766              	.L63:
+ 767              		.cfi_restore_state
  339:Core/Src/BLT/flash.c ****   }
- 772              		.loc 1 339 12 view .LVU229
- 773 007e 0024     		movs	r4, #0
- 774 0080 FAE7     		b	.L57
- 775              	.L64:
- 776 0082 0024     		movs	r4, #0
- 777 0084 F8E7     		b	.L57
- 778              	.L69:
- 779 0086 00BF     		.align	2
- 780              	.L68:
- 781 0088 FFFF0308 		.word	134479871
- 782 008c 00400008 		.word	134234112
- 783              		.cfi_endproc
- 784              	.LFE126:
- 786              		.section	.text.FlashWriteChecksum,"ax",%progbits
- 787              		.align	1
- 788              		.global	FlashWriteChecksum
- 789              		.syntax unified
- 790              		.thumb
- 791              		.thumb_func
- 793              	FlashWriteChecksum:
- 794              	.LFB127:
+ 768              		.loc 1 339 12 view .LVU227
+ 769 007e 0024     		movs	r4, #0
+ 770 0080 FAE7     		b	.L57
+ 771              	.L64:
+ 772 0082 0024     		movs	r4, #0
+ 773 0084 F8E7     		b	.L57
+ 774              	.L69:
+ 775 0086 00BF     		.align	2
+ 776              	.L68:
+ 777 0088 FFFF0308 		.word	134479871
+ 778 008c 00200008 		.word	134225920
+ 779              		.cfi_endproc
+ 780              	.LFE126:
+ 782              		.section	.text.FlashWriteChecksum,"ax",%progbits
+ 783              		.align	1
+ 784              		.global	FlashWriteChecksum
+ 785              		.syntax unified
+ 786              		.thumb
+ 787              		.thumb_func
+ 789              	FlashWriteChecksum:
+ 790              	.LFB127:
  396:Core/Src/BLT/flash.c ****   blt_int32u signature_checksum = 0;
- 795              		.loc 1 396 1 is_stmt 1 view -0
- 796              		.cfi_startproc
- 797              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  /tmp/ccepCjKs.s 			page 31
+ 791              		.loc 1 396 1 is_stmt 1 view -0
+ 792              		.cfi_startproc
+ 793              		@ args = 0, pretend = 0, frame = 8
+ 794              		@ frame_needed = 0, uses_anonymous_args = 0
+ 795 0000 00B5     		push	{lr}
+ 796              		.cfi_def_cfa_offset 4
+ 797              		.cfi_offset 14, -4
+ 798 0002 83B0     		sub	sp, sp, #12
+ 799              		.cfi_def_cfa_offset 16
+ARM GAS  /tmp/ccdIbtoD.s 			page 31
 
 
- 798              		@ frame_needed = 0, uses_anonymous_args = 0
- 799 0000 00B5     		push	{lr}
- 800              		.cfi_def_cfa_offset 4
- 801              		.cfi_offset 14, -4
- 802 0002 83B0     		sub	sp, sp, #12
- 803              		.cfi_def_cfa_offset 16
  397:Core/Src/BLT/flash.c **** 
- 804              		.loc 1 397 3 view .LVU231
+ 800              		.loc 1 397 3 view .LVU229
  397:Core/Src/BLT/flash.c **** 
- 805              		.loc 1 397 14 is_stmt 0 view .LVU232
- 806 0004 0023     		movs	r3, #0
- 807 0006 0193     		str	r3, [sp, #4]
+ 801              		.loc 1 397 14 is_stmt 0 view .LVU230
+ 802 0004 0023     		movs	r3, #0
+ 803 0006 0193     		str	r3, [sp, #4]
  423:Core/Src/BLT/flash.c ****   {
- 808              		.loc 1 423 3 is_stmt 1 view .LVU233
+ 804              		.loc 1 423 3 is_stmt 1 view .LVU231
  423:Core/Src/BLT/flash.c ****   {
- 809              		.loc 1 423 20 is_stmt 0 view .LVU234
- 810 0008 134B     		ldr	r3, .L74
- 811 000a 1B68     		ldr	r3, [r3]
+ 805              		.loc 1 423 20 is_stmt 0 view .LVU232
+ 806 0008 134B     		ldr	r3, .L74
+ 807 000a 1B68     		ldr	r3, [r3]
  423:Core/Src/BLT/flash.c ****   {
- 812              		.loc 1 423 6 view .LVU235
- 813 000c B3F1FF3F 		cmp	r3, #-1
- 814 0010 20D0     		beq	.L72
+ 808              		.loc 1 423 6 view .LVU233
+ 809 000c B3F1FF3F 		cmp	r3, #-1
+ 810 0010 20D0     		beq	.L72
  441:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x04]));
- 815              		.loc 1 441 3 is_stmt 1 view .LVU236
+ 811              		.loc 1 441 3 is_stmt 1 view .LVU234
  441:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x04]));
- 816              		.loc 1 441 25 is_stmt 0 view .LVU237
- 817 0012 114A     		ldr	r2, .L74
- 818 0014 5368     		ldr	r3, [r2, #4]
+ 812              		.loc 1 441 25 is_stmt 0 view .LVU235
+ 813 0012 114A     		ldr	r2, .L74
+ 814 0014 5368     		ldr	r3, [r2, #4]
  441:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x04]));
- 819              		.loc 1 441 22 view .LVU238
- 820 0016 0193     		str	r3, [sp, #4]
+ 815              		.loc 1 441 22 view .LVU236
+ 816 0016 0193     		str	r3, [sp, #4]
  442:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x08]));
- 821              		.loc 1 442 3 is_stmt 1 view .LVU239
+ 817              		.loc 1 442 3 is_stmt 1 view .LVU237
  442:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x08]));
- 822              		.loc 1 442 25 is_stmt 0 view .LVU240
- 823 0018 9168     		ldr	r1, [r2, #8]
+ 818              		.loc 1 442 25 is_stmt 0 view .LVU238
+ 819 0018 9168     		ldr	r1, [r2, #8]
  442:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x08]));
- 824              		.loc 1 442 22 view .LVU241
- 825 001a 0B44     		add	r3, r3, r1
- 826 001c 0193     		str	r3, [sp, #4]
+ 820              		.loc 1 442 22 view .LVU239
+ 821 001a 0B44     		add	r3, r3, r1
+ 822 001c 0193     		str	r3, [sp, #4]
  443:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x0C]));
- 827              		.loc 1 443 3 is_stmt 1 view .LVU242
+ 823              		.loc 1 443 3 is_stmt 1 view .LVU240
  443:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x0C]));
- 828              		.loc 1 443 25 is_stmt 0 view .LVU243
- 829 001e D168     		ldr	r1, [r2, #12]
+ 824              		.loc 1 443 25 is_stmt 0 view .LVU241
+ 825 001e D168     		ldr	r1, [r2, #12]
  443:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x0C]));
- 830              		.loc 1 443 22 view .LVU244
- 831 0020 0B44     		add	r3, r3, r1
- 832 0022 0193     		str	r3, [sp, #4]
+ 826              		.loc 1 443 22 view .LVU242
+ 827 0020 0B44     		add	r3, r3, r1
+ 828 0022 0193     		str	r3, [sp, #4]
  444:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x10]));
- 833              		.loc 1 444 3 is_stmt 1 view .LVU245
+ 829              		.loc 1 444 3 is_stmt 1 view .LVU243
  444:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x10]));
- 834              		.loc 1 444 25 is_stmt 0 view .LVU246
- 835 0024 1169     		ldr	r1, [r2, #16]
+ 830              		.loc 1 444 25 is_stmt 0 view .LVU244
+ 831 0024 1169     		ldr	r1, [r2, #16]
  444:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x10]));
- 836              		.loc 1 444 22 view .LVU247
- 837 0026 0B44     		add	r3, r3, r1
-ARM GAS  /tmp/ccepCjKs.s 			page 32
+ 832              		.loc 1 444 22 view .LVU245
+ 833 0026 0B44     		add	r3, r3, r1
+ 834 0028 0193     		str	r3, [sp, #4]
+ 445:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x14]));
+ 835              		.loc 1 445 3 is_stmt 1 view .LVU246
+ 445:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x14]));
+ 836              		.loc 1 445 25 is_stmt 0 view .LVU247
+ 837 002a 5169     		ldr	r1, [r2, #20]
+ARM GAS  /tmp/ccdIbtoD.s 			page 32
 
 
- 838 0028 0193     		str	r3, [sp, #4]
  445:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x14]));
- 839              		.loc 1 445 3 is_stmt 1 view .LVU248
- 445:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x14]));
- 840              		.loc 1 445 25 is_stmt 0 view .LVU249
- 841 002a 5169     		ldr	r1, [r2, #20]
- 445:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x14]));
- 842              		.loc 1 445 22 view .LVU250
- 843 002c 0B44     		add	r3, r3, r1
- 844 002e 0193     		str	r3, [sp, #4]
+ 838              		.loc 1 445 22 view .LVU248
+ 839 002c 0B44     		add	r3, r3, r1
+ 840 002e 0193     		str	r3, [sp, #4]
  446:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x18]));
- 845              		.loc 1 446 3 is_stmt 1 view .LVU251
+ 841              		.loc 1 446 3 is_stmt 1 view .LVU249
  446:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x18]));
- 846              		.loc 1 446 25 is_stmt 0 view .LVU252
- 847 0030 9169     		ldr	r1, [r2, #24]
+ 842              		.loc 1 446 25 is_stmt 0 view .LVU250
+ 843 0030 9169     		ldr	r1, [r2, #24]
  446:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(&bootBlockInfo.data[0+0x18]));
- 848              		.loc 1 446 22 view .LVU253
- 849 0032 0B44     		add	r3, r3, r1
- 850 0034 0193     		str	r3, [sp, #4]
+ 844              		.loc 1 446 22 view .LVU251
+ 845 0032 0B44     		add	r3, r3, r1
+ 846 0034 0193     		str	r3, [sp, #4]
  447:Core/Src/BLT/flash.c ****   signature_checksum  = ~signature_checksum; /* one's complement */
- 851              		.loc 1 447 3 is_stmt 1 view .LVU254
+ 847              		.loc 1 447 3 is_stmt 1 view .LVU252
  447:Core/Src/BLT/flash.c ****   signature_checksum  = ~signature_checksum; /* one's complement */
- 852              		.loc 1 447 25 is_stmt 0 view .LVU255
- 853 0036 D269     		ldr	r2, [r2, #28]
+ 848              		.loc 1 447 25 is_stmt 0 view .LVU253
+ 849 0036 D269     		ldr	r2, [r2, #28]
  447:Core/Src/BLT/flash.c ****   signature_checksum  = ~signature_checksum; /* one's complement */
- 854              		.loc 1 447 22 view .LVU256
- 855 0038 1344     		add	r3, r3, r2
- 856 003a 0193     		str	r3, [sp, #4]
+ 850              		.loc 1 447 22 view .LVU254
+ 851 0038 1344     		add	r3, r3, r2
+ 852 003a 0193     		str	r3, [sp, #4]
  448:Core/Src/BLT/flash.c ****   signature_checksum += 1; /* two's complement */
- 857              		.loc 1 448 3 is_stmt 1 view .LVU257
+ 853              		.loc 1 448 3 is_stmt 1 view .LVU255
  448:Core/Src/BLT/flash.c ****   signature_checksum += 1; /* two's complement */
- 858              		.loc 1 448 25 is_stmt 0 view .LVU258
- 859 003c DA43     		mvns	r2, r3
+ 854              		.loc 1 448 25 is_stmt 0 view .LVU256
+ 855 003c DA43     		mvns	r2, r3
  448:Core/Src/BLT/flash.c ****   signature_checksum += 1; /* two's complement */
- 860              		.loc 1 448 23 view .LVU259
- 861 003e 0192     		str	r2, [sp, #4]
+ 856              		.loc 1 448 23 view .LVU257
+ 857 003e 0192     		str	r2, [sp, #4]
  449:Core/Src/BLT/flash.c **** 
- 862              		.loc 1 449 3 is_stmt 1 view .LVU260
+ 858              		.loc 1 449 3 is_stmt 1 view .LVU258
  449:Core/Src/BLT/flash.c **** 
- 863              		.loc 1 449 22 is_stmt 0 view .LVU261
- 864 0040 5B42     		rsbs	r3, r3, #0
- 865 0042 0193     		str	r3, [sp, #4]
+ 859              		.loc 1 449 22 is_stmt 0 view .LVU259
+ 860 0040 5B42     		rsbs	r3, r3, #0
+ 861 0042 0193     		str	r3, [sp, #4]
  452:Core/Src/BLT/flash.c ****                     sizeof(blt_addr), (blt_int8u *)&signature_checksum);
- 866              		.loc 1 452 3 is_stmt 1 view .LVU262
+ 862              		.loc 1 452 3 is_stmt 1 view .LVU260
  452:Core/Src/BLT/flash.c ****                     sizeof(blt_addr), (blt_int8u *)&signature_checksum);
- 867              		.loc 1 452 10 is_stmt 0 view .LVU263
- 868 0044 01AA     		add	r2, sp, #4
- 869 0046 0421     		movs	r1, #4
- 870 0048 0448     		ldr	r0, .L74+4
- 871 004a FFF7FEFF 		bl	FlashWrite
- 872              	.LVL91:
- 873              	.L71:
+ 863              		.loc 1 452 10 is_stmt 0 view .LVU261
+ 864 0044 01AA     		add	r2, sp, #4
+ 865 0046 0421     		movs	r1, #4
+ 866 0048 0448     		ldr	r0, .L74+4
+ 867 004a FFF7FEFF 		bl	FlashWrite
+ 868              	.LVL89:
+ 869              	.L71:
  454:Core/Src/BLT/flash.c **** 
- 874              		.loc 1 454 1 view .LVU264
- 875 004e 03B0     		add	sp, sp, #12
- 876              		.cfi_remember_state
- 877              		.cfi_def_cfa_offset 4
-ARM GAS  /tmp/ccepCjKs.s 			page 33
-
-
- 878              		@ sp needed
- 879 0050 5DF804FB 		ldr	pc, [sp], #4
- 880              	.L72:
- 881              		.cfi_restore_state
+ 870              		.loc 1 454 1 view .LVU262
+ 871 004e 03B0     		add	sp, sp, #12
+ 872              		.cfi_remember_state
+ 873              		.cfi_def_cfa_offset 4
+ 874              		@ sp needed
+ 875 0050 5DF804FB 		ldr	pc, [sp], #4
+ 876              	.L72:
+ 877              		.cfi_restore_state
  425:Core/Src/BLT/flash.c ****   }
- 882              		.loc 1 425 12 view .LVU265
- 883 0054 0120     		movs	r0, #1
- 884 0056 FAE7     		b	.L71
- 885              	.L75:
- 886              		.align	2
- 887              	.L74:
- 888 0058 00000000 		.word	bootBlockInfo
- 889 005c 88410008 		.word	134234504
- 890              		.cfi_endproc
- 891              	.LFE127:
- 893              		.section	.text.FlashVerifyChecksum,"ax",%progbits
- 894              		.align	1
- 895              		.global	FlashVerifyChecksum
- 896              		.syntax unified
- 897              		.thumb
- 898              		.thumb_func
- 900              	FlashVerifyChecksum:
- 901              	.LFB128:
+ 878              		.loc 1 425 12 view .LVU263
+ARM GAS  /tmp/ccdIbtoD.s 			page 33
+
+
+ 879 0054 0120     		movs	r0, #1
+ 880 0056 FAE7     		b	.L71
+ 881              	.L75:
+ 882              		.align	2
+ 883              	.L74:
+ 884 0058 00000000 		.word	bootBlockInfo
+ 885 005c 88210008 		.word	134226312
+ 886              		.cfi_endproc
+ 887              	.LFE127:
+ 889              		.section	.text.FlashVerifyChecksum,"ax",%progbits
+ 890              		.align	1
+ 891              		.global	FlashVerifyChecksum
+ 892              		.syntax unified
+ 893              		.thumb
+ 894              		.thumb_func
+ 896              	FlashVerifyChecksum:
+ 897              	.LFB128:
  464:Core/Src/BLT/flash.c ****   blt_int32u signature_checksum = 0;
- 902              		.loc 1 464 1 is_stmt 1 view -0
- 903              		.cfi_startproc
- 904              		@ args = 0, pretend = 0, frame = 0
- 905              		@ frame_needed = 0, uses_anonymous_args = 0
- 906              		@ link register save eliminated.
+ 898              		.loc 1 464 1 is_stmt 1 view -0
+ 899              		.cfi_startproc
+ 900              		@ args = 0, pretend = 0, frame = 0
+ 901              		@ frame_needed = 0, uses_anonymous_args = 0
+ 902              		@ link register save eliminated.
  465:Core/Src/BLT/flash.c **** 
- 907              		.loc 1 465 3 view .LVU267
- 908              	.LVL92:
+ 903              		.loc 1 465 3 view .LVU265
+ 904              	.LVL90:
  468:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x04));
- 909              		.loc 1 468 3 view .LVU268
+ 905              		.loc 1 468 3 view .LVU266
  468:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x04));
- 910              		.loc 1 468 25 is_stmt 0 view .LVU269
- 911 0000 0A4B     		ldr	r3, .L79
- 912 0002 1A68     		ldr	r2, [r3]
- 913              	.LVL93:
+ 906              		.loc 1 468 25 is_stmt 0 view .LVU267
+ 907 0000 0A4B     		ldr	r3, .L79
+ 908 0002 1A68     		ldr	r2, [r3]
+ 909              	.LVL91:
  469:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x08));
- 914              		.loc 1 469 3 is_stmt 1 view .LVU270
+ 910              		.loc 1 469 3 is_stmt 1 view .LVU268
  469:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x08));
- 915              		.loc 1 469 25 is_stmt 0 view .LVU271
- 916 0004 5968     		ldr	r1, [r3, #4]
+ 911              		.loc 1 469 25 is_stmt 0 view .LVU269
+ 912 0004 5968     		ldr	r1, [r3, #4]
  469:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x08));
- 917              		.loc 1 469 22 view .LVU272
- 918 0006 1144     		add	r1, r1, r2
- 919              	.LVL94:
+ 913              		.loc 1 469 22 view .LVU270
+ 914 0006 1144     		add	r1, r1, r2
+ 915              	.LVL92:
  470:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x0C));
- 920              		.loc 1 470 3 is_stmt 1 view .LVU273
+ 916              		.loc 1 470 3 is_stmt 1 view .LVU271
  470:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x0C));
- 921              		.loc 1 470 25 is_stmt 0 view .LVU274
- 922 0008 9A68     		ldr	r2, [r3, #8]
+ 917              		.loc 1 470 25 is_stmt 0 view .LVU272
+ 918 0008 9A68     		ldr	r2, [r3, #8]
  470:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x0C));
- 923              		.loc 1 470 22 view .LVU275
- 924 000a 1144     		add	r1, r1, r2
- 925              	.LVL95:
-ARM GAS  /tmp/ccepCjKs.s 			page 34
+ 919              		.loc 1 470 22 view .LVU273
+ 920 000a 1144     		add	r1, r1, r2
+ 921              	.LVL93:
+ 471:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x10));
+ 922              		.loc 1 471 3 is_stmt 1 view .LVU274
+ 471:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x10));
+ 923              		.loc 1 471 25 is_stmt 0 view .LVU275
+ 924 000c DA68     		ldr	r2, [r3, #12]
+ 471:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x10));
+ARM GAS  /tmp/ccdIbtoD.s 			page 34
 
 
- 471:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x10));
- 926              		.loc 1 471 3 is_stmt 1 view .LVU276
- 471:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x10));
- 927              		.loc 1 471 25 is_stmt 0 view .LVU277
- 928 000c DA68     		ldr	r2, [r3, #12]
- 471:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x10));
- 929              		.loc 1 471 22 view .LVU278
- 930 000e 1144     		add	r1, r1, r2
- 931              	.LVL96:
+ 925              		.loc 1 471 22 view .LVU276
+ 926 000e 1144     		add	r1, r1, r2
+ 927              	.LVL94:
  472:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x14));
- 932              		.loc 1 472 3 is_stmt 1 view .LVU279
+ 928              		.loc 1 472 3 is_stmt 1 view .LVU277
  472:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x14));
- 933              		.loc 1 472 25 is_stmt 0 view .LVU280
- 934 0010 1A69     		ldr	r2, [r3, #16]
+ 929              		.loc 1 472 25 is_stmt 0 view .LVU278
+ 930 0010 1A69     		ldr	r2, [r3, #16]
  472:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x14));
- 935              		.loc 1 472 22 view .LVU281
- 936 0012 1144     		add	r1, r1, r2
- 937              	.LVL97:
+ 931              		.loc 1 472 22 view .LVU279
+ 932 0012 1144     		add	r1, r1, r2
+ 933              	.LVL95:
  473:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x18));
- 938              		.loc 1 473 3 is_stmt 1 view .LVU282
+ 934              		.loc 1 473 3 is_stmt 1 view .LVU280
  473:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x18));
- 939              		.loc 1 473 25 is_stmt 0 view .LVU283
- 940 0014 5A69     		ldr	r2, [r3, #20]
+ 935              		.loc 1 473 25 is_stmt 0 view .LVU281
+ 936 0014 5A69     		ldr	r2, [r3, #20]
  473:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+0x18));
- 941              		.loc 1 473 22 view .LVU284
- 942 0016 1144     		add	r1, r1, r2
- 943              	.LVL98:
+ 937              		.loc 1 473 22 view .LVU282
+ 938 0016 1144     		add	r1, r1, r2
+ 939              	.LVL96:
  474:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+BOOT_FLASH_VECTOR_TABLE_CS_OFF
- 944              		.loc 1 474 3 is_stmt 1 view .LVU285
+ 940              		.loc 1 474 3 is_stmt 1 view .LVU283
  474:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+BOOT_FLASH_VECTOR_TABLE_CS_OFF
- 945              		.loc 1 474 25 is_stmt 0 view .LVU286
- 946 0018 9A69     		ldr	r2, [r3, #24]
+ 941              		.loc 1 474 25 is_stmt 0 view .LVU284
+ 942 0018 9A69     		ldr	r2, [r3, #24]
  474:Core/Src/BLT/flash.c ****   signature_checksum += *((blt_int32u *)(flashLayout[0].sector_start+BOOT_FLASH_VECTOR_TABLE_CS_OFF
- 947              		.loc 1 474 22 view .LVU287
- 948 001a 0A44     		add	r2, r2, r1
- 949              	.LVL99:
+ 943              		.loc 1 474 22 view .LVU285
+ 944 001a 0A44     		add	r2, r2, r1
+ 945              	.LVL97:
  475:Core/Src/BLT/flash.c ****   /* sum should add up to an unsigned 32-bit value of 0 */
- 950              		.loc 1 475 3 is_stmt 1 view .LVU288
+ 946              		.loc 1 475 3 is_stmt 1 view .LVU286
  475:Core/Src/BLT/flash.c ****   /* sum should add up to an unsigned 32-bit value of 0 */
- 951              		.loc 1 475 25 is_stmt 0 view .LVU289
- 952 001c D3F88831 		ldr	r3, [r3, #392]
- 953              	.LVL100:
+ 947              		.loc 1 475 25 is_stmt 0 view .LVU287
+ 948 001c D3F88831 		ldr	r3, [r3, #392]
+ 949              	.LVL98:
  477:Core/Src/BLT/flash.c ****   {
- 954              		.loc 1 477 3 is_stmt 1 view .LVU290
+ 950              		.loc 1 477 3 is_stmt 1 view .LVU288
  477:Core/Src/BLT/flash.c ****   {
- 955              		.loc 1 477 6 is_stmt 0 view .LVU291
- 956 0020 D342     		cmn	r3, r2
- 957 0022 01D0     		beq	.L78
+ 951              		.loc 1 477 6 is_stmt 0 view .LVU289
+ 952 0020 D342     		cmn	r3, r2
+ 953 0022 01D0     		beq	.L78
  483:Core/Src/BLT/flash.c **** } /*** end of FlashVerifyChecksum ***/
- 958              		.loc 1 483 10 view .LVU292
- 959 0024 0020     		movs	r0, #0
- 960 0026 7047     		bx	lr
- 961              	.L78:
+ 954              		.loc 1 483 10 view .LVU290
+ 955 0024 0020     		movs	r0, #0
+ 956 0026 7047     		bx	lr
+ 957              	.L78:
  480:Core/Src/BLT/flash.c ****   }
- 962              		.loc 1 480 12 view .LVU293
- 963 0028 0120     		movs	r0, #1
+ 958              		.loc 1 480 12 view .LVU291
+ 959 0028 0120     		movs	r0, #1
  484:Core/Src/BLT/flash.c **** 
-ARM GAS  /tmp/ccepCjKs.s 			page 35
+ 960              		.loc 1 484 1 view .LVU292
+ 961 002a 7047     		bx	lr
+ 962              	.L80:
+ 963              		.align	2
+ 964              	.L79:
+ 965 002c 00200008 		.word	134225920
+ARM GAS  /tmp/ccdIbtoD.s 			page 35
 
 
- 964              		.loc 1 484 1 view .LVU294
- 965 002a 7047     		bx	lr
- 966              	.L80:
- 967              		.align	2
- 968              	.L79:
- 969 002c 00400008 		.word	134234112
- 970              		.cfi_endproc
- 971              	.LFE128:
- 973              		.section	.text.FlashDone,"ax",%progbits
- 974              		.align	1
- 975              		.global	FlashDone
- 976              		.syntax unified
- 977              		.thumb
- 978              		.thumb_func
- 980              	FlashDone:
- 981              	.LFB129:
+ 966              		.cfi_endproc
+ 967              	.LFE128:
+ 969              		.section	.text.FlashDone,"ax",%progbits
+ 970              		.align	1
+ 971              		.global	FlashDone
+ 972              		.syntax unified
+ 973              		.thumb
+ 974              		.thumb_func
+ 976              	FlashDone:
+ 977              	.LFB129:
  494:Core/Src/BLT/flash.c ****   /* check if there is still data waiting to be programmed in the boot block */
- 982              		.loc 1 494 1 is_stmt 1 view -0
- 983              		.cfi_startproc
- 984              		@ args = 0, pretend = 0, frame = 0
- 985              		@ frame_needed = 0, uses_anonymous_args = 0
- 986 0000 08B5     		push	{r3, lr}
- 987              		.cfi_def_cfa_offset 8
- 988              		.cfi_offset 3, -8
- 989              		.cfi_offset 14, -4
+ 978              		.loc 1 494 1 is_stmt 1 view -0
+ 979              		.cfi_startproc
+ 980              		@ args = 0, pretend = 0, frame = 0
+ 981              		@ frame_needed = 0, uses_anonymous_args = 0
+ 982 0000 08B5     		push	{r3, lr}
+ 983              		.cfi_def_cfa_offset 8
+ 984              		.cfi_offset 3, -8
+ 985              		.cfi_offset 14, -4
  496:Core/Src/BLT/flash.c ****   {
- 990              		.loc 1 496 3 view .LVU296
+ 986              		.loc 1 496 3 view .LVU294
  496:Core/Src/BLT/flash.c ****   {
- 991              		.loc 1 496 20 is_stmt 0 view .LVU297
- 992 0002 0C4B     		ldr	r3, .L88
- 993 0004 1B68     		ldr	r3, [r3]
+ 987              		.loc 1 496 20 is_stmt 0 view .LVU295
+ 988 0002 0C4B     		ldr	r3, .L88
+ 989 0004 1B68     		ldr	r3, [r3]
  496:Core/Src/BLT/flash.c ****   {
- 994              		.loc 1 496 6 view .LVU298
- 995 0006 B3F1FF3F 		cmp	r3, #-1
- 996 000a 06D1     		bne	.L86
- 997              	.L82:
+ 990              		.loc 1 496 6 view .LVU296
+ 991 0006 B3F1FF3F 		cmp	r3, #-1
+ 992 000a 06D1     		bne	.L86
+ 993              	.L82:
  505:Core/Src/BLT/flash.c ****   {
- 998              		.loc 1 505 3 is_stmt 1 view .LVU299
+ 994              		.loc 1 505 3 is_stmt 1 view .LVU297
  505:Core/Src/BLT/flash.c ****   {
- 999              		.loc 1 505 16 is_stmt 0 view .LVU300
- 1000 000c 0A4B     		ldr	r3, .L88+4
- 1001 000e 1B68     		ldr	r3, [r3]
+ 995              		.loc 1 505 16 is_stmt 0 view .LVU298
+ 996 000c 0A4B     		ldr	r3, .L88+4
+ 997 000e 1B68     		ldr	r3, [r3]
  505:Core/Src/BLT/flash.c ****   {
- 1002              		.loc 1 505 6 view .LVU301
- 1003 0010 B3F1FF3F 		cmp	r3, #-1
- 1004 0014 07D1     		bne	.L87
+ 998              		.loc 1 505 6 view .LVU299
+ 999 0010 B3F1FF3F 		cmp	r3, #-1
+ 1000 0014 07D1     		bne	.L87
  513:Core/Src/BLT/flash.c **** } /*** end of FlashDone ***/
- 1005              		.loc 1 513 10 view .LVU302
- 1006 0016 0120     		movs	r0, #1
- 1007              	.L83:
+ 1001              		.loc 1 513 10 view .LVU300
+ 1002 0016 0120     		movs	r0, #1
+ 1003              	.L83:
  514:Core/Src/BLT/flash.c **** 
- 1008              		.loc 1 514 1 view .LVU303
- 1009 0018 08BD     		pop	{r3, pc}
- 1010              	.L86:
+ 1004              		.loc 1 514 1 view .LVU301
+ 1005 0018 08BD     		pop	{r3, pc}
+ 1006              	.L86:
  498:Core/Src/BLT/flash.c ****     {
- 1011              		.loc 1 498 5 is_stmt 1 view .LVU304
+ 1007              		.loc 1 498 5 is_stmt 1 view .LVU302
  498:Core/Src/BLT/flash.c ****     {
-ARM GAS  /tmp/ccepCjKs.s 			page 36
+ 1008              		.loc 1 498 9 is_stmt 0 view .LVU303
+ 1009 001a 0648     		ldr	r0, .L88
+ 1010 001c FFF7FEFF 		bl	FlashWriteBlock
+ 1011              	.LVL99:
+ 498:Core/Src/BLT/flash.c ****     {
+ 1012              		.loc 1 498 8 discriminator 1 view .LVU304
+ARM GAS  /tmp/ccdIbtoD.s 			page 36
 
 
- 1012              		.loc 1 498 9 is_stmt 0 view .LVU305
- 1013 001a 0648     		ldr	r0, .L88
- 1014 001c FFF7FEFF 		bl	FlashWriteBlock
- 1015              	.LVL101:
- 498:Core/Src/BLT/flash.c ****     {
- 1016              		.loc 1 498 8 view .LVU306
- 1017 0020 0028     		cmp	r0, #0
- 1018 0022 F3D1     		bne	.L82
- 1019 0024 F8E7     		b	.L83
- 1020              	.L87:
+ 1013 0020 0028     		cmp	r0, #0
+ 1014 0022 F3D1     		bne	.L82
+ 1015 0024 F8E7     		b	.L83
+ 1016              	.L87:
  507:Core/Src/BLT/flash.c ****     {
- 1021              		.loc 1 507 5 is_stmt 1 view .LVU307
+ 1017              		.loc 1 507 5 is_stmt 1 view .LVU305
  507:Core/Src/BLT/flash.c ****     {
- 1022              		.loc 1 507 9 is_stmt 0 view .LVU308
- 1023 0026 0448     		ldr	r0, .L88+4
- 1024 0028 FFF7FEFF 		bl	FlashWriteBlock
- 1025              	.LVL102:
+ 1018              		.loc 1 507 9 is_stmt 0 view .LVU306
+ 1019 0026 0448     		ldr	r0, .L88+4
+ 1020 0028 FFF7FEFF 		bl	FlashWriteBlock
+ 1021              	.LVL100:
  507:Core/Src/BLT/flash.c ****     {
- 1026              		.loc 1 507 8 view .LVU309
- 1027 002c 0028     		cmp	r0, #0
- 1028 002e F3D0     		beq	.L83
+ 1022              		.loc 1 507 8 discriminator 1 view .LVU307
+ 1023 002c 0028     		cmp	r0, #0
+ 1024 002e F3D0     		beq	.L83
  513:Core/Src/BLT/flash.c **** } /*** end of FlashDone ***/
- 1029              		.loc 1 513 10 view .LVU310
- 1030 0030 0120     		movs	r0, #1
- 1031 0032 F1E7     		b	.L83
- 1032              	.L89:
- 1033              		.align	2
- 1034              	.L88:
- 1035 0034 00000000 		.word	bootBlockInfo
- 1036 0038 00000000 		.word	blockInfo
- 1037              		.cfi_endproc
- 1038              	.LFE129:
- 1040              		.section	.text.FlashGetUserProgBaseAddress,"ax",%progbits
- 1041              		.align	1
- 1042              		.global	FlashGetUserProgBaseAddress
- 1043              		.syntax unified
- 1044              		.thumb
- 1045              		.thumb_func
- 1047              	FlashGetUserProgBaseAddress:
- 1048              	.LFB130:
+ 1025              		.loc 1 513 10 view .LVU308
+ 1026 0030 0120     		movs	r0, #1
+ 1027 0032 F1E7     		b	.L83
+ 1028              	.L89:
+ 1029              		.align	2
+ 1030              	.L88:
+ 1031 0034 00000000 		.word	bootBlockInfo
+ 1032 0038 00000000 		.word	blockInfo
+ 1033              		.cfi_endproc
+ 1034              	.LFE129:
+ 1036              		.section	.text.FlashGetUserProgBaseAddress,"ax",%progbits
+ 1037              		.align	1
+ 1038              		.global	FlashGetUserProgBaseAddress
+ 1039              		.syntax unified
+ 1040              		.thumb
+ 1041              		.thumb_func
+ 1043              	FlashGetUserProgBaseAddress:
+ 1044              	.LFB130:
  524:Core/Src/BLT/flash.c ****   return flashLayout[0].sector_start;
- 1049              		.loc 1 524 1 is_stmt 1 view -0
- 1050              		.cfi_startproc
- 1051              		@ args = 0, pretend = 0, frame = 0
- 1052              		@ frame_needed = 0, uses_anonymous_args = 0
- 1053              		@ link register save eliminated.
+ 1045              		.loc 1 524 1 is_stmt 1 view -0
+ 1046              		.cfi_startproc
+ 1047              		@ args = 0, pretend = 0, frame = 0
+ 1048              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1049              		@ link register save eliminated.
  525:Core/Src/BLT/flash.c **** } /*** end of FlashGetUserProgBaseAddress ***/
- 1054              		.loc 1 525 3 view .LVU312
+ 1050              		.loc 1 525 3 view .LVU310
  526:Core/Src/BLT/flash.c **** 
- 1055              		.loc 1 526 1 is_stmt 0 view .LVU313
- 1056 0000 0048     		ldr	r0, .L91
- 1057 0002 7047     		bx	lr
- 1058              	.L92:
- 1059              		.align	2
- 1060              	.L91:
- 1061 0004 00400008 		.word	134234112
- 1062              		.cfi_endproc
-ARM GAS  /tmp/ccepCjKs.s 			page 37
+ 1051              		.loc 1 526 1 is_stmt 0 view .LVU311
+ 1052 0000 0048     		ldr	r0, .L91
+ 1053 0002 7047     		bx	lr
+ 1054              	.L92:
+ 1055              		.align	2
+ 1056              	.L91:
+ 1057 0004 00200008 		.word	134225920
+ 1058              		.cfi_endproc
+ 1059              	.LFE130:
+ 1061              		.section	.bss.bootBlockInfo,"aw",%nobits
+ 1062              		.align	2
+ 1065              	bootBlockInfo:
+ 1066 0000 00000000 		.space	516
+ 1066      00000000 
+ARM GAS  /tmp/ccdIbtoD.s 			page 37
 
 
- 1063              	.LFE130:
- 1065              		.section	.bss.bootBlockInfo,"aw",%nobits
- 1066              		.align	2
- 1069              	bootBlockInfo:
- 1070 0000 00000000 		.space	516
- 1070      00000000 
- 1070      00000000 
- 1070      00000000 
- 1070      00000000 
- 1071              		.section	.bss.blockInfo,"aw",%nobits
- 1072              		.align	2
- 1075              	blockInfo:
- 1076 0000 00000000 		.space	516
- 1076      00000000 
- 1076      00000000 
- 1076      00000000 
- 1076      00000000 
- 1077              		.text
- 1078              	.Letext0:
- 1079              		.file 2 "Core/Inc/BLT/types.h"
- 1080              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 1081              		.file 4 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 1082              		.file 5 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
- 1083              		.file 6 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash_ex.h"
- 1084              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h"
- 1085              		.file 8 "Core/Inc/BLT/cpu.h"
- 1086              		.file 9 "Core/Inc/BLT/cop.h"
-ARM GAS  /tmp/ccepCjKs.s 			page 38
+ 1066      00000000 
+ 1066      00000000 
+ 1066      00000000 
+ 1067              		.section	.bss.blockInfo,"aw",%nobits
+ 1068              		.align	2
+ 1071              	blockInfo:
+ 1072 0000 00000000 		.space	516
+ 1072      00000000 
+ 1072      00000000 
+ 1072      00000000 
+ 1072      00000000 
+ 1073              		.text
+ 1074              	.Letext0:
+ 1075              		.file 2 "Core/Inc/BLT/types.h"
+ 1076              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 1077              		.file 4 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 1078              		.file 5 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 1079              		.file 6 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash_ex.h"
+ 1080              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h"
+ 1081              		.file 8 "Core/Inc/BLT/cpu.h"
+ 1082              		.file 9 "Core/Inc/BLT/cop.h"
+ARM GAS  /tmp/ccdIbtoD.s 			page 38
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 flash.c
-     /tmp/ccepCjKs.s:21     .text.FlashInitBlock:0000000000000000 $t
-     /tmp/ccepCjKs.s:26     .text.FlashInitBlock:0000000000000000 FlashInitBlock
-     /tmp/ccepCjKs.s:81     .text.FlashWriteBlock:0000000000000000 $t
-     /tmp/ccepCjKs.s:86     .text.FlashWriteBlock:0000000000000000 FlashWriteBlock
-     /tmp/ccepCjKs.s:181    .text.FlashSwitchBlock:0000000000000000 $t
-     /tmp/ccepCjKs.s:186    .text.FlashSwitchBlock:0000000000000000 FlashSwitchBlock
-     /tmp/ccepCjKs.s:258    .text.FlashSwitchBlock:0000000000000038 $d
-     /tmp/ccepCjKs.s:1069   .bss.bootBlockInfo:0000000000000000 bootBlockInfo
-     /tmp/ccepCjKs.s:1075   .bss.blockInfo:0000000000000000 blockInfo
-     /tmp/ccepCjKs.s:265    .text.FlashAddToBlock:0000000000000000 $t
-     /tmp/ccepCjKs.s:270    .text.FlashAddToBlock:0000000000000000 FlashAddToBlock
-     /tmp/ccepCjKs.s:422    .text.FlashInit:0000000000000000 $t
-     /tmp/ccepCjKs.s:428    .text.FlashInit:0000000000000000 FlashInit
-     /tmp/ccepCjKs.s:449    .text.FlashInit:0000000000000010 $d
-     /tmp/ccepCjKs.s:455    .text.FlashReinit:0000000000000000 $t
-     /tmp/ccepCjKs.s:461    .text.FlashReinit:0000000000000000 FlashReinit
-     /tmp/ccepCjKs.s:482    .text.FlashReinit:0000000000000010 $d
-     /tmp/ccepCjKs.s:488    .text.FlashWrite:0000000000000000 $t
-     /tmp/ccepCjKs.s:494    .text.FlashWrite:0000000000000000 FlashWrite
-     /tmp/ccepCjKs.s:600    .text.FlashWrite:0000000000000050 $d
-     /tmp/ccepCjKs.s:608    .text.FlashErase:0000000000000000 $t
-     /tmp/ccepCjKs.s:614    .text.FlashErase:0000000000000000 FlashErase
-     /tmp/ccepCjKs.s:781    .text.FlashErase:0000000000000088 $d
-     /tmp/ccepCjKs.s:787    .text.FlashWriteChecksum:0000000000000000 $t
-     /tmp/ccepCjKs.s:793    .text.FlashWriteChecksum:0000000000000000 FlashWriteChecksum
-     /tmp/ccepCjKs.s:888    .text.FlashWriteChecksum:0000000000000058 $d
-     /tmp/ccepCjKs.s:894    .text.FlashVerifyChecksum:0000000000000000 $t
-     /tmp/ccepCjKs.s:900    .text.FlashVerifyChecksum:0000000000000000 FlashVerifyChecksum
-     /tmp/ccepCjKs.s:969    .text.FlashVerifyChecksum:000000000000002c $d
-     /tmp/ccepCjKs.s:974    .text.FlashDone:0000000000000000 $t
-     /tmp/ccepCjKs.s:980    .text.FlashDone:0000000000000000 FlashDone
-     /tmp/ccepCjKs.s:1035   .text.FlashDone:0000000000000034 $d
-     /tmp/ccepCjKs.s:1041   .text.FlashGetUserProgBaseAddress:0000000000000000 $t
-     /tmp/ccepCjKs.s:1047   .text.FlashGetUserProgBaseAddress:0000000000000000 FlashGetUserProgBaseAddress
-     /tmp/ccepCjKs.s:1061   .text.FlashGetUserProgBaseAddress:0000000000000004 $d
-     /tmp/ccepCjKs.s:1066   .bss.bootBlockInfo:0000000000000000 $d
-     /tmp/ccepCjKs.s:1072   .bss.blockInfo:0000000000000000 $d
+                            *ABS*:00000000 flash.c
+     /tmp/ccdIbtoD.s:21     .text.FlashInitBlock:00000000 $t
+     /tmp/ccdIbtoD.s:26     .text.FlashInitBlock:00000000 FlashInitBlock
+     /tmp/ccdIbtoD.s:81     .text.FlashWriteBlock:00000000 $t
+     /tmp/ccdIbtoD.s:86     .text.FlashWriteBlock:00000000 FlashWriteBlock
+     /tmp/ccdIbtoD.s:181    .text.FlashSwitchBlock:00000000 $t
+     /tmp/ccdIbtoD.s:186    .text.FlashSwitchBlock:00000000 FlashSwitchBlock
+     /tmp/ccdIbtoD.s:258    .text.FlashSwitchBlock:00000038 $d
+     /tmp/ccdIbtoD.s:1065   .bss.bootBlockInfo:00000000 bootBlockInfo
+     /tmp/ccdIbtoD.s:1071   .bss.blockInfo:00000000 blockInfo
+     /tmp/ccdIbtoD.s:265    .text.FlashAddToBlock:00000000 $t
+     /tmp/ccdIbtoD.s:270    .text.FlashAddToBlock:00000000 FlashAddToBlock
+     /tmp/ccdIbtoD.s:422    .text.FlashInit:00000000 $t
+     /tmp/ccdIbtoD.s:428    .text.FlashInit:00000000 FlashInit
+     /tmp/ccdIbtoD.s:449    .text.FlashInit:00000010 $d
+     /tmp/ccdIbtoD.s:455    .text.FlashReinit:00000000 $t
+     /tmp/ccdIbtoD.s:461    .text.FlashReinit:00000000 FlashReinit
+     /tmp/ccdIbtoD.s:482    .text.FlashReinit:00000010 $d
+     /tmp/ccdIbtoD.s:488    .text.FlashWrite:00000000 $t
+     /tmp/ccdIbtoD.s:494    .text.FlashWrite:00000000 FlashWrite
+     /tmp/ccdIbtoD.s:596    .text.FlashWrite:00000050 $d
+     /tmp/ccdIbtoD.s:604    .text.FlashErase:00000000 $t
+     /tmp/ccdIbtoD.s:610    .text.FlashErase:00000000 FlashErase
+     /tmp/ccdIbtoD.s:777    .text.FlashErase:00000088 $d
+     /tmp/ccdIbtoD.s:783    .text.FlashWriteChecksum:00000000 $t
+     /tmp/ccdIbtoD.s:789    .text.FlashWriteChecksum:00000000 FlashWriteChecksum
+     /tmp/ccdIbtoD.s:884    .text.FlashWriteChecksum:00000058 $d
+     /tmp/ccdIbtoD.s:890    .text.FlashVerifyChecksum:00000000 $t
+     /tmp/ccdIbtoD.s:896    .text.FlashVerifyChecksum:00000000 FlashVerifyChecksum
+     /tmp/ccdIbtoD.s:965    .text.FlashVerifyChecksum:0000002c $d
+     /tmp/ccdIbtoD.s:970    .text.FlashDone:00000000 $t
+     /tmp/ccdIbtoD.s:976    .text.FlashDone:00000000 FlashDone
+     /tmp/ccdIbtoD.s:1031   .text.FlashDone:00000034 $d
+     /tmp/ccdIbtoD.s:1037   .text.FlashGetUserProgBaseAddress:00000000 $t
+     /tmp/ccdIbtoD.s:1043   .text.FlashGetUserProgBaseAddress:00000000 FlashGetUserProgBaseAddress
+     /tmp/ccdIbtoD.s:1057   .text.FlashGetUserProgBaseAddress:00000004 $d
+     /tmp/ccdIbtoD.s:1062   .bss.bootBlockInfo:00000000 $d
+     /tmp/ccdIbtoD.s:1068   .bss.blockInfo:00000000 $d
 
 UNDEFINED SYMBOLS
 CpuMemCopy

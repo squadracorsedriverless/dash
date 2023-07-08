@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccGFOAGz.s 			page 1
+ARM GAS  /tmp/ccPuPmgI.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
   28:Core/Src/BLT/com.c **** 
   29:Core/Src/BLT/com.c **** /****************************************************************************************
   30:Core/Src/BLT/com.c **** * Include files
-ARM GAS  /tmp/ccGFOAGz.s 			page 2
+ARM GAS  /tmp/ccPuPmgI.s 			page 2
 
 
   31:Core/Src/BLT/com.c **** ****************************************************************************************/
@@ -98,35 +98,38 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
   39              	.LVL0:
   55:Core/Src/BLT/com.c **** #if (BOOT_COM_CAN_ENABLE > 0)
   56:Core/Src/BLT/com.c ****   /* initialize the CAN controller */
-  57:Core/Src/BLT/com.c ****   //CanInit();
+  57:Core/Src/BLT/com.c ****   CanInit();
+  40              		.loc 1 57 3 view .LVU2
+  41 0006 FFF7FEFF 		bl	CanInit
+  42              	.LVL1:
   58:Core/Src/BLT/com.c ****   /* set it as active */
   59:Core/Src/BLT/com.c ****   comActiveInterface = COM_IF_CAN;
-  40              		.loc 1 59 3 view .LVU2
-  41              		.loc 1 59 22 is_stmt 0 view .LVU3
-  42 0006 024B     		ldr	r3, .L3
-  43 0008 0122     		movs	r2, #1
-  44 000a 1A70     		strb	r2, [r3]
+  43              		.loc 1 59 3 view .LVU3
+  44              		.loc 1 59 22 is_stmt 0 view .LVU4
+  45 000a 024B     		ldr	r3, .L3
+  46 000c 0122     		movs	r2, #1
+  47 000e 1A70     		strb	r2, [r3]
   60:Core/Src/BLT/com.c **** #endif
   61:Core/Src/BLT/com.c **** } /*** end of ComInit ***/
-  45              		.loc 1 61 1 view .LVU4
-  46 000c 08BD     		pop	{r3, pc}
-  47              	.L4:
-  48 000e 00BF     		.align	2
-  49              	.L3:
-  50 0010 00000000 		.word	comActiveInterface
-  51              		.cfi_endproc
-  52              	.LFE0:
-  54              		.section	.text.ComTask,"ax",%progbits
-  55              		.align	1
-ARM GAS  /tmp/ccGFOAGz.s 			page 3
+  48              		.loc 1 61 1 view .LVU5
+  49 0010 08BD     		pop	{r3, pc}
+  50              	.L4:
+  51 0012 00BF     		.align	2
+  52              	.L3:
+  53 0014 00000000 		.word	comActiveInterface
+  54              		.cfi_endproc
+ARM GAS  /tmp/ccPuPmgI.s 			page 3
 
 
-  56              		.global	ComTask
-  57              		.syntax unified
-  58              		.thumb
-  59              		.thumb_func
-  61              	ComTask:
-  62              	.LFB1:
+  55              	.LFE0:
+  57              		.section	.text.ComTask,"ax",%progbits
+  58              		.align	1
+  59              		.global	ComTask
+  60              		.syntax unified
+  61              		.thumb
+  62              		.thumb_func
+  64              	ComTask:
+  65              	.LFB1:
   62:Core/Src/BLT/com.c **** 
   63:Core/Src/BLT/com.c **** 
   64:Core/Src/BLT/com.c **** /************************************************************************************//**
@@ -137,33 +140,33 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
   69:Core/Src/BLT/com.c **** ****************************************************************************************/
   70:Core/Src/BLT/com.c **** void ComTask(void)
   71:Core/Src/BLT/com.c **** {
-  63              		.loc 1 71 1 is_stmt 1 view -0
-  64              		.cfi_startproc
-  65              		@ args = 0, pretend = 0, frame = 8
-  66              		@ frame_needed = 0, uses_anonymous_args = 0
-  67 0000 00B5     		push	{lr}
-  68              		.cfi_def_cfa_offset 4
-  69              		.cfi_offset 14, -4
-  70 0002 83B0     		sub	sp, sp, #12
-  71              		.cfi_def_cfa_offset 16
+  66              		.loc 1 71 1 is_stmt 1 view -0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 8
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70 0000 00B5     		push	{lr}
+  71              		.cfi_def_cfa_offset 4
+  72              		.cfi_offset 14, -4
+  73 0002 83B0     		sub	sp, sp, #12
+  74              		.cfi_def_cfa_offset 16
   72:Core/Src/BLT/com.c ****   blt_int8u xcpPacketLen;
-  72              		.loc 1 72 3 view .LVU6
+  75              		.loc 1 72 3 view .LVU7
   73:Core/Src/BLT/com.c ****   /* make xcpCtoReqPacket static for runtime efficiency */
   74:Core/Src/BLT/com.c ****   static blt_int8u xcpCtoReqPacket[BOOT_COM_RX_MAX_DATA];
-  73              		.loc 1 74 3 view .LVU7
+  76              		.loc 1 74 3 view .LVU8
   75:Core/Src/BLT/com.c **** 
   76:Core/Src/BLT/com.c **** #if (BOOT_COM_CAN_ENABLE > 0)
   77:Core/Src/BLT/com.c ****   if (CanReceivePacket(&xcpCtoReqPacket[0], &xcpPacketLen) == BLT_TRUE)
-  74              		.loc 1 77 3 view .LVU8
-  75              		.loc 1 77 7 is_stmt 0 view .LVU9
-  76 0004 0DF10701 		add	r1, sp, #7
-  77 0008 0848     		ldr	r0, .L9
-  78 000a FFF7FEFF 		bl	CanReceivePacket
-  79              	.LVL1:
-  80              		.loc 1 77 6 view .LVU10
-  81 000e 0128     		cmp	r0, #1
-  82 0010 02D0     		beq	.L8
-  83              	.L5:
+  77              		.loc 1 77 3 view .LVU9
+  78              		.loc 1 77 7 is_stmt 0 view .LVU10
+  79 0004 0DF10701 		add	r1, sp, #7
+  80 0008 0848     		ldr	r0, .L9
+  81 000a FFF7FEFF 		bl	CanReceivePacket
+  82              	.LVL2:
+  83              		.loc 1 77 6 discriminator 1 view .LVU11
+  84 000e 0128     		cmp	r0, #1
+  85 0010 02D0     		beq	.L8
+  86              	.L5:
   78:Core/Src/BLT/com.c ****   {
   79:Core/Src/BLT/com.c ****     /* make this the active interface */
   80:Core/Src/BLT/com.c ****     comActiveInterface = COM_IF_CAN;
@@ -172,47 +175,47 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
   83:Core/Src/BLT/com.c ****   }
   84:Core/Src/BLT/com.c **** #endif
   85:Core/Src/BLT/com.c **** } /*** end of ComTask ***/
-  84              		.loc 1 85 1 view .LVU11
-  85 0012 03B0     		add	sp, sp, #12
-  86              		.cfi_remember_state
-  87              		.cfi_def_cfa_offset 4
-  88              		@ sp needed
-  89 0014 5DF804FB 		ldr	pc, [sp], #4
-ARM GAS  /tmp/ccGFOAGz.s 			page 4
+  87              		.loc 1 85 1 view .LVU12
+  88 0012 03B0     		add	sp, sp, #12
+  89              		.cfi_remember_state
+ARM GAS  /tmp/ccPuPmgI.s 			page 4
 
 
-  90              	.L8:
-  91              		.cfi_restore_state
+  90              		.cfi_def_cfa_offset 4
+  91              		@ sp needed
+  92 0014 5DF804FB 		ldr	pc, [sp], #4
+  93              	.L8:
+  94              		.cfi_restore_state
   80:Core/Src/BLT/com.c ****     /* process packet */
-  92              		.loc 1 80 5 is_stmt 1 view .LVU12
+  95              		.loc 1 80 5 is_stmt 1 view .LVU13
   80:Core/Src/BLT/com.c ****     /* process packet */
-  93              		.loc 1 80 24 is_stmt 0 view .LVU13
-  94 0018 054B     		ldr	r3, .L9+4
-  95 001a 0122     		movs	r2, #1
-  96 001c 1A70     		strb	r2, [r3]
+  96              		.loc 1 80 24 is_stmt 0 view .LVU14
+  97 0018 054B     		ldr	r3, .L9+4
+  98 001a 0122     		movs	r2, #1
+  99 001c 1A70     		strb	r2, [r3]
   82:Core/Src/BLT/com.c ****   }
-  97              		.loc 1 82 5 is_stmt 1 view .LVU14
-  98 001e 9DF80710 		ldrb	r1, [sp, #7]	@ zero_extendqisi2
-  99 0022 0248     		ldr	r0, .L9
- 100 0024 FFF7FEFF 		bl	XcpPacketReceived
- 101              	.LVL2:
- 102              		.loc 1 85 1 is_stmt 0 view .LVU15
- 103 0028 F3E7     		b	.L5
- 104              	.L10:
- 105 002a 00BF     		.align	2
- 106              	.L9:
- 107 002c 00000000 		.word	xcpCtoReqPacket.0
- 108 0030 00000000 		.word	comActiveInterface
- 109              		.cfi_endproc
- 110              	.LFE1:
- 112              		.section	.text.ComFree,"ax",%progbits
- 113              		.align	1
- 114              		.global	ComFree
- 115              		.syntax unified
- 116              		.thumb
- 117              		.thumb_func
- 119              	ComFree:
- 120              	.LFB2:
+ 100              		.loc 1 82 5 is_stmt 1 view .LVU15
+ 101 001e 9DF80710 		ldrb	r1, [sp, #7]	@ zero_extendqisi2
+ 102 0022 0248     		ldr	r0, .L9
+ 103 0024 FFF7FEFF 		bl	XcpPacketReceived
+ 104              	.LVL3:
+ 105              		.loc 1 85 1 is_stmt 0 view .LVU16
+ 106 0028 F3E7     		b	.L5
+ 107              	.L10:
+ 108 002a 00BF     		.align	2
+ 109              	.L9:
+ 110 002c 00000000 		.word	xcpCtoReqPacket.0
+ 111 0030 00000000 		.word	comActiveInterface
+ 112              		.cfi_endproc
+ 113              	.LFE1:
+ 115              		.section	.text.ComFree,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	ComFree
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 122              	ComFree:
+ 123              	.LFB2:
   86:Core/Src/BLT/com.c **** 
   87:Core/Src/BLT/com.c **** 
   88:Core/Src/BLT/com.c **** /************************************************************************************//**
@@ -222,28 +225,28 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
   92:Core/Src/BLT/com.c **** ****************************************************************************************/
   93:Core/Src/BLT/com.c **** void ComFree(void)
   94:Core/Src/BLT/com.c **** {
- 121              		.loc 1 94 1 is_stmt 1 view -0
- 122              		.cfi_startproc
- 123              		@ args = 0, pretend = 0, frame = 0
- 124              		@ frame_needed = 0, uses_anonymous_args = 0
- 125              		@ link register save eliminated.
+ 124              		.loc 1 94 1 is_stmt 1 view -0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              		@ link register save eliminated.
   95:Core/Src/BLT/com.c **** } /*** end of ComFree ***/
- 126              		.loc 1 95 1 view .LVU17
- 127 0000 7047     		bx	lr
- 128              		.cfi_endproc
- 129              	.LFE2:
- 131              		.section	.text.ComTransmitPacket,"ax",%progbits
- 132              		.align	1
- 133              		.global	ComTransmitPacket
- 134              		.syntax unified
- 135              		.thumb
- 136              		.thumb_func
-ARM GAS  /tmp/ccGFOAGz.s 			page 5
+ 129              		.loc 1 95 1 view .LVU18
+ 130 0000 7047     		bx	lr
+ 131              		.cfi_endproc
+ 132              	.LFE2:
+ 134              		.section	.text.ComTransmitPacket,"ax",%progbits
+ 135              		.align	1
+ 136              		.global	ComTransmitPacket
+ARM GAS  /tmp/ccPuPmgI.s 			page 5
 
 
- 138              	ComTransmitPacket:
- 139              	.LVL3:
- 140              	.LFB3:
+ 137              		.syntax unified
+ 138              		.thumb
+ 139              		.thumb_func
+ 141              	ComTransmitPacket:
+ 142              	.LVL4:
+ 143              	.LFB3:
   96:Core/Src/BLT/com.c **** 
   97:Core/Src/BLT/com.c **** 
   98:Core/Src/BLT/com.c **** /************************************************************************************//**
@@ -255,29 +258,29 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
  104:Core/Src/BLT/com.c **** ****************************************************************************************/
  105:Core/Src/BLT/com.c **** void ComTransmitPacket(blt_int8u *data, blt_int16u len)
  106:Core/Src/BLT/com.c **** {
- 141              		.loc 1 106 1 view -0
- 142              		.cfi_startproc
- 143              		@ args = 0, pretend = 0, frame = 0
- 144              		@ frame_needed = 0, uses_anonymous_args = 0
- 145              		.loc 1 106 1 is_stmt 0 view .LVU19
- 146 0000 08B5     		push	{r3, lr}
- 147              		.cfi_def_cfa_offset 8
- 148              		.cfi_offset 3, -8
- 149              		.cfi_offset 14, -4
+ 144              		.loc 1 106 1 view -0
+ 145              		.cfi_startproc
+ 146              		@ args = 0, pretend = 0, frame = 0
+ 147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 148              		.loc 1 106 1 is_stmt 0 view .LVU20
+ 149 0000 08B5     		push	{r3, lr}
+ 150              		.cfi_def_cfa_offset 8
+ 151              		.cfi_offset 3, -8
+ 152              		.cfi_offset 14, -4
  107:Core/Src/BLT/com.c **** #if (BOOT_COM_CAN_ENABLE > 0)
  108:Core/Src/BLT/com.c ****   /* transmit the packet. note that len is limited to 8 in the plausibility check,
  109:Core/Src/BLT/com.c ****    * so cast is okay.
  110:Core/Src/BLT/com.c ****    */
  111:Core/Src/BLT/com.c ****   if (comActiveInterface == COM_IF_CAN)
- 150              		.loc 1 111 3 is_stmt 1 view .LVU20
- 151              		.loc 1 111 26 is_stmt 0 view .LVU21
- 152 0002 054B     		ldr	r3, .L16
- 153 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 154              		.loc 1 111 6 view .LVU22
- 155 0006 012B     		cmp	r3, #1
- 156 0008 02D0     		beq	.L15
- 157              	.LVL4:
- 158              	.L13:
+ 153              		.loc 1 111 3 is_stmt 1 view .LVU21
+ 154              		.loc 1 111 26 is_stmt 0 view .LVU22
+ 155 0002 054B     		ldr	r3, .L16
+ 156 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 157              		.loc 1 111 6 view .LVU23
+ 158 0006 012B     		cmp	r3, #1
+ 159 0008 02D0     		beq	.L15
+ 160              	.LVL5:
+ 161              	.L13:
  112:Core/Src/BLT/com.c ****   {
  113:Core/Src/BLT/com.c ****     CanTransmitPacket(data, (blt_int8u)len);
  114:Core/Src/BLT/com.c ****   }
@@ -285,42 +288,42 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
  116:Core/Src/BLT/com.c **** 
  117:Core/Src/BLT/com.c ****   /* send signal that the packet was transmitted */
  118:Core/Src/BLT/com.c ****   XcpPacketTransmitted();
- 159              		.loc 1 118 3 is_stmt 1 view .LVU23
- 160 000a FFF7FEFF 		bl	XcpPacketTransmitted
- 161              	.LVL5:
- 119:Core/Src/BLT/com.c **** } /*** end of ComTransmitPacket ***/
- 162              		.loc 1 119 1 is_stmt 0 view .LVU24
- 163 000e 08BD     		pop	{r3, pc}
+ 162              		.loc 1 118 3 is_stmt 1 view .LVU24
+ 163 000a FFF7FEFF 		bl	XcpPacketTransmitted
  164              	.LVL6:
- 165              	.L15:
+ 119:Core/Src/BLT/com.c **** } /*** end of ComTransmitPacket ***/
+ 165              		.loc 1 119 1 is_stmt 0 view .LVU25
+ 166 000e 08BD     		pop	{r3, pc}
+ 167              	.LVL7:
+ 168              	.L15:
  113:Core/Src/BLT/com.c ****   }
- 166              		.loc 1 113 5 is_stmt 1 view .LVU25
- 167 0010 C9B2     		uxtb	r1, r1
- 168              	.LVL7:
- 113:Core/Src/BLT/com.c ****   }
-ARM GAS  /tmp/ccGFOAGz.s 			page 6
+ 169              		.loc 1 113 5 is_stmt 1 view .LVU26
+ARM GAS  /tmp/ccPuPmgI.s 			page 6
 
 
- 169              		.loc 1 113 5 is_stmt 0 view .LVU26
- 170 0012 FFF7FEFF 		bl	CanTransmitPacket
+ 170 0010 C9B2     		uxtb	r1, r1
  171              	.LVL8:
  113:Core/Src/BLT/com.c ****   }
- 172              		.loc 1 113 5 view .LVU27
- 173 0016 F8E7     		b	.L13
- 174              	.L17:
- 175              		.align	2
- 176              	.L16:
- 177 0018 00000000 		.word	comActiveInterface
- 178              		.cfi_endproc
- 179              	.LFE3:
- 181              		.section	.text.ComGetActiveInterfaceMaxRxLen,"ax",%progbits
- 182              		.align	1
- 183              		.global	ComGetActiveInterfaceMaxRxLen
- 184              		.syntax unified
- 185              		.thumb
- 186              		.thumb_func
- 188              	ComGetActiveInterfaceMaxRxLen:
- 189              	.LFB4:
+ 172              		.loc 1 113 5 is_stmt 0 view .LVU27
+ 173 0012 FFF7FEFF 		bl	CanTransmitPacket
+ 174              	.LVL9:
+ 113:Core/Src/BLT/com.c ****   }
+ 175              		.loc 1 113 5 view .LVU28
+ 176 0016 F8E7     		b	.L13
+ 177              	.L17:
+ 178              		.align	2
+ 179              	.L16:
+ 180 0018 00000000 		.word	comActiveInterface
+ 181              		.cfi_endproc
+ 182              	.LFE3:
+ 184              		.section	.text.ComGetActiveInterfaceMaxRxLen,"ax",%progbits
+ 185              		.align	1
+ 186              		.global	ComGetActiveInterfaceMaxRxLen
+ 187              		.syntax unified
+ 188              		.thumb
+ 189              		.thumb_func
+ 191              	ComGetActiveInterfaceMaxRxLen:
+ 192              	.LFB4:
  120:Core/Src/BLT/com.c **** 
  121:Core/Src/BLT/com.c **** 
  122:Core/Src/BLT/com.c **** /************************************************************************************//**
@@ -331,45 +334,59 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
  127:Core/Src/BLT/com.c **** ****************************************************************************************/
  128:Core/Src/BLT/com.c **** blt_int16u ComGetActiveInterfaceMaxRxLen(void)
  129:Core/Src/BLT/com.c **** {
- 190              		.loc 1 129 1 is_stmt 1 view -0
- 191              		.cfi_startproc
- 192              		@ args = 0, pretend = 0, frame = 0
- 193              		@ frame_needed = 0, uses_anonymous_args = 0
- 194              		@ link register save eliminated.
+ 193              		.loc 1 129 1 is_stmt 1 view -0
+ 194              		.cfi_startproc
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197              		@ link register save eliminated.
  130:Core/Src/BLT/com.c ****   blt_int16u result;
- 195              		.loc 1 130 3 view .LVU29
+ 198              		.loc 1 130 3 view .LVU30
  131:Core/Src/BLT/com.c **** 
  132:Core/Src/BLT/com.c ****   /* filter on communication interface identifier */
  133:Core/Src/BLT/com.c ****   switch (comActiveInterface)
- 196              		.loc 1 133 3 view .LVU30
- 197 0000 074B     		ldr	r3, .L24
- 198 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 199 0004 022B     		cmp	r3, #2
- 200 0006 07D0     		beq	.L20
- 201 0008 032B     		cmp	r3, #3
- 202 000a 07D0     		beq	.L21
- 203 000c 012B     		cmp	r3, #1
- 204 000e 01D0     		beq	.L23
- 205 0010 4020     		movs	r0, #64
- 206              	.LVL9:
+ 199              		.loc 1 133 3 view .LVU31
+ 200 0000 074B     		ldr	r3, .L23
+ 201 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 202 0004 022B     		cmp	r3, #2
+ 203 0006 05D0     		beq	.L20
+ 204 0008 032B     		cmp	r3, #3
+ 205 000a 05D0     		beq	.L21
+ 206 000c 012B     		cmp	r3, #1
+ 207 000e 05D1     		bne	.L22
  134:Core/Src/BLT/com.c ****   {
  135:Core/Src/BLT/com.c ****     case COM_IF_RS232:
  136:Core/Src/BLT/com.c ****       result = BOOT_COM_RS232_RX_MAX_DATA;
  137:Core/Src/BLT/com.c ****       break;
  138:Core/Src/BLT/com.c **** 
+ARM GAS  /tmp/ccPuPmgI.s 			page 7
+
+
  139:Core/Src/BLT/com.c ****     case COM_IF_CAN:
-ARM GAS  /tmp/ccGFOAGz.s 			page 7
-
-
  140:Core/Src/BLT/com.c ****       result = BOOT_COM_CAN_RX_MAX_DATA;
+ 208              		.loc 1 140 14 is_stmt 0 view .LVU32
+ 209 0010 0820     		movs	r0, #8
+ 210 0012 7047     		bx	lr
+ 211              	.L20:
  141:Core/Src/BLT/com.c ****       break;
  142:Core/Src/BLT/com.c **** 
  143:Core/Src/BLT/com.c ****     case COM_IF_USB:
  144:Core/Src/BLT/com.c ****       result = BOOT_COM_USB_RX_MAX_DATA;
+ 212              		.loc 1 144 14 view .LVU33
+ 213 0014 3F20     		movs	r0, #63
+ 214 0016 7047     		bx	lr
+ 215              	.L21:
  145:Core/Src/BLT/com.c ****       break;
  146:Core/Src/BLT/com.c **** 
  147:Core/Src/BLT/com.c ****     case COM_IF_NET:
  148:Core/Src/BLT/com.c ****       result = BOOT_COM_NET_RX_MAX_DATA;
+ 216              		.loc 1 148 14 view .LVU34
+ 217 0018 0020     		movs	r0, #0
+ 218 001a 7047     		bx	lr
+ 219              	.L22:
+ 133:Core/Src/BLT/com.c ****   {
+ 220              		.loc 1 133 3 view .LVU35
+ 221 001c 4020     		movs	r0, #64
+ 222              	.LVL10:
  149:Core/Src/BLT/com.c ****       break;
  150:Core/Src/BLT/com.c **** 
  151:Core/Src/BLT/com.c ****     default:
@@ -378,74 +395,56 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
  154:Core/Src/BLT/com.c ****   }
  155:Core/Src/BLT/com.c **** 
  156:Core/Src/BLT/com.c ****   return result;
- 207              		.loc 1 156 3 view .LVU31
+ 223              		.loc 1 156 3 is_stmt 1 view .LVU36
  157:Core/Src/BLT/com.c **** } /*** end of ComGetActiveInterfaceMaxRxLen ***/
- 208              		.loc 1 157 1 is_stmt 0 view .LVU32
- 209 0012 7047     		bx	lr
- 210              	.LVL10:
- 211              	.L23:
- 140:Core/Src/BLT/com.c ****       break;
- 212              		.loc 1 140 14 view .LVU33
- 213 0014 0820     		movs	r0, #8
- 214 0016 7047     		bx	lr
- 215              	.L20:
- 144:Core/Src/BLT/com.c ****       break;
- 216              		.loc 1 144 14 view .LVU34
- 217 0018 3F20     		movs	r0, #63
- 218 001a 7047     		bx	lr
- 219              	.L21:
- 148:Core/Src/BLT/com.c ****       break;
- 220              		.loc 1 148 14 view .LVU35
- 221 001c 0020     		movs	r0, #0
- 222 001e 7047     		bx	lr
- 223              	.L25:
- 224              		.align	2
- 225              	.L24:
- 226 0020 00000000 		.word	comActiveInterface
- 227              		.cfi_endproc
- 228              	.LFE4:
- 230              		.section	.text.ComGetActiveInterfaceMaxTxLen,"ax",%progbits
- 231              		.align	1
- 232              		.global	ComGetActiveInterfaceMaxTxLen
- 233              		.syntax unified
- 234              		.thumb
- 235              		.thumb_func
- 237              	ComGetActiveInterfaceMaxTxLen:
- 238              	.LFB5:
+ 224              		.loc 1 157 1 is_stmt 0 view .LVU37
+ 225 001e 7047     		bx	lr
+ 226              	.L24:
+ 227              		.align	2
+ 228              	.L23:
+ 229 0020 00000000 		.word	comActiveInterface
+ 230              		.cfi_endproc
+ 231              	.LFE4:
+ 233              		.section	.text.ComGetActiveInterfaceMaxTxLen,"ax",%progbits
+ 234              		.align	1
+ 235              		.global	ComGetActiveInterfaceMaxTxLen
+ 236              		.syntax unified
+ 237              		.thumb
+ 238              		.thumb_func
+ 240              	ComGetActiveInterfaceMaxTxLen:
+ 241              	.LFB5:
  158:Core/Src/BLT/com.c **** 
  159:Core/Src/BLT/com.c **** 
  160:Core/Src/BLT/com.c **** /************************************************************************************//**
  161:Core/Src/BLT/com.c **** ** \brief     Obtains the maximum number of bytes that can be transmitted on the
  162:Core/Src/BLT/com.c **** **            specified communication interface.
+ARM GAS  /tmp/ccPuPmgI.s 			page 8
+
+
  163:Core/Src/BLT/com.c **** ** \return    Maximum number of bytes that can be received.
-ARM GAS  /tmp/ccGFOAGz.s 			page 8
-
-
  164:Core/Src/BLT/com.c **** **
  165:Core/Src/BLT/com.c **** ****************************************************************************************/
  166:Core/Src/BLT/com.c **** blt_int16u ComGetActiveInterfaceMaxTxLen(void)
  167:Core/Src/BLT/com.c **** {
- 239              		.loc 1 167 1 is_stmt 1 view -0
- 240              		.cfi_startproc
- 241              		@ args = 0, pretend = 0, frame = 0
- 242              		@ frame_needed = 0, uses_anonymous_args = 0
- 243              		@ link register save eliminated.
+ 242              		.loc 1 167 1 is_stmt 1 view -0
+ 243              		.cfi_startproc
+ 244              		@ args = 0, pretend = 0, frame = 0
+ 245              		@ frame_needed = 0, uses_anonymous_args = 0
+ 246              		@ link register save eliminated.
  168:Core/Src/BLT/com.c ****   blt_int16u result;
- 244              		.loc 1 168 3 view .LVU37
+ 247              		.loc 1 168 3 view .LVU39
  169:Core/Src/BLT/com.c **** 
  170:Core/Src/BLT/com.c ****   /* filter on communication interface identifier */
  171:Core/Src/BLT/com.c ****   switch (comActiveInterface)
- 245              		.loc 1 171 3 view .LVU38
- 246 0000 074B     		ldr	r3, .L32
- 247 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 248 0004 022B     		cmp	r3, #2
- 249 0006 07D0     		beq	.L28
- 250 0008 032B     		cmp	r3, #3
- 251 000a 07D0     		beq	.L29
- 252 000c 012B     		cmp	r3, #1
- 253 000e 01D0     		beq	.L31
- 254 0010 4020     		movs	r0, #64
- 255              	.LVL11:
+ 248              		.loc 1 171 3 view .LVU40
+ 249 0000 074B     		ldr	r3, .L30
+ 250 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 251 0004 022B     		cmp	r3, #2
+ 252 0006 05D0     		beq	.L27
+ 253 0008 032B     		cmp	r3, #3
+ 254 000a 05D0     		beq	.L28
+ 255 000c 012B     		cmp	r3, #1
+ 256 000e 05D1     		bne	.L29
  172:Core/Src/BLT/com.c ****   {
  173:Core/Src/BLT/com.c ****     case COM_IF_RS232:
  174:Core/Src/BLT/com.c ****       result = BOOT_COM_RS232_TX_MAX_DATA;
@@ -453,59 +452,59 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
  176:Core/Src/BLT/com.c **** 
  177:Core/Src/BLT/com.c ****     case COM_IF_CAN:
  178:Core/Src/BLT/com.c ****       result = BOOT_COM_CAN_TX_MAX_DATA;
+ 257              		.loc 1 178 14 is_stmt 0 view .LVU41
+ 258 0010 0820     		movs	r0, #8
+ 259 0012 7047     		bx	lr
+ 260              	.L27:
  179:Core/Src/BLT/com.c ****       break;
  180:Core/Src/BLT/com.c **** 
  181:Core/Src/BLT/com.c ****     case COM_IF_USB:
  182:Core/Src/BLT/com.c ****       result = BOOT_COM_USB_TX_MAX_DATA;
+ 261              		.loc 1 182 14 view .LVU42
+ 262 0014 3F20     		movs	r0, #63
+ 263 0016 7047     		bx	lr
+ 264              	.L28:
  183:Core/Src/BLT/com.c ****       break;
  184:Core/Src/BLT/com.c **** 
  185:Core/Src/BLT/com.c ****     case COM_IF_NET:
  186:Core/Src/BLT/com.c ****       result = BOOT_COM_NET_TX_MAX_DATA;
+ 265              		.loc 1 186 14 view .LVU43
+ 266 0018 0020     		movs	r0, #0
+ 267 001a 7047     		bx	lr
+ 268              	.L29:
+ 171:Core/Src/BLT/com.c ****   {
+ 269              		.loc 1 171 3 view .LVU44
+ 270 001c 4020     		movs	r0, #64
+ 271              	.LVL11:
  187:Core/Src/BLT/com.c ****       break;
  188:Core/Src/BLT/com.c **** 
+ARM GAS  /tmp/ccPuPmgI.s 			page 9
+
+
  189:Core/Src/BLT/com.c ****     default:
  190:Core/Src/BLT/com.c ****       result = BOOT_COM_TX_MAX_DATA;
  191:Core/Src/BLT/com.c ****       break;
  192:Core/Src/BLT/com.c ****   }
  193:Core/Src/BLT/com.c **** 
  194:Core/Src/BLT/com.c ****   return result;
- 256              		.loc 1 194 3 view .LVU39
+ 272              		.loc 1 194 3 is_stmt 1 view .LVU45
  195:Core/Src/BLT/com.c **** } /*** end of ComGetActiveInterfaceMaxTxLen ***/
- 257              		.loc 1 195 1 is_stmt 0 view .LVU40
- 258 0012 7047     		bx	lr
- 259              	.LVL12:
- 260              	.L31:
- 178:Core/Src/BLT/com.c ****       break;
- 261              		.loc 1 178 14 view .LVU41
- 262 0014 0820     		movs	r0, #8
-ARM GAS  /tmp/ccGFOAGz.s 			page 9
-
-
- 263 0016 7047     		bx	lr
- 264              	.L28:
- 182:Core/Src/BLT/com.c ****       break;
- 265              		.loc 1 182 14 view .LVU42
- 266 0018 3F20     		movs	r0, #63
- 267 001a 7047     		bx	lr
- 268              	.L29:
- 186:Core/Src/BLT/com.c ****       break;
- 269              		.loc 1 186 14 view .LVU43
- 270 001c 0020     		movs	r0, #0
- 271 001e 7047     		bx	lr
- 272              	.L33:
- 273              		.align	2
- 274              	.L32:
- 275 0020 00000000 		.word	comActiveInterface
- 276              		.cfi_endproc
- 277              	.LFE5:
- 279              		.section	.text.ComIsConnected,"ax",%progbits
- 280              		.align	1
- 281              		.global	ComIsConnected
- 282              		.syntax unified
- 283              		.thumb
- 284              		.thumb_func
- 286              	ComIsConnected:
- 287              	.LFB6:
+ 273              		.loc 1 195 1 is_stmt 0 view .LVU46
+ 274 001e 7047     		bx	lr
+ 275              	.L31:
+ 276              		.align	2
+ 277              	.L30:
+ 278 0020 00000000 		.word	comActiveInterface
+ 279              		.cfi_endproc
+ 280              	.LFE5:
+ 282              		.section	.text.ComIsConnected,"ax",%progbits
+ 283              		.align	1
+ 284              		.global	ComIsConnected
+ 285              		.syntax unified
+ 286              		.thumb
+ 287              		.thumb_func
+ 289              	ComIsConnected:
+ 290              	.LFB6:
  196:Core/Src/BLT/com.c **** 
  197:Core/Src/BLT/com.c **** 
  198:Core/Src/BLT/com.c **** /************************************************************************************//**
@@ -515,37 +514,37 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
  202:Core/Src/BLT/com.c **** ****************************************************************************************/
  203:Core/Src/BLT/com.c **** blt_bool ComIsConnected(void)
  204:Core/Src/BLT/com.c **** {
- 288              		.loc 1 204 1 is_stmt 1 view -0
- 289              		.cfi_startproc
- 290              		@ args = 0, pretend = 0, frame = 0
- 291              		@ frame_needed = 0, uses_anonymous_args = 0
- 292 0000 08B5     		push	{r3, lr}
- 293              		.cfi_def_cfa_offset 8
- 294              		.cfi_offset 3, -8
- 295              		.cfi_offset 14, -4
+ 291              		.loc 1 204 1 is_stmt 1 view -0
+ 292              		.cfi_startproc
+ 293              		@ args = 0, pretend = 0, frame = 0
+ 294              		@ frame_needed = 0, uses_anonymous_args = 0
+ 295 0000 08B5     		push	{r3, lr}
+ 296              		.cfi_def_cfa_offset 8
+ 297              		.cfi_offset 3, -8
+ 298              		.cfi_offset 14, -4
  205:Core/Src/BLT/com.c ****   blt_bool result = BLT_FALSE;
- 296              		.loc 1 205 3 view .LVU45
- 297              	.LVL13:
+ 299              		.loc 1 205 3 view .LVU48
+ 300              	.LVL12:
  206:Core/Src/BLT/com.c **** 
  207:Core/Src/BLT/com.c ****   /* Is there an active XCP connection? This indicates that the communication interface
  208:Core/Src/BLT/com.c ****    * is in the connection state. 
  209:Core/Src/BLT/com.c ****    */  
  210:Core/Src/BLT/com.c ****   if (XcpIsConnected())
- 298              		.loc 1 210 3 view .LVU46
- 299              		.loc 1 210 7 is_stmt 0 view .LVU47
- 300 0002 FFF7FEFF 		bl	XcpIsConnected
- 301              	.LVL14:
- 302              		.loc 1 210 6 view .LVU48
- 303 0006 00B1     		cbz	r0, .L35
+ 301              		.loc 1 210 3 view .LVU49
+ 302              		.loc 1 210 7 is_stmt 0 view .LVU50
+ 303 0002 FFF7FEFF 		bl	XcpIsConnected
+ 304              	.LVL13:
+ 305              		.loc 1 210 6 discriminator 1 view .LVU51
+ 306 0006 00B1     		cbz	r0, .L33
  211:Core/Src/BLT/com.c ****   {
-ARM GAS  /tmp/ccGFOAGz.s 			page 10
-
-
  212:Core/Src/BLT/com.c ****     result = BLT_TRUE;
- 304              		.loc 1 212 12 view .LVU49
- 305 0008 0120     		movs	r0, #1
- 306              	.L35:
- 307              	.LVL15:
+ARM GAS  /tmp/ccPuPmgI.s 			page 10
+
+
+ 307              		.loc 1 212 12 view .LVU52
+ 308 0008 0120     		movs	r0, #1
+ 309              	.L33:
+ 310              	.LVL14:
  213:Core/Src/BLT/com.c ****   }
  214:Core/Src/BLT/com.c **** #if (ADDON_GATEWAY_MOD_ENABLE > 0)
  215:Core/Src/BLT/com.c ****   /* Is the gateway active? This indicates an XCP connection with a slave. */
@@ -556,59 +555,60 @@ ARM GAS  /tmp/ccGFOAGz.s 			page 1
  220:Core/Src/BLT/com.c **** #endif
  221:Core/Src/BLT/com.c ****   /* give the result back to the caller. */
  222:Core/Src/BLT/com.c ****   return result;
- 308              		.loc 1 222 3 is_stmt 1 view .LVU50
+ 311              		.loc 1 222 3 is_stmt 1 view .LVU53
  223:Core/Src/BLT/com.c **** } /*** end of ComIsConnected ***/
- 309              		.loc 1 223 1 is_stmt 0 view .LVU51
- 310 000a 08BD     		pop	{r3, pc}
- 311              		.cfi_endproc
- 312              	.LFE6:
- 314              		.section	.bss.xcpCtoReqPacket.0,"aw",%nobits
- 315              		.align	2
- 318              	xcpCtoReqPacket.0:
- 319 0000 00000000 		.space	64
- 319      00000000 
- 319      00000000 
- 319      00000000 
- 319      00000000 
- 320              		.section	.data.comActiveInterface,"aw"
- 323              	comActiveInterface:
- 324 0000 04       		.byte	4
- 325              		.text
- 326              	.Letext0:
- 327              		.file 2 "Core/Inc/BLT/types.h"
- 328              		.file 3 "Core/Inc/BLT/com.h"
- 329              		.file 4 "Core/Inc/BLT/can.h"
- 330              		.file 5 "Core/Inc/BLT/xcp.h"
-ARM GAS  /tmp/ccGFOAGz.s 			page 11
+ 312              		.loc 1 223 1 is_stmt 0 view .LVU54
+ 313 000a 08BD     		pop	{r3, pc}
+ 314              		.cfi_endproc
+ 315              	.LFE6:
+ 317              		.section	.bss.xcpCtoReqPacket.0,"aw",%nobits
+ 318              		.align	2
+ 321              	xcpCtoReqPacket.0:
+ 322 0000 00000000 		.space	64
+ 322      00000000 
+ 322      00000000 
+ 322      00000000 
+ 322      00000000 
+ 323              		.section	.data.comActiveInterface,"aw"
+ 326              	comActiveInterface:
+ 327 0000 04       		.byte	4
+ 328              		.text
+ 329              	.Letext0:
+ 330              		.file 2 "Core/Inc/BLT/types.h"
+ 331              		.file 3 "Core/Inc/BLT/com.h"
+ 332              		.file 4 "Core/Inc/BLT/can.h"
+ 333              		.file 5 "Core/Inc/BLT/xcp.h"
+ARM GAS  /tmp/ccPuPmgI.s 			page 11
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 com.c
-     /tmp/ccGFOAGz.s:21     .text.ComInit:0000000000000000 $t
-     /tmp/ccGFOAGz.s:27     .text.ComInit:0000000000000000 ComInit
-     /tmp/ccGFOAGz.s:50     .text.ComInit:0000000000000010 $d
-     /tmp/ccGFOAGz.s:323    .data.comActiveInterface:0000000000000000 comActiveInterface
-     /tmp/ccGFOAGz.s:55     .text.ComTask:0000000000000000 $t
-     /tmp/ccGFOAGz.s:61     .text.ComTask:0000000000000000 ComTask
-     /tmp/ccGFOAGz.s:107    .text.ComTask:000000000000002c $d
-     /tmp/ccGFOAGz.s:318    .bss.xcpCtoReqPacket.0:0000000000000000 xcpCtoReqPacket.0
-     /tmp/ccGFOAGz.s:113    .text.ComFree:0000000000000000 $t
-     /tmp/ccGFOAGz.s:119    .text.ComFree:0000000000000000 ComFree
-     /tmp/ccGFOAGz.s:132    .text.ComTransmitPacket:0000000000000000 $t
-     /tmp/ccGFOAGz.s:138    .text.ComTransmitPacket:0000000000000000 ComTransmitPacket
-     /tmp/ccGFOAGz.s:177    .text.ComTransmitPacket:0000000000000018 $d
-     /tmp/ccGFOAGz.s:182    .text.ComGetActiveInterfaceMaxRxLen:0000000000000000 $t
-     /tmp/ccGFOAGz.s:188    .text.ComGetActiveInterfaceMaxRxLen:0000000000000000 ComGetActiveInterfaceMaxRxLen
-     /tmp/ccGFOAGz.s:226    .text.ComGetActiveInterfaceMaxRxLen:0000000000000020 $d
-     /tmp/ccGFOAGz.s:231    .text.ComGetActiveInterfaceMaxTxLen:0000000000000000 $t
-     /tmp/ccGFOAGz.s:237    .text.ComGetActiveInterfaceMaxTxLen:0000000000000000 ComGetActiveInterfaceMaxTxLen
-     /tmp/ccGFOAGz.s:275    .text.ComGetActiveInterfaceMaxTxLen:0000000000000020 $d
-     /tmp/ccGFOAGz.s:280    .text.ComIsConnected:0000000000000000 $t
-     /tmp/ccGFOAGz.s:286    .text.ComIsConnected:0000000000000000 ComIsConnected
-     /tmp/ccGFOAGz.s:315    .bss.xcpCtoReqPacket.0:0000000000000000 $d
+                            *ABS*:00000000 com.c
+     /tmp/ccPuPmgI.s:21     .text.ComInit:00000000 $t
+     /tmp/ccPuPmgI.s:27     .text.ComInit:00000000 ComInit
+     /tmp/ccPuPmgI.s:53     .text.ComInit:00000014 $d
+     /tmp/ccPuPmgI.s:326    .data.comActiveInterface:00000000 comActiveInterface
+     /tmp/ccPuPmgI.s:58     .text.ComTask:00000000 $t
+     /tmp/ccPuPmgI.s:64     .text.ComTask:00000000 ComTask
+     /tmp/ccPuPmgI.s:110    .text.ComTask:0000002c $d
+     /tmp/ccPuPmgI.s:321    .bss.xcpCtoReqPacket.0:00000000 xcpCtoReqPacket.0
+     /tmp/ccPuPmgI.s:116    .text.ComFree:00000000 $t
+     /tmp/ccPuPmgI.s:122    .text.ComFree:00000000 ComFree
+     /tmp/ccPuPmgI.s:135    .text.ComTransmitPacket:00000000 $t
+     /tmp/ccPuPmgI.s:141    .text.ComTransmitPacket:00000000 ComTransmitPacket
+     /tmp/ccPuPmgI.s:180    .text.ComTransmitPacket:00000018 $d
+     /tmp/ccPuPmgI.s:185    .text.ComGetActiveInterfaceMaxRxLen:00000000 $t
+     /tmp/ccPuPmgI.s:191    .text.ComGetActiveInterfaceMaxRxLen:00000000 ComGetActiveInterfaceMaxRxLen
+     /tmp/ccPuPmgI.s:229    .text.ComGetActiveInterfaceMaxRxLen:00000020 $d
+     /tmp/ccPuPmgI.s:234    .text.ComGetActiveInterfaceMaxTxLen:00000000 $t
+     /tmp/ccPuPmgI.s:240    .text.ComGetActiveInterfaceMaxTxLen:00000000 ComGetActiveInterfaceMaxTxLen
+     /tmp/ccPuPmgI.s:278    .text.ComGetActiveInterfaceMaxTxLen:00000020 $d
+     /tmp/ccPuPmgI.s:283    .text.ComIsConnected:00000000 $t
+     /tmp/ccPuPmgI.s:289    .text.ComIsConnected:00000000 ComIsConnected
+     /tmp/ccPuPmgI.s:318    .bss.xcpCtoReqPacket.0:00000000 $d
 
 UNDEFINED SYMBOLS
 XcpInit
+CanInit
 CanReceivePacket
 XcpPacketReceived
 XcpPacketTransmitted

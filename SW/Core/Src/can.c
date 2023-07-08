@@ -72,7 +72,7 @@ void MX_CAN_Init(void)
     sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST;
     sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;
     sFilterConfig.FilterIdHigh = (EBS_CMD_ID_CAN << 5);
-    sFilterConfig.FilterIdLow = (ASB_CMD_ID_CAN << 5);
+    sFilterConfig.FilterIdLow = (AS_STATE_ID_CAN << 5);
     sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
     sFilterConfig.FilterActivation = ENABLE;
     sFilterConfig.SlaveStartFilterBank = 14;
@@ -86,38 +86,8 @@ void MX_CAN_Init(void)
     sFilterConfig.FilterBank = 1;
     sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST;
     sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;
-    sFilterConfig.FilterIdHigh = (AS_STATE_ID_CAN << 5);
-    sFilterConfig.FilterIdLow = (FSM_ACK_ID_CAN << 5);
-    sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
-    sFilterConfig.FilterActivation = ENABLE;
-    sFilterConfig.SlaveStartFilterBank = 14;
-
-    if (HAL_CAN_ConfigFilter(&hcan, &sFilterConfig) != HAL_OK)
-    {
-        /* Filter configuration Error */
-        Error_Handler();
-    }
-
-    sFilterConfig.FilterBank = 2;
-    sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST;
-    sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;
     sFilterConfig.FilterIdHigh = (PWM_CMD_ID_CAN << 5);
-    sFilterConfig.FilterIdLow = (TLB_ERROR_ID_CAN << 5);
-    sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
-    sFilterConfig.FilterActivation = ENABLE;
-    sFilterConfig.SlaveStartFilterBank = 14;
-
-    if (HAL_CAN_ConfigFilter(&hcan, &sFilterConfig) != HAL_OK)
-    {
-        /* Filter configuration Error */
-        Error_Handler();
-    }
-
-    sFilterConfig.FilterBank = 3;
-    sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST;
-    sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;
-    sFilterConfig.FilterIdHigh = (BOOTLOADER_ID_CAN << 5);
-    sFilterConfig.FilterIdLow = (BOOTLOADER_ID_CAN << 5);
+    sFilterConfig.FilterIdLow = (BOOTLOADER_RX_ID_CAN << 5);
     sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
     sFilterConfig.FilterActivation = ENABLE;
     sFilterConfig.SlaveStartFilterBank = 14;

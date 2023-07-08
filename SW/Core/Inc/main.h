@@ -58,10 +58,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define AMI3_CMD_Pin GPIO_PIN_0
-#define AMI3_CMD_GPIO_Port GPIOA
-#define ASB_SERVO_PWM_CMD_Pin GPIO_PIN_1
-#define ASB_SERVO_PWM_CMD_GPIO_Port GPIOA
+#define BP_FAN_PWM_CMD_Pin GPIO_PIN_1
+#define BP_FAN_PWM_CMD_GPIO_Port GPIOA
 #define EBS_RELAY2_CMD_Pin GPIO_PIN_2
 #define EBS_RELAY2_CMD_GPIO_Port GPIOA
 #define EBS_RELAY1_CMD_Pin GPIO_PIN_3
@@ -82,8 +80,6 @@ void Error_Handler(void);
 #define EXT_BTN_GPIO_Port GPIOB
 #define ASB_ERR_CMD_Pin GPIO_PIN_11
 #define ASB_ERR_CMD_GPIO_Port GPIOB
-#define INVERTER_PUMP_PWM_CMD_Pin GPIO_PIN_12
-#define INVERTER_PUMP_PWM_CMD_GPIO_Port GPIOB
 #define TSOFF_CMD_Pin GPIO_PIN_13
 #define TSOFF_CMD_GPIO_Port GPIOB
 #define RTD_CMD_Pin GPIO_PIN_14
@@ -92,56 +88,23 @@ void Error_Handler(void);
 #define LED1_GPIO_Port GPIOB
 #define LED2_Pin GPIO_PIN_8
 #define LED2_GPIO_Port GPIOA
-#define AMI_OFF_CMD_Pin GPIO_PIN_3
-#define AMI_OFF_CMD_GPIO_Port GPIOB
-#define AMI2_CMD_Pin GPIO_PIN_4
-#define AMI2_CMD_GPIO_Port GPIOB
-#define AMI1_CMD_Pin GPIO_PIN_5
-#define AMI1_CMD_GPIO_Port GPIOB
-#define ASSI_YELLOW_CMD_Pin GPIO_PIN_6
-#define ASSI_YELLOW_CMD_GPIO_Port GPIOB
-#define ASSI_BLUE_CMD_Pin GPIO_PIN_7
-#define ASSI_BLUE_CMD_GPIO_Port GPIOB
-#define BAT_FAN_PWM_CMD_Pin GPIO_PIN_8
-#define BAT_FAN_PWM_CMD_GPIO_Port GPIOB
-#define RADIATOR_FANS_PWM_CMD_Pin GPIO_PIN_9
-#define RADIATOR_FANS_PWM_CMD_GPIO_Port GPIOB
+#define INVERTER_PUMP_PWM_CMD_Pin GPIO_PIN_8
+#define INVERTER_PUMP_PWM_CMD_GPIO_Port GPIOB
+#define ASB_MOTOR_PWM_CMD_Pin GPIO_PIN_9
+#define ASB_MOTOR_PWM_CMD_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 
-#define PCBVER 2
+#define BP_FAN_PWM_TIM htim15
+#define BP_FAN_PWM_CH TIM_CHANNEL_1
 
-// PCB ver 1 (Francesco Minichelli's original design)
-#if PCBVER == 1
+#define INVERTER_PUMP_PWM_TIM htim16
+#define INVERTER_PUMP_PWM_CH TIM_CHANNEL_1
 
-#define BAT_FAN_PWM_TIM htim16
-#define BAT_FAN_PWM_CH TIM_CHANNEL_1
-
-#define POWERTRAIN_COOLING_PWM_TIM htim17
-#define POWERTRAIN_COOLING_PWM_CH TIM_CHANNEL_1
-
-#define ASB_MOTOR_PWM_TIM htim8
+#define ASB_MOTOR_PWM_TIM htim17
 #define ASB_MOTOR_PWM_CH TIM_CHANNEL_1
-
-#define COUNTER_TIM htim3
-
-// PCB ver 2 (the black one)
-#elif PCBVER == 2
-
-#define BAT_FAN_PWM_TIM htim16
-#define BAT_FAN_PWM_CH TIM_CHANNEL_1
-
-#define RADIATOR_FANS_PWM_TIM htim17
-#define RADIATOR_FANS_PWM_CH TIM_CHANNEL_1
-
-#define ASB_MOTOR_PWM_TIM htim15
-#define ASB_MOTOR_PWM_CH TIM_CHANNEL_1
-
-#define INVERTER_PUMP_TIM htim1
-#define INVERTER_PUMP_CH TIM_CHANNEL_1
 
 #define COUNTER_TIM htim2
-
-#endif
 
 /* USER CODE END Private defines */
 
