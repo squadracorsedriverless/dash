@@ -38,9 +38,9 @@ extern "C"
 
 // Receive
 #define EBS_CMD_ID_CAN 0x004
-// #define ASB_CMD_ID_CAN 0x006 // not needed atm
+#define ASB_CMD_ID_CAN 0x006
 #define AS_STATE_ID_CAN 0x027 // for asb error
-// #define FSM_ACK_ID_CAN 0x050
+#define FSM_ACK_ID_CAN 0x069
 #define PWM_CMD_ID_CAN 0x051
 
 // #define TLB_ERROR_ID_CAN 0x020 // old tlb

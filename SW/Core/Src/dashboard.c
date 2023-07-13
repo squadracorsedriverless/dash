@@ -26,10 +26,15 @@ error_t error = ERROR_NONE;
 uint8_t boards_timeouts;
 
 /* Cock LEDs flags */
-volatile bool ASB_ERR;
-volatile bool BMS_ERR;
-volatile bool TSOFF;
-volatile bool IMD_ERR;
+volatile bool ASB_ERR = 1;
+volatile bool BMS_ERR = 1;
+volatile bool TSOFF = 1;
+volatile bool IMD_ERR = 1;
+volatile bool RTD_CMD = 1;
+
+bool RTD_EN_ACK = 0;
+bool EMERGENCY_ACK = 0;
+bool AS_DRIVING_ACK = 0;
 
 /* PWM Variables */
 volatile uint8_t PWM_BAT_FAN;
@@ -43,13 +48,26 @@ bool EXT_BUTTON = false;
 /*CUSTOM FUNCTIONS*/
 
 /*Rx Message interrupt from CAN*/
+void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+    handle_can(hcan);
+}
+
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+    handle_can(hcan);
+}
+
+void handle_can(CAN_HandleTypeDef *hcan)
 {
     if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) != HAL_OK)
     {
-        /* Transmission request Error */
-        HAL_CAN_ResetError(hcan);
-        Error_Handler();
+        if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData) != HAL_OK)
+        {
+            /* Transmission request Error */
+            HAL_CAN_ResetError(hcan);
+            Error_Handler();
+        }
     }
 
     // Reset watchdog
@@ -64,7 +82,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         wdg_reset(WDG_BOARD_DSPACE, now);
         break;
     case TLB_BATTERY_TLB_BAT_INTRNL_FUNC_FRAME_ID:
-        wdg_reset(WDG_BOARD_TLB, now);
+        // wdg_reset(WDG_BOARD_TLB, now);
         break;
     }
 
@@ -82,8 +100,10 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     /* EBS commmand */
     else if ((RxHeader.StdId == EBS_CMD_ID_CAN) && (RxHeader.DLC == 1))
     {
-        HAL_GPIO_WritePin(EBS_RELAY1_CMD_GPIO_Port, EBS_RELAY1_CMD_Pin, RxData[0] & 0b1);
-        HAL_GPIO_WritePin(EBS_RELAY2_CMD_GPIO_Port, EBS_RELAY2_CMD_Pin, (RxData[0] >> 1) & 0b1);
+        IMD_ERR = RxData[0] & 0b1;
+        BMS_ERR = (RxData[0] >> 1) & 0b1;
+        // HAL_GPIO_WritePin(EBS_RELAY1_CMD_GPIO_Port, EBS_RELAY1_CMD_Pin, RxData[0] & 0b1);
+        // HAL_GPIO_WritePin(EBS_RELAY2_CMD_GPIO_Port, EBS_RELAY2_CMD_Pin, (RxData[0] >> 1) & 0b1);
     }
     /* ASB command */
     // else if ((RxHeader.StdId == ASB_CMD_ID_CAN) && (RxHeader.DLC == 1))
@@ -96,27 +116,30 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     /* AS state */
     else if ((RxHeader.StdId == AS_STATE_ID_CAN) && (RxHeader.DLC == 2))
     {
-        ASB_ERR = (bool)(RxData[0] & (1 << 7));
+        ASB_ERR = 0; // (bool)(RxData[0] & (1 << 7));
+        TSOFF = (bool)(RxData[0] & (1 << 7));
+        RTD_CMD = (bool)(RxData[0] & (1 << 6));
     }
     /* ACK from dSpace */
-    // else if ((RxHeader.StdId == FSM_ACK_ID_CAN) && (RxHeader.DLC == 1))
-    //{
-    //     switch (RxData[0])
-    //     {
-    //     case 1:
-    //         CTOR_EN_ACK = true;
-    //         break;
-    //     case 2:
-    //         RTD_EN_ACK = true;
-    //         break;
-    //     case 3:
-    //         IDLE_ACK = true;
-    //         break;
-    //     case 4:
-    //         NACK = true;
-    //         break;
-    //     }
-    // }
+    else if ((RxHeader.StdId == FSM_ACK_ID_CAN) && (RxHeader.DLC == 1))
+    {
+        static uint8_t old_state = 0;
+
+        if (old_state != RxData[0])
+            switch (RxData[0])
+            {
+            case 1:
+                RTD_EN_ACK = true;
+                break;
+            case 2:
+                AS_DRIVING_ACK = true;
+                break;
+            case 3:
+                EMERGENCY_ACK = true;
+                break;
+            }
+        old_state = RxData[0];
+    }
     /* Cooling Command */
     else if ((RxHeader.StdId == PWM_CMD_ID_CAN) && (RxHeader.DLC == 3 || RxHeader.DLC == 2))
     {
@@ -133,14 +156,15 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
      *
      */
     /* Received TLB error byte in order to turn LEDs on or off */
-    else if ((RxHeader.StdId == TLB_BATTERY_TLB_BAT_INTRNL_FUNC_FRAME_ID) && (RxHeader.DLC == TLB_BATTERY_TLB_BAT_INTRNL_FUNC_LENGTH))
+    // else if ((RxHeader.StdId == TLB_BATTERY_TLB_BAT_INTRNL_FUNC_FRAME_ID) && (RxHeader.DLC == TLB_BATTERY_TLB_BAT_INTRNL_FUNC_LENGTH))
+    else if ((RxHeader.StdId == ASB_CMD_ID_CAN))
     {
-        struct tlb_battery_tlb_bat_intrnl_func_t status;
-        tlb_battery_tlb_bat_intrnl_func_unpack(&status, RxData, RxHeader.DLC);
+        // struct tlb_battery_tlb_bat_intrnl_func_t status;
+        // tlb_battery_tlb_bat_intrnl_func_unpack(&status, RxData, RxHeader.DLC);
 
-        TSOFF = tlb_battery_tlb_bat_intrnl_func_tsal_green_en_decode(status.tsal_green_en);
-        BMS_ERR = tlb_battery_tlb_bat_intrnl_func_ams_err_ltch_decode(status.ams_err_ltch);
-        IMD_ERR = tlb_battery_tlb_bat_intrnl_func_imd_err_ltch_decode(status.imd_err_ltch);
+        // TSOFF = tlb_battery_tlb_bat_intrnl_func_tsal_green_en_decode(status.tsal_green_en);
+        // BMS_ERR = tlb_battery_tlb_bat_intrnl_func_ams_err_ltch_decode(status.ams_err_ltch);
+        // IMD_ERR = tlb_battery_tlb_bat_intrnl_func_imd_err_ltch_decode(status.imd_err_ltch);
     }
 }
 
@@ -150,7 +174,7 @@ void InitDashBoard()
     HAL_GPIO_WritePin(EBS_RELAY2_CMD_GPIO_Port, EBS_RELAY2_CMD_Pin, GPIO_PIN_RESET);
 
     // Turn on all LEDs
-    HAL_GPIO_WritePin(TSOFF_CMD_GPIO_Port, TSOFF_CMD_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(TSOFF_CMD_GPIO_Port, TSOFF_CMD_Pin, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(ASB_ERR_CMD_GPIO_Port, ASB_ERR_CMD_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(AMS_ERR_CMD_GPIO_Port, AMS_ERR_CMD_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(RTD_CMD_GPIO_Port, RTD_CMD_Pin, GPIO_PIN_SET);
@@ -188,22 +212,24 @@ void UpdateCockpitLed(uint32_t delay_100us)
 {
     static uint32_t delay_100us_last = 0;
 
-    if (delay_fun(&delay_100us_last, delay_100us))
+    if (1 || delay_fun(&delay_100us_last, delay_100us))
     {
         HAL_GPIO_WritePin(ASB_ERR_CMD_GPIO_Port, ASB_ERR_CMD_Pin, ASB_ERR);
 
-        if (boards_timeouts & WDG_BOARD_TLB)
+        if (0 && boards_timeouts)
         {
             // CAN timeout. everything is bad
-            HAL_GPIO_WritePin(AMS_ERR_CMD_GPIO_Port, AMS_ERR_CMD_Pin, ON);
-            HAL_GPIO_WritePin(TSOFF_CMD_GPIO_Port, TSOFF_CMD_Pin, OFF);
-            HAL_GPIO_WritePin(IMD_ERR_CMD_GPIO_Port, IMD_ERR_CMD_Pin, ON);
+            // HAL_GPIO_WritePin(AMS_ERR_CMD_GPIO_Port, AMS_ERR_CMD_Pin, ON);
+            // HAL_GPIO_WritePin(TSOFF_CMD_GPIO_Port, TSOFF_CMD_Pin, OFF);
+            // HAL_GPIO_WritePin(IMD_ERR_CMD_GPIO_Port, IMD_ERR_CMD_Pin, ON);
+            // HAL_GPIO_WritePin(RTD_CMD_GPIO_Port, RTD_CMD_Pin, ON);
         }
         else
         {
             HAL_GPIO_WritePin(AMS_ERR_CMD_GPIO_Port, AMS_ERR_CMD_Pin, BMS_ERR);
             HAL_GPIO_WritePin(TSOFF_CMD_GPIO_Port, TSOFF_CMD_Pin, TSOFF);
             HAL_GPIO_WritePin(IMD_ERR_CMD_GPIO_Port, IMD_ERR_CMD_Pin, IMD_ERR);
+            HAL_GPIO_WritePin(RTD_CMD_GPIO_Port, RTD_CMD_Pin, RTD_CMD);
         }
     }
 }
@@ -291,6 +317,9 @@ void CoreDashBoard(void)
 {
     // Blink green led to signal activity
     static uint32_t led_blink = 0;
+    static uint32_t buzzer_counter = 0;
+    static uint32_t timer = 0;
+
     LedBlinking(LED2_GPIO_Port, LED2_Pin, &led_blink, 2000);
 
     // Update state Cockpit's LEDs
@@ -299,13 +328,47 @@ void CoreDashBoard(void)
     // Update buttons state
     button_sample();
 
-    // uint8_t timeouts = wdg_check();
-    //  if (rtd_fsm != STATE_ERROR && timeouts != 0)
-    //{
-    //      error = ERROR_CAN_WDG;
-    //      boards_timeouts = timeouts;
-    //      rtd_fsm = STATE_ERROR;
-    //  }
+    uint8_t timeouts = wdg_check();
+    if (timeouts != 0)
+    {
+        error = ERROR_CAN_WDG;
+        boards_timeouts = timeouts;
+    }
+
+    static uint32_t kek = 0;
+    if (EMERGENCY_ACK && (HAL_GetTick() - kek > 125))
+    {
+        kek = HAL_GetTick();
+        HAL_GPIO_TogglePin(BUZZERAS_CMD_GPIO_Port, BUZZERAS_CMD_Pin);
+        HAL_GPIO_TogglePin(BUZZEREV_CMD_GPIO_Port, BUZZEREV_CMD_Pin);
+    }
+    else if (HAL_GetTick() - timer >= 10)
+    {
+        timer = HAL_GetTick();
+        if (AS_DRIVING_ACK && buzzer_counter < 200)
+        {
+            buzzer_counter++;
+            HAL_GPIO_WritePin(BUZZERAS_CMD_GPIO_Port, BUZZERAS_CMD_Pin, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(BUZZEREV_CMD_GPIO_Port, BUZZEREV_CMD_Pin, GPIO_PIN_SET);
+        }
+        else if (RTD_EN_ACK && buzzer_counter < 200)
+        {
+            buzzer_counter++;
+            HAL_GPIO_TogglePin(BUZZERAS_CMD_GPIO_Port, BUZZERAS_CMD_Pin);
+            HAL_GPIO_TogglePin(BUZZEREV_CMD_GPIO_Port, BUZZEREV_CMD_Pin);
+        }
+        else if (AS_DRIVING_ACK || RTD_EN_ACK)
+        {
+            HAL_GPIO_WritePin(BUZZERAS_CMD_GPIO_Port, BUZZERAS_CMD_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(BUZZEREV_CMD_GPIO_Port, BUZZEREV_CMD_Pin, GPIO_PIN_RESET);
+            AS_DRIVING_ACK = 0;
+            RTD_EN_ACK = 0;
+        }
+        else
+        {
+            buzzer_counter = 0;
+        }
+    }
 
     // Send current state via CAN
     can_send_state(500);

@@ -106,6 +106,7 @@ int main(void)
     /* USER CODE BEGIN 2 */
     // Start the counter
     HAL_TIM_Base_Start_IT(&COUNTER_TIM);
+    HAL_CAN_Start(&hcan);
 
     SetupDashBoard();
 
