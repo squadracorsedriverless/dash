@@ -27,27 +27,21 @@ void LedBlinking(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint32_t *last, uint32_
  * @return true Period has elapsed
  * @return false Period has not elapsed
  */
-bool delay_fun(uint32_t *delay_100us_last, uint32_t delay_100us)
+bool delay_fun(uint32_t *delay_ms_last, uint32_t delay_ms)
 {
-    uint32_t current_time = ReturnTime_100us();
+    uint32_t current_time = HAL_GetTick();
 
-    if (current_time > *delay_100us_last && (current_time - *delay_100us_last) >= delay_100us)
+    if (current_time > *delay_ms_last && (current_time - *delay_ms_last) >= delay_ms)
     {
-        *delay_100us_last = current_time;
+        *delay_ms_last = current_time;
         return true;
     }
-    else if (current_time < *delay_100us_last && (UINT32_MAX - current_time - *delay_100us_last) >= delay_100us)
+    else if (current_time < *delay_ms_last && (UINT32_MAX - current_time - *delay_ms_last) >= delay_ms)
     {
-        *delay_100us_last = current_time;
+        *delay_ms_last = current_time;
         return true;
     }
     /*In case of timer overflow, the delay is computed correctly*/
 
     return false;
-}
-
-/*Return the value of the counter that is incremented every 100us*/
-uint32_t ReturnTime_100us(void)
-{
-    return counter;
 }

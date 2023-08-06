@@ -25,9 +25,9 @@ func_type longpress_callback[BUTTON_COUNT] = {NULL};
 
 void button_sample()
 {
-    static uint32_t delay_100us_last = 0;
+    static uint32_t delay_ms_last = 0;
 
-    if (delay_fun(&delay_100us_last, BUTTON_SAMPLE_TIME_100us))
+    if (delay_fun(&delay_ms_last, BUTTON_SAMPLE_TIME_ms))
     {
         for (uint8_t i = 0; i < BUTTON_COUNT; i++)
         {
@@ -38,21 +38,21 @@ void button_sample()
                 {
                     // If button was up and now is down
                     state[i] = BUTTON_PRESSED;
-                    down_time[i] = ReturnTime_100us();
+                    down_time[i] = HAL_GetTick();
                 }
                 break;
             case BUTTON_PRESSED:
                 if ((uint8_t)HAL_GPIO_ReadPin((GPIO_TypeDef *)button_gpio[i], button_pin[i]) == BUTTON_UP)
                 {
                     // If button was down and now is up
-                    if (ReturnTime_100us() - down_time[i] >= BUTTON_SHORT_PRESS_TIME_100us)
+                    if (HAL_GetTick() - down_time[i] >= BUTTON_SHORT_PRESS_TIME_ms)
                     {
                         if (shortpress_callback[i])
                             shortpress_callback[i]();
                     }
                     state[i] = BUTTON_RELEASED;
                 }
-                else if (ReturnTime_100us() - down_time[i] > BUTTON_LONG_PRESS_TIME_100us)
+                else if (HAL_GetTick() - down_time[i] > BUTTON_LONG_PRESS_TIME_ms)
                 {
                     // If button has been down for a while
                     if (longpress_callback[i])
@@ -76,7 +76,7 @@ void button_sample()
 
 bool button_get(button btn)
 {
-    return state[btn] != BUTTON_RELEASED && ReturnTime_100us() - down_time[btn] >= BUTTON_SHORT_PRESS_TIME_100us;
+    return state[btn] != BUTTON_RELEASED && HAL_GetTick() - down_time[btn] >= BUTTON_SHORT_PRESS_TIME_ms;
 }
 
 void button_set_shortpress_callback(button btn, func_type function)

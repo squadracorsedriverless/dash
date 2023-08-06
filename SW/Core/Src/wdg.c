@@ -1,11 +1,11 @@
 #include "wdg.h"
 #include "utils.h"
 
-uint32_t wdg_timestamps_100us[WDG_NUM_BOARDS];
+uint32_t wdg_timestamps_ms[WDG_NUM_BOARDS];
 
-void wdg_reset(wdg_boards board, uint32_t timestamp_100us)
+void wdg_reset(wdg_boards board, uint32_t timestamp_ms)
 {
-    wdg_timestamps_100us[board] = timestamp_100us;
+    wdg_timestamps_ms[board] = timestamp_ms;
 }
 
 uint8_t wdg_check()
@@ -14,8 +14,7 @@ uint8_t wdg_check()
 
     for (uint8_t iboard = 0; iboard < WDG_NUM_BOARDS; iboard++)
     {
-        // TODO: make overflow-safe
-        if (ReturnTime_100us() > wdg_timestamps_100us[iboard] + wdg_timeouts_100us[iboard])
+        if (HAL_GetTick() - wdg_timestamps_ms[iboard] > wdg_timeouts_ms[iboard])
         {
             boards |= 1 << iboard;
         }

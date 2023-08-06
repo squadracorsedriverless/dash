@@ -14,7 +14,7 @@
 typedef enum
 {
     ERROR_NONE = 0,
-    ERROR_CAN_WDG,
+    ERROR_CAN_WDG = 1,
     ERROR_INIT_BTN
 } error_t;
 

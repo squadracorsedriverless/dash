@@ -13,25 +13,25 @@
  */
 typedef enum
 {
-    WDG_BOARD_DSPACE,
-    WDG_BOARD_TLB,
+    WDG_BOARD_DSPACE = 0,
+    WDG_BOARD_TLB = 1,
     WDG_NUM_BOARDS
 } wdg_boards;
 
 /**
  * @brief Timeout values for each board
  */
-static uint32_t wdg_timeouts_100us[WDG_NUM_BOARDS] = {
-    [WDG_BOARD_DSPACE] = 100000, // Wait for dSpace to boot
-    [WDG_BOARD_TLB] = 5000};
+static uint32_t wdg_timeouts_ms[WDG_NUM_BOARDS] = {
+    [WDG_BOARD_DSPACE] = UINT32_MAX, // Wait for dSpace to boot
+    [WDG_BOARD_TLB] = 2000};
 
 /**
  * @brief Resets the timer of a board to the given timestamp
  *
  * @param board The board to reset
- * @param timestamp_100us The timestamp to set
+ * @param timestamp_ms The timestamp to set
  */
-void wdg_reset(wdg_boards board, uint32_t timestamp_100us);
+void wdg_reset(wdg_boards board, uint32_t timestamp_ms);
 
 /**
  * @brief Checks for timeouts

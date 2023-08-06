@@ -10,9 +10,9 @@
 #include <inttypes.h>
 #include <stdbool.h>
 
-#define BUTTON_SAMPLE_TIME_100us 300
-#define BUTTON_SHORT_PRESS_TIME_100us 1000
-#define BUTTON_LONG_PRESS_TIME_100us 8000
+#define BUTTON_SAMPLE_TIME_ms 30
+#define BUTTON_SHORT_PRESS_TIME_ms 100
+#define BUTTON_LONG_PRESS_TIME_ms 800
 
 typedef enum
 {

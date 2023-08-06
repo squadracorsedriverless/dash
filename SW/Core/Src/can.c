@@ -73,9 +73,10 @@ void MX_CAN_Init(void)
     sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST;
     sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;
     sFilterConfig.FilterIdHigh = (EBS_CMD_ID_CAN << 5);
-    sFilterConfig.FilterIdLow = (AS_STATE_ID_CAN << 5);
+    sFilterConfig.FilterIdLow = (BUZZER_CMD_ID_CAN << 5);
     sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
-    sFilterConfig.FilterActivation = ENABLE;
+    sFilterConfig.FilterActivation = CAN_FILTER_ENABLE;
+    sFilterConfig.SlaveStartFilterBank = 14;
 
     if (HAL_CAN_ConfigFilter(&hcan, &sFilterConfig) != HAL_OK)
     {
@@ -84,12 +85,8 @@ void MX_CAN_Init(void)
     }
 
     sFilterConfig.FilterBank = 1;
-    sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST;
-    sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;
-    sFilterConfig.FilterIdHigh = (PWM_CMD_ID_CAN << 5);
-    sFilterConfig.FilterIdLow = (BOOTLOADER_RX_ID_CAN << 5);
-    sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
-    sFilterConfig.FilterActivation = ENABLE;
+    sFilterConfig.FilterIdHigh = (AS_STATE_ID_CAN << 5);
+    sFilterConfig.FilterIdLow = (PWM_CMD_ID_CAN << 5);
 
     if (HAL_CAN_ConfigFilter(&hcan, &sFilterConfig) != HAL_OK)
     {
@@ -98,12 +95,8 @@ void MX_CAN_Init(void)
     }
 
     sFilterConfig.FilterBank = 2;
-    sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST;
-    sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;
-    sFilterConfig.FilterIdHigh = (ASB_CMD_ID_CAN << 5);
-    sFilterConfig.FilterIdLow = (FSM_ACK_ID_CAN << 5);
-    sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
-    sFilterConfig.FilterActivation = ENABLE;
+    sFilterConfig.FilterIdHigh = (BOOTLOADER_RX_ID_CAN << 5);
+    sFilterConfig.FilterIdLow = (TLB_BATTERY_TLB_BAT_INTRNL_FUNC_FRAME_ID << 5);
 
     if (HAL_CAN_ConfigFilter(&hcan, &sFilterConfig) != HAL_OK)
     {
@@ -197,16 +190,16 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef *canHandle)
 /*Send message to CAN BUS*/
 void CAN_Msg_Send(CAN_HandleTypeDef *hcan, CAN_TxHeaderTypeDef *pHeader, uint8_t aData[], uint32_t *pTxMailbox, uint32_t TimeOut)
 {
-    static uint32_t can_counter_100us = 0;
-    can_counter_100us = ReturnTime_100us();
+    static uint32_t can_counter_ms = 0;
+    can_counter_ms = HAL_GetTick();
 
     while (HAL_CAN_GetTxMailboxesFreeLevel(hcan) < 1)
     {
-        if (delay_fun(&can_counter_100us, TimeOut))
+        if (delay_fun(&can_counter_ms, TimeOut))
         {
             // Error_Handler();
             HAL_CAN_ResetError(hcan);
-            HAL_CAN_AbortTxRequest(hcan, *pTxMailbox);
+            // HAL_CAN_AbortTxRequest(hcan, *pTxMailbox);
         }
     }
 
@@ -215,7 +208,7 @@ void CAN_Msg_Send(CAN_HandleTypeDef *hcan, CAN_TxHeaderTypeDef *pHeader, uint8_t
         /* Transmission request Error */
         // Error_Handler();
         HAL_CAN_ResetError(hcan);
-        HAL_CAN_AbortTxRequest(hcan, *pTxMailbox);
+        // HAL_CAN_AbortTxRequest(hcan, *pTxMailbox);
     }
 }
 
